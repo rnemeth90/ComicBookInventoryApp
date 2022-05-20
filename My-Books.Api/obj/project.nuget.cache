@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "8u7XKR97ExIsJKJxeW7Yrl3Gsm48aEzUJzW4dA4FQR/RIT0TYMJRmKjezZwWk72vUB1ee8gGe+GAQyV+vqScdQ==",
+  "dgSpecHash": "8W4N6aez2JcO88WsaX0lYUJOHoZjqfEPZPDLOauyoDhsXtbZXV0ZQ68EsgvdPH8aMO4Xc48emDXPTtkFTMTUNQ==",
   "success": true,
-  "projectFilePath": "C:\\repos\\PersonalProjects\\my-books\\my-books.csproj",
+  "projectFilePath": "C:\\repos\\PersonalProjects\\my-books\\My-Books.Api\\My-Books.Api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Ryan.Nemeth\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
     "C:\\Users\\Ryan.Nemeth\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\Ryan.Nemeth\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.14.0\\microsoft.visualstudio.azure.containers.tools.targets.1.14.0.nupkg.sha512",
     "C:\\Users\\Ryan.Nemeth\\.nuget\\packages\\swashbuckle.aspnetcore\\6.2.3\\swashbuckle.aspnetcore.6.2.3.nupkg.sha512",
     "C:\\Users\\Ryan.Nemeth\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.2.3\\swashbuckle.aspnetcore.swagger.6.2.3.nupkg.sha512",
     "C:\\Users\\Ryan.Nemeth\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.2.3\\swashbuckle.aspnetcore.swaggergen.6.2.3.nupkg.sha512",

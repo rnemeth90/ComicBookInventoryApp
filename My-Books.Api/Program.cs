@@ -1,4 +1,4 @@
-namespace my_books
+namespace My_Books.Api
 {
     public class Program
     {
