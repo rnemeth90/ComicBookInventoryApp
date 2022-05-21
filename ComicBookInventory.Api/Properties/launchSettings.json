@@ -9,7 +9,7 @@
     }
   },
   "profiles": {
-    "My_Books.Api": {
+    "ComicBookInventory.Api": {
       "commandName": "Project",
       "launchBrowser": true,
       "launchUrl": "swagger",
