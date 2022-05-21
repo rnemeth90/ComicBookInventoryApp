@@ -1,6 +1,4 @@
-﻿using ComicBookInventory.Api.Models;
-
-namespace ComicBookInventory.Shared;
+﻿namespace ComicBookInventory.Shared;
 
 public interface IComicBook_Character
 {

@@ -1,8 +1,7 @@
 ﻿namespace ComicBookInventory.Shared
 {
-    public interface ICharacter
+    public interface IAuthor
     {
         string? FullName { get; set; }
-    
     }
 }

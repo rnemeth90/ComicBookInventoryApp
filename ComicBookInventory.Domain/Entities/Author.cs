@@ -1,6 +1,6 @@
-﻿namespace ComicBookInventory.Api.Models
+﻿namespace ComicBookInventory.Shared
 {
-    public class Author
+    public class Author : IAuthor
     {
         public int Id { get; set; }
         public string FullName { get; set; }

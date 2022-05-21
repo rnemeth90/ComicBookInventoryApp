@@ -1,9 +1,6 @@
-﻿using ComicBookInventory.Api.Models;
-using ComicBookInventory.Shared;
-
-namespace ComicBookInventory.Domain.Interfaces
+﻿namespace ComicBookInventory.Shared
 {
-    public interface ICharacterRepository : IGenericRepository<Character>
+    public interface ICharacterRepository : IGenericRepository<CharacterViewModel>
     {
     }
 }

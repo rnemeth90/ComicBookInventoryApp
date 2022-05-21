@@ -1,6 +1,4 @@
-﻿using ComicBookInventory.Api.Models.ViewModels;
-
-namespace ComicBookInventory.Shared
+﻿namespace ComicBookInventory.Shared
 {
     public interface IComicBookRepository : IGenericRepository<ComicBookViewModel>
     {

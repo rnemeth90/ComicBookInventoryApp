@@ -1,4 +1,4 @@
-﻿namespace ComicBookInventory.Api.Models
+﻿namespace ComicBookInventory.Shared
 {
     public class ComicBook_Character
     {

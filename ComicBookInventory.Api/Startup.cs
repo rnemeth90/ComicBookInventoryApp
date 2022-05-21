@@ -31,6 +31,7 @@ namespace ComicBookInventory.API
             services.AddTransient<ComicBookRepository>();
             services.AddTransient<AuthorRepository>();
             services.AddTransient<CharacterRepository>();   
+
             #endregion
 
             // serialize as XML if application/xml mime type specified in call

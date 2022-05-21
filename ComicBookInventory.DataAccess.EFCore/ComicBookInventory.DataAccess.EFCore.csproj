@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -7,12 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Repositories\" />
-    <Folder Include="UnitOfWork\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\ComicBookInventory.Api\ComicBookInventory.Api.csproj" />
+    <ProjectReference Include="..\ComicBookInventory.Domain\ComicBookInventory.Domain.csproj" />
   </ItemGroup>
 
 </Project>

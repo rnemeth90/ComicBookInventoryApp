@@ -1,6 +1,6 @@
 ﻿using ComicBookInventory.Shared;
 
-namespace ComicBookInventory.Domain.Interfaces
+namespace ComicBookInventory.Shared
 {
     public interface IUnitOfWork : IDisposable
     {
