@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\repos\\PersonalProjects\\my-books\\My-Books.Api\\My-Books.Api.csproj": {}
+    "C:\\repos\\MyBooks\\My-Books.Api\\My-Books.Api.csproj": {}
   },
   "projects": {
-    "C:\\repos\\PersonalProjects\\my-books\\My-Books.Api\\My-Books.Api.csproj": {
+    "C:\\repos\\MyBooks\\My-Books.Api\\My-Books.Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\repos\\PersonalProjects\\my-books\\My-Books.Api\\My-Books.Api.csproj",
+        "projectUniqueName": "C:\\repos\\MyBooks\\My-Books.Api\\My-Books.Api.csproj",
         "projectName": "My-Books.Api",
-        "projectPath": "C:\\repos\\PersonalProjects\\my-books\\My-Books.Api\\My-Books.Api.csproj",
-        "packagesPath": "C:\\Users\\Ryan.Nemeth\\.nuget\\packages\\",
-        "outputPath": "C:\\repos\\PersonalProjects\\my-books\\My-Books.Api\\obj\\",
+        "projectPath": "C:\\repos\\MyBooks\\My-Books.Api\\My-Books.Api.csproj",
+        "packagesPath": "C:\\Users\\RyanNemeth\\.nuget\\packages\\",
+        "outputPath": "C:\\repos\\MyBooks\\My-Books.Api\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Ryan.Nemeth\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\RyanNemeth\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,7 +22,8 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {},
+          "https://packagesource": {}
         },
         "frameworks": {
           "net6.0": {
@@ -79,7 +80,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     }

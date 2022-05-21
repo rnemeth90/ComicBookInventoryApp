@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using My_Books.Api.Data;
+using My_Books.Api.Services;
 
 namespace My_Books.Api
 {
@@ -15,6 +16,7 @@ namespace My_Books.Api
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
             builder.Services.AddDbContext<ApiDbContext>(options => options.UseSqlServer(Environment.GetEnvironmentVariable("Book_API_DB")));
+            builder.Services.AddTransient<BooksService>();
 
             var app = builder.Build();
 
