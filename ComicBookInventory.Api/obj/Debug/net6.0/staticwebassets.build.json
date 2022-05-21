@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "OLhCdPoCE3WSZl+QeN27JcuTsxxfTKf6g/cjGyeh+5w=",
+  "Source": "ComicBookInventory.Api",
+  "BasePath": "_content/ComicBookInventory.Api",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
