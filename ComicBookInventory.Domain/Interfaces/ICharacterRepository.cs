@@ -1,6 +1,6 @@
 ﻿namespace ComicBookInventory.Shared
 {
-    public interface ICharacterRepository : IGenericRepository<CharacterViewModel>
+    public interface ICharacterRepository : IGenericRepository<Character>
     {
     }
 }

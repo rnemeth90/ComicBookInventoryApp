@@ -11,7 +11,7 @@ namespace ComicBookInventory.DataAccess
         public DbSet<ComicBook_Author> ComicBooks_Authors { get; set; }
         public DbSet<ComicBook_Character> ComicBooks_Characters { get; set; }
 
-        public ApiDbContext(DbContextOptions options) : base(options)
+        public ApiDbContext(DbContextOptions<ApiDbContext> options) : base(options)
         {
 
         }
@@ -36,6 +36,8 @@ namespace ComicBookInventory.DataAccess
                 .HasOne(c => c.Character)
                 .WithMany(cc => cc.ComicBook_Characters)
                 .HasForeignKey(fk => fk.CharacterId);
+
+            base.OnModelCreating(builder);
         }
     }
 }

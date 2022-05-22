@@ -1,6 +1,6 @@
 ﻿namespace ComicBookInventory.Shared
 {
-    public class ComicBook
+    public class ComicBook : IComicBook
     {
         public int Id { get; set; }
         public string Title { get; set; }

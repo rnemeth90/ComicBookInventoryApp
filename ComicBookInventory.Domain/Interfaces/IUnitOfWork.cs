@@ -8,7 +8,7 @@ namespace ComicBookInventory.Shared
         ICharacterRepository Characters { get; }   
         IComicBookRepository ComicBooks { get; }   
 
-        int Complete();
+        int Save();
         void Dispose();
     }
 }

@@ -30,9 +30,10 @@ namespace My_Books.Api.Controllers
         //}
 
         [HttpPost]
-        public IActionResult CreateBook([FromBody] ComicBook book)
+        public IActionResult CreateBook([FromBody] ComicBookViewModel book)
         {
-            _unitOfWork.ComicBooks.Add(book);
+            _unitOfWork.ComicBooks.AddBookWithAuthors(book);
+            
             return Ok();
         }
 

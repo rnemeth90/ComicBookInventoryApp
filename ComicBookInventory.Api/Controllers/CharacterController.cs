@@ -23,10 +23,10 @@ namespace My_Books.Api.Controllers
         }
 
         [HttpPost]
-        public IActionResult CreateCharacter([FromBody] CharacterViewModel model)
+        public IActionResult CreateCharacter([FromBody] Character model)
         {
             _unitOfWork.Characters.Add(model);
-            _unitOfWork.Complete();
+            _unitOfWork.Save();
             _unitOfWork.Dispose();
             return Ok();
         }

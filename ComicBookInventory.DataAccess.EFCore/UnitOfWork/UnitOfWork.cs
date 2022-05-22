@@ -4,21 +4,24 @@ namespace ComicBookInventory.DataAccess
 {
     public class UnitOfWork : IUnitOfWork
     {
-        private readonly ApiDbContext _dbContext;
+        private ApiDbContext _dbContext;
         private IAuthorRepository _authors;
         private ICharacterRepository _characters;
         private IComicBookRepository _comicBooks;
 
-        public IAuthorRepository Authors => _authors ?? new AuthorRepository(_dbContext);
-        public ICharacterRepository Characters => _characters ?? new CharacterRepository(_dbContext);
-        public IComicBookRepository ComicBooks => _comicBooks ?? new ComicBookRepository(_dbContext);
-        
         public UnitOfWork(ApiDbContext dbContext)
         {
             _dbContext = dbContext;
+            _authors = new AuthorRepository(_dbContext);
+            _characters = new CharacterRepository(_dbContext);
+            _comicBooks = new ComicBookRepository(_dbContext);
         }
 
-        public int Complete()
+        public IAuthorRepository Authors { get => _authors; private set => _authors = value; }
+        public ICharacterRepository Characters { get => _characters; private set => _characters = value; }
+        public IComicBookRepository ComicBooks { get => _comicBooks; private set => _comicBooks = value; }
+
+        public int Save()
         {
             return _dbContext.SaveChanges();
         }

@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ComicBookInventory.DataAccess.EFCore.Migrations
 {
     [DbContext(typeof(ApiDbContext))]
-    [Migration("20220522003949_init")]
-    partial class init
+    [Migration("20220522101807_reInitialize")]
+    partial class reInitialize
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

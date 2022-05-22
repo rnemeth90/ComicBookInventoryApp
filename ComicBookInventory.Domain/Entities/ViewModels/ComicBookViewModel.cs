@@ -1,6 +1,6 @@
 ﻿namespace ComicBookInventory.Shared
 {
-    public class ComicBookViewModel
+    public class ComicBookViewModel : IComicBook
     {
         public string Title { get; set; }
         public string Description { get; set; }

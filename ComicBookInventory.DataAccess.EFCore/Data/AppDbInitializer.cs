@@ -37,6 +37,7 @@ namespace ComicBookInventory.DataAccess
                     {
                         FullName = "Empty"
                     });
+                    context.SaveChanges();
                 }
             }
         }

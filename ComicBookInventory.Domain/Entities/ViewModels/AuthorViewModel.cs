@@ -1,6 +1,6 @@
 ﻿namespace ComicBookInventory.Shared
 {
-    public class AuthorViewModel
+    public class AuthorViewModel : IAuthor
     {
         public string FullName { get; set; }
     }
