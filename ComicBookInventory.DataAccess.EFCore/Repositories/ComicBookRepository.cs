@@ -53,5 +53,23 @@ namespace ComicBookInventory.DataAccess
                 DbContext.SaveChanges();
             }
         }
+
+        public void UpdateBook(int id, ComicBookViewModel model)
+        {
+            var book = DbContext.ComicBooks.Where(n => n.Id == id).FirstOrDefault();
+
+            if (book != null)
+            { 
+                book.Genre = model.Genre;
+                book.CoverUrl = model.CoverUrl;
+                book.IsRead = model.IsRead;
+                book.Description = model.Description;
+                book.DateRead = book.DateRead == null ? book.DateRead = DateTime.Now : book.DateRead;
+                book.Rating = model.Rating;
+                book.CoverUrl = model.CoverUrl;
+                book.Title = model.Title;
+            }
+            DbContext.SaveChanges();
+        }
     }
 }

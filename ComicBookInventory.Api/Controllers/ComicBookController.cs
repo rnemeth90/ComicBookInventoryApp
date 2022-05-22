@@ -29,12 +29,6 @@ namespace My_Books.Api.Controllers
             return Ok(book);    
         }
 
-        //[HttpGet("{id}")]
-        //public IActionResult GetBook(int id)
-        //{
-        //    var book = _unitOfWork.ComicBooks.GetWhere(c => c.)
-        //    return Ok(book);
-        //}
 
         [HttpPost]
         public IActionResult CreateBook([FromBody] ComicBookViewModel book)
@@ -45,9 +39,9 @@ namespace My_Books.Api.Controllers
         }
 
         [HttpPut("{id}")]
-        public IActionResult UpdateBook(int id, [FromBody] ComicBook book)
+        public IActionResult UpdateBook(int id, [FromBody] ComicBookViewModel book)
         {
-            _unitOfWork.ComicBooks.Update(book);
+            _unitOfWork.ComicBooks.UpdateBook(id, book);
             return Ok();
         }
 
