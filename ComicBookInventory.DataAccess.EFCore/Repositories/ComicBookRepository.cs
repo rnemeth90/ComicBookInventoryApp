@@ -9,6 +9,23 @@ namespace ComicBookInventory.DataAccess
         {
         }
 
+        public ComicBookWithAuthorsViewModel GetBookById(int bookId)
+        {
+            var _bookWithAuthors = DbContext.ComicBooks.Where(n => n.Id == bookId).Select(book => new ComicBookWithAuthorsViewModel()
+            {
+                Title = book.Title,
+                Description = book.Description,
+                IsRead = book.IsRead,
+                DateRead = book.IsRead ? book.DateRead.Value : null,
+                Rating = book.IsRead ? book.Rating.Value : null,
+                Genre = book.Genre,
+                CoverUrl = book.CoverUrl,
+                AuthorNames = book.ComicBook_Authors.Select(n => n.Author.FullName).ToList()
+            }).FirstOrDefault();
+
+            return _bookWithAuthors;
+        }
+
         public void AddBookWithAuthors(ComicBookViewModel book)
         {
             var _book = new ComicBook()

@@ -22,6 +22,13 @@ namespace My_Books.Api.Controllers
             return Ok(books);
         }
 
+        [HttpGet("{id}")]
+        public IActionResult GetBookById(int id)
+        { 
+            var book = _unitOfWork.ComicBooks.GetBookById(id);
+            return Ok(book);    
+        }
+
         //[HttpGet("{id}")]
         //public IActionResult GetBook(int id)
         //{
