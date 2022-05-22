@@ -16,6 +16,7 @@ namespace ComicBookInventory.Shared
         void UpdateRange(IEnumerable<T> entities);
         
         void Remove(T entity);
+        void RemoveById(int id);
         void RemoveWhere(Expression<Func<T, bool>> expression);
         void RemoveRange(IEnumerable<T> entities);
     }

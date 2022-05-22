@@ -46,9 +46,9 @@ namespace My_Books.Api.Controllers
         }
 
         [HttpDelete]
-        public IActionResult DeleteBook([FromBody]ComicBook book)
+        public IActionResult DeleteBookById(int id)
         {
-            _unitOfWork.ComicBooks.Remove(book);
+            _unitOfWork.ComicBooks.RemoveById(id);
             return Ok();
         }
     }
