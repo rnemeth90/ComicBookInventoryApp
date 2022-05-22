@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using ComicBookInventory.Api.Models;
+using ComicBookInventory.Shared;
 
 namespace ComicBookInventory.DataAccess
 {

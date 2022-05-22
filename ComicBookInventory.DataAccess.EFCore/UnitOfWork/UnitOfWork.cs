@@ -2,13 +2,16 @@
 
 namespace ComicBookInventory.DataAccess
 {
-    internal class UnitOfWork : IUnitOfWork
+    public class UnitOfWork : IUnitOfWork
     {
-        private ApiDbContext _dbContext;
+        private readonly ApiDbContext _dbContext;
+        private IAuthorRepository _authors;
+        private ICharacterRepository _characters;
+        private IComicBookRepository _comicBooks;
 
-        public IComicBookRepository ComicBooks { get; set; }
-        public ICharacterRepository Characters { get; set; }
-        public IComicBookCharacterRepository ComicBook_Characters { get; set; }
+        public IAuthorRepository Authors => _authors ?? new AuthorRepository(_dbContext);
+        public ICharacterRepository Characters => _characters ?? new CharacterRepository(_dbContext);
+        public IComicBookRepository ComicBooks => _comicBooks ?? new ComicBookRepository(_dbContext);
         
         public UnitOfWork(ApiDbContext dbContext)
         {

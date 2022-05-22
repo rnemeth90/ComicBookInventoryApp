@@ -1,8 +1,6 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using ComicBookInventory.Api.Models;
-using ComicBookInventory.Api.Models.ViewModels;
-using ComicBookInventory.Api.Services;
+﻿using Microsoft.AspNetCore.Mvc;
+using ComicBookInventory.DataAccess;
+using ComicBookInventory.Shared;
 
 namespace My_Books.Api.Controllers
 {
@@ -10,45 +8,45 @@ namespace My_Books.Api.Controllers
     [ApiController]
     public class ComicBookController : ControllerBase
     {
-        private ComicBookRepository _repository;
+        private IUnitOfWork _unitOfWork;
 
-        public ComicBookController(ComicBookRepository repository)
+        public ComicBookController(IUnitOfWork unitOfWork)
         {
-            _repository = repository;
+            _unitOfWork = unitOfWork;
         }
 
         [HttpGet]
         public IActionResult GetAllBooks()
         {
-            var books = _repository.GetAllBooks();
+            var books = _unitOfWork.ComicBooks.GetAll();
             return Ok(books);
         }
 
-        [HttpGet("{id}")]
-        public IActionResult GetBook(int id)
-        {
-            var book = _repository.GetBookById(id);
-            return Ok(book);
-        }
+        //[HttpGet("{id}")]
+        //public IActionResult GetBook(int id)
+        //{
+        //    var book = _unitOfWork.ComicBooks.GetWhere(c => c.)
+        //    return Ok(book);
+        //}
 
         [HttpPost]
-        public IActionResult CreateBook([FromBody] ComicBookViewModel book)
+        public IActionResult CreateBook([FromBody] ComicBook book)
         {
-            _repository.AddBook(book);
+            _unitOfWork.ComicBooks.Add(book);
             return Ok();
         }
 
         [HttpPut("{id}")]
-        public IActionResult UpdateBook(int id, [FromBody] ComicBookViewModel book)
+        public IActionResult UpdateBook(int id, [FromBody] ComicBook book)
         {
-            _repository.UpdateBook(id, book);
+            _unitOfWork.ComicBooks.Update(book);
             return Ok();
         }
 
         [HttpDelete]
-        public IActionResult DeleteBook(int id)
+        public IActionResult DeleteBook([FromBody]ComicBook book)
         {
-            _repository.DeleteBook(id);
+            _unitOfWork.ComicBooks.Remove(book);
             return Ok();
         }
     }

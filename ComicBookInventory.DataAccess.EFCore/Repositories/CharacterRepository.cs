@@ -2,7 +2,11 @@
 
 namespace ComicBookInventory.DataAccess
 {
-    internal class CharacterRepository : GenericRepository<CharacterViewModel>, ICharacterRepository
+    public class CharacterRepository : GenericRepository<CharacterViewModel>, ICharacterRepository
     {
+        public CharacterRepository(ApiDbContext dbContext) : base(dbContext)
+        {
+
+        }
     }
 }

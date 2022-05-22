@@ -3,46 +3,68 @@ using System.Linq.Expressions;
 
 namespace ComicBookInventory.DataAccess
 {
-    internal class GenericRepository<T> : IGenericRepository<T> where T : class
+    public class GenericRepository<T> : IGenericRepository<T> where T : class
     {
-        public void Add(T entity)
-        {
-            throw new NotImplementedException();
-        }
+        private readonly ApiDbContext _dbContext;
 
-        public void AddRange(IEnumerable<T> entities)
+        public GenericRepository(ApiDbContext dbContext)
         {
-            throw new NotImplementedException();
-        }
-
-        public IEnumerable<T> Find(Expression<Func<T, bool>> expression)
-        {
-            throw new NotImplementedException();
+            _dbContext = dbContext;
         }
 
         public IEnumerable<T> GetAll()
         {
-            throw new NotImplementedException();
+            return _dbContext.Set<T>().ToList();   
         }
 
-        public T GetById(int id)
+        public IEnumerable<T> GetWhere(Expression<Func<T, bool>> expression)
         {
-            throw new NotImplementedException();
+            return _dbContext.Set<T>().Where(expression).ToList();
+        }
+
+        public T Find(Expression<Func<T, bool>> expression)
+        {
+            return _dbContext.Set<T>().FirstOrDefault(expression);
+        }
+
+        public void Add(T entity)
+        {
+            _dbContext.Set<T>().Add(entity);    
+        }
+
+        public void AddRange(IEnumerable<T> entities)
+        {
+            _dbContext.Set<T>().AddRange(entities);
+        }
+
+        public void Update(T entity)
+        { 
+            _dbContext.Set<T>().Update(entity);
+        }
+
+        public void UpdateRange(IEnumerable<T> entities)
+        { 
+            _dbContext.Set<T>().UpdateRange(entities);
         }
 
         public void Remove(T entity)
         {
-            throw new NotImplementedException();
+            _dbContext.Set<T>().Remove(entity);
         }
 
-        public void RemoveById(int id)
+        public void RemoveWhere(Expression<Func<T, bool>> expression)
         {
-            throw new NotImplementedException();
+            List<T> entities = _dbContext.Set<T>().Where(expression).ToList();
+
+            foreach (T entity in entities)
+            { 
+                _dbContext.Set<T>().Remove(entity);
+            }
         }
 
         public void RemoveRange(IEnumerable<T> entities)
         {
-            throw new NotImplementedException();
+            _dbContext.Set<T>().RemoveRange(entities);
         }
     }
 }

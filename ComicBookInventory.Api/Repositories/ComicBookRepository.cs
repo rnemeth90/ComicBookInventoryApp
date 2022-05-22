@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using ComicBookInventory.Api.Data;
-using ComicBookInventory.Api.Models;
-using ComicBookInventory.Api.Models.ViewModels;
+using ComicBookInventory.DataAccess;
+using ComicBookInventory.Shared;
 
 namespace ComicBookInventory.Api.Services
 {

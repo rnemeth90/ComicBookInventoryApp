@@ -1,4 +1,4 @@
-﻿using ComicBookInventory.Api.Models;
+﻿using ComicBookInventory.Shared;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 

@@ -1,44 +1,13 @@
 ﻿using ComicBookInventory.Shared;
-using System;
-using System.Linq.Expressions;
+using Microsoft.AspNetCore.Mvc;
 
 namespace ComicBookInventory.DataAccess
 {
-    internal class ComicBookRepository : GenericRepository<ComicBookViewModel>, IComicBookRepository
+    public class ComicBookRepository : GenericRepository<ComicBook>, IComicBookRepository
     {
-
-
-        [HttpPost]
-        public void AddBook(ComicBookViewModel model)
+        public ComicBookRepository(ApiDbContext dbContext) : base(dbContext)
         {
-            var _book = new ComicBook()
-            {
-                Title = model.Title,
-                IsRead = model.IsRead,
-                Genre = model.Genre,
-                Rating = model.Rating,
-                DateAdded = DateTime.Now,
-                Description = model.Description,
-                CoverUrl = model.CoverUrl,
-            };
-            _dbContext.Add(_book);
-            _dbContext.SaveChanges();
 
-            // add the relation
-            foreach (var id in model.AuthorIds)
-            {
-                var _book_author = new ComicBook_Author()
-                {
-                    ComicBookId = _book.Id,
-                    AuthorId = id
-                };
-                _dbContext.ComicBooks_Authors.Add(_book_author);
-                _dbContext.SaveChanges();
-            }
-        }
-        public void Update(int id, ComicBookViewModel entity)
-        {
-            throw new NotImplementedException();
         }
     }
 }

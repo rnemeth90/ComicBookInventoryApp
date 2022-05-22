@@ -4,9 +4,11 @@ namespace ComicBookInventory.Shared
 {
     public interface IUnitOfWork : IDisposable
     {
-        IComicBookRepository ComicBooks { get; }
-        ICharacterRepository Characters { get; }
-        IComicBookCharacterRepository ComicBook_Characters { get; }
+        IAuthorRepository Authors { get; }
+        ICharacterRepository Characters { get; }   
+        IComicBookRepository ComicBooks { get; }   
+
         int Complete();
+        void Dispose();
     }
 }

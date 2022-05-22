@@ -18,7 +18,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Data\" />
     <Folder Include="Migrations\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ComicBookInventory.DataAccess.EFCore\ComicBookInventory.DataAccess.EFCore.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,7 +1,6 @@
-﻿using ComicBookInventory.Api.Models.ViewModels;
-using ComicBookInventory.Api.Services;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using ComicBookInventory.DataAccess;
+using ComicBookInventory.Shared;
 
 namespace My_Books.Api.Controllers
 {
@@ -9,24 +8,26 @@ namespace My_Books.Api.Controllers
     [ApiController]
     public class CharacterController : ControllerBase
     {
-        public CharacterRepository _repository;
+        private IUnitOfWork _unitOfWork;
 
-        public CharacterController(CharacterRepository repository)
+        public CharacterController(IUnitOfWork unitOfWork)
         {
-            _repository = repository;
+            _unitOfWork = unitOfWork;
         }
 
         [HttpGet]
         public IActionResult GetAllCharacters()
         {
-            var characters = _repository.GetAllCharacters();
+            var characters = _unitOfWork.Characters.GetAll();
             return Ok(characters);
         }
 
         [HttpPost]
         public IActionResult CreateCharacter([FromBody] CharacterViewModel model)
         {
-            _repository.AddCharacter(model);
+            _unitOfWork.Characters.Add(model);
+            _unitOfWork.Complete();
+            _unitOfWork.Dispose();
             return Ok();
         }
     }

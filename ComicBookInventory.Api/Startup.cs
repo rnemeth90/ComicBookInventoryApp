@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
-using ComicBookInventory.Api.Data;
-using ComicBookInventory.Api.Services;
+using ComicBookInventory.Shared;
+using ComicBookInventory.DataAccess;
 
 namespace ComicBookInventory.API
 {
@@ -28,10 +28,14 @@ namespace ComicBookInventory.API
 
             //register the repositories
             #region Repositories
-            services.AddTransient<ComicBookRepository>();
-            services.AddTransient<AuthorRepository>();
-            services.AddTransient<CharacterRepository>();   
-
+            //services.AddTransient<ComicBookRepository>();
+            //services.AddTransient<AuthorRepository>();
+            //services.AddTransient<CharacterRepository>();   
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddScoped(typeof(IGenericRepository<>),typeof(GenericRepository<>));
+            services.AddScoped<IAuthorRepository, AuthorRepository>();
+            services.AddScoped<ICharacterRepository, CharacterRepository>();
+            services.AddScoped<IComicBookRepository, ComicBookRepository>();
             #endregion
 
             // serialize as XML if application/xml mime type specified in call
