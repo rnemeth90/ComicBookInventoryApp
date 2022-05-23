@@ -8,6 +8,14 @@ namespace ComicBookInventory.DataAccess
         {
         }
 
-
+        public void AddAuthor(AuthorViewModel author)
+        {
+            var _author = new Author()
+            {
+                FullName = author.FullName,
+            };
+            DbContext.Authors.Add(_author);
+            DbContext.SaveChanges();
+        }
     }
 }

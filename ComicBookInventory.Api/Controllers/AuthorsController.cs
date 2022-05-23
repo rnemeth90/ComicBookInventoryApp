@@ -16,16 +16,25 @@ namespace My_Books.Api.Controllers
         }
 
         [HttpGet]
-        public IActionResult GetAllCharacters()
+        public IActionResult GetAllAuthors()
         {
-            var characters = _unitOfWork.Authors.GetAll();
-            return Ok(characters);
+            var _authors = _unitOfWork.Authors.GetAll();
+            return Ok(_authors);
         }
 
         [HttpPost]
-        public IActionResult CreateCharacter([FromBody] Author model)
+        public IActionResult CreateAuthor([FromBody] AuthorViewModel model)
         {
-            _unitOfWork.Authors.Add(model);
+            _unitOfWork.Authors.AddAuthor(model);
+            _unitOfWork.Save();
+            _unitOfWork.Dispose();
+            return Ok();
+        }
+
+        [HttpDelete]
+        public IActionResult DeleteById(int id)
+        { 
+            _unitOfWork.Authors.RemoveById(id);
             _unitOfWork.Save();
             _unitOfWork.Dispose();
             return Ok();

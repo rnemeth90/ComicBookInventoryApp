@@ -1,4 +1,6 @@
-﻿namespace ComicBookInventory.Shared
+﻿using System.Text.Json.Serialization;
+
+namespace ComicBookInventory.Shared
 {
     public class Author : IAuthor
     {
@@ -6,6 +8,7 @@
         public string FullName { get; set; }
 
         // navigation properties
+        [JsonIgnore]
         public List<ComicBook_Author> ComicBook_Authors { get; set; }
     }
 }
