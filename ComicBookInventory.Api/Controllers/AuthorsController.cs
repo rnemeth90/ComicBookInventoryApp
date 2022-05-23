@@ -25,10 +25,17 @@ namespace My_Books.Api.Controllers
         [HttpPost]
         public IActionResult CreateAuthor([FromBody] AuthorViewModel model)
         {
-            _unitOfWork.Authors.AddAuthor(model);
-            _unitOfWork.Save();
-            _unitOfWork.Dispose();
-            return Ok();
+            var author = _unitOfWork.Authors.GetWhere(a => a.FullName == model.FullName);
+
+            if (!author.Any())
+            {
+                _unitOfWork.Authors.AddAuthor(model);
+                return Ok($"Author {model.FullName} created");
+            }
+            else
+            {
+                return StatusCode(StatusCodes.Status409Conflict,$"{model.FullName} already exists in the database.");
+            }
         }
 
         [HttpDelete]
