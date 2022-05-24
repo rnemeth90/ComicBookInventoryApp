@@ -71,7 +71,6 @@ namespace ComicBookInventory.DataAccess
                 book.CoverUrl = model.CoverUrl;
                 book.Title = model.Title;
             }
-            DbContext.SaveChanges();
         }
     }
 }

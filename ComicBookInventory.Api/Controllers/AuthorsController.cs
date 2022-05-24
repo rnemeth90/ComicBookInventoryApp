@@ -42,8 +42,6 @@ namespace My_Books.Api.Controllers
         public IActionResult DeleteById(int id)
         { 
             _unitOfWork.Authors.RemoveById(id);
-            _unitOfWork.Save();
-            _unitOfWork.Dispose();
             return Ok();
         }
     }

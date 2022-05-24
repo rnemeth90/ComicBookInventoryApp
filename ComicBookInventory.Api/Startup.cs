@@ -29,7 +29,7 @@ namespace ComicBookInventory.API
             //register the repositories
             #region Repositories
             services.AddTransient<IUnitOfWork, UnitOfWork>();
-            //services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+            services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
             //services.AddScoped<IAuthorRepository, AuthorRepository>();
             //services.AddScoped<ICharacterRepository, CharacterRepository>();
             //services.AddScoped<IComicBookRepository, ComicBookRepository>();
