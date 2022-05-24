@@ -38,6 +38,7 @@ namespace ComicBookInventory.DataAccess
                 Genre = book.Genre,
                 CoverUrl = book.CoverUrl,
                 DateAdded = DateTime.Now,
+                
             };
             DbContext.ComicBooks.Add(_book);
             DbContext.SaveChanges();
@@ -52,6 +53,7 @@ namespace ComicBookInventory.DataAccess
                 DbContext.ComicBooks_Authors.Add(_book_author);
                 DbContext.SaveChanges();
             }
+            DbContext.Dispose();
         }
 
         public void UpdateBook(int id, ComicBookViewModel model)
