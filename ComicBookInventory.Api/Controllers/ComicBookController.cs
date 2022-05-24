@@ -41,6 +41,8 @@ namespace My_Books.Api.Controllers
         public IActionResult AddBookWithAuthors([FromBody] ComicBookViewModel book)
         {
             _unitOfWork.ComicBooks.AddBookWithAuthors(book);
+            _unitOfWork.Save();
+            _unitOfWork.Dispose();
             return Ok();
         }
 
@@ -48,6 +50,8 @@ namespace My_Books.Api.Controllers
         public IActionResult UpdateBook(int id, [FromBody] ComicBookViewModel book)
         {
             _unitOfWork.ComicBooks.UpdateBook(id, book);
+            _unitOfWork.Save();
+            _unitOfWork.Dispose();
             return Ok();
         }
 
@@ -55,6 +59,8 @@ namespace My_Books.Api.Controllers
         public IActionResult DeleteBookById(int id)
         {
             _unitOfWork.ComicBooks.RemoveById(id);
+            _unitOfWork.Save();
+            _unitOfWork.Dispose();
             return Ok();
         }
     }
