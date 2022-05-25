@@ -31,7 +31,6 @@ namespace My_Books.Api.Controllers
             {
                 _unitOfWork.Authors.AddAuthor(model);
                 _unitOfWork.Save();
-                _unitOfWork.Dispose();
                 return Ok($"Author {model.FullName} created");
             }
             else
@@ -45,7 +44,6 @@ namespace My_Books.Api.Controllers
         { 
             _unitOfWork.Authors.RemoveById(id);
             _unitOfWork.Save();
-            _unitOfWork.Dispose();
             return Ok();
         }
     }

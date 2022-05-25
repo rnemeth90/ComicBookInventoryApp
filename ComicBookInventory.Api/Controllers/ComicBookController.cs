@@ -19,31 +19,49 @@ namespace My_Books.Api.Controllers
         public IActionResult GetAllBooks()
         {
             var books = _unitOfWork.ComicBooks.GetAllBooks();
-            return Ok(books);
+            if (books != null)
+            {
+                return Ok(books);
+            }
+            else
+            {
+                return StatusCode(StatusCodes.Status204NoContent);
+            }
         }
 
         [HttpGet("get-book-by-id/{id}")]
         public IActionResult GetBookById(int id)
         { 
             var book = _unitOfWork.ComicBooks.GetBookById(id);
-            return Ok(book);    
+            if (book != null)
+            {
+                return Ok(book);
+            }
+            else
+            {
+                return StatusCode(StatusCodes.Status204NoContent);
+            }
         }
 
         [HttpPost("add-book")]
         public IActionResult AddBookWithAuthors([FromBody] ComicBookViewModel book)
         {
             _unitOfWork.ComicBooks.AddBook(book);
-            _unitOfWork.Save();
-            _unitOfWork.Dispose();
-            return Ok();
+            var entity = _unitOfWork.ComicBooks.GetWhere(c => c.Title == book.Title);
+            if (entity != null)
+            { 
+                return Ok($"{book.Title} created.");
+            }
+            else
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError);
+            }
         }
 
         [HttpPut("update-book/{id}")]
         public IActionResult UpdateBook(int id, [FromBody] ComicBookViewModel book)
         {
             _unitOfWork.ComicBooks.UpdateBook(id, book);
-            _unitOfWork.Save();
-            _unitOfWork.Dispose();
             return Ok();
         }
 
@@ -51,9 +69,15 @@ namespace My_Books.Api.Controllers
         public IActionResult DeleteBookById(int id)
         {
             _unitOfWork.ComicBooks.RemoveById(id);
-            _unitOfWork.Save();
-            _unitOfWork.Dispose();
-            return Ok();
+            var entity = _unitOfWork.ComicBooks.GetBookById(id);
+            if (entity == null)
+            {
+                return Ok($"{entity.Title} removed");
+            }
+            else
+            {
+                return Ok($"Cannot remove {entity.Title}");
+            }
         }
     }
 }

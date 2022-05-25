@@ -16,7 +16,6 @@ namespace ComicBookInventory.DataAccess
             };
             DbContext.Authors.Add(_author);
             DbContext.SaveChanges();
-            DbContext.Dispose();
         }
     }
 }

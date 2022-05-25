@@ -27,7 +27,6 @@ namespace My_Books.Api.Controllers
         {
             _unitOfWork.Characters.Add(model);
             _unitOfWork.Save();
-            _unitOfWork.Dispose();
             return Ok();
         }
     }
