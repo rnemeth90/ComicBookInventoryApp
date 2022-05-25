@@ -1,11 +1,7 @@
 ﻿namespace ComicBookInventory.Shared
 {
-    public class ComicBookWithCharactersViewModel
+    public class ComicBookWithAuthorsViewModel
     {
-        public ComicBookWithCharactersViewModel()
-        {
-
-        }
         public string Title { get; set; }
         public string Description { get; set; }
         public bool IsRead { get; set; }

@@ -2,8 +2,9 @@
 {
     public interface IComicBookRepository : IGenericRepository<ComicBook>
     {
-        void AddBookWithAuthors(ComicBookViewModel book);
+        IEnumerable<ComicBookWithAuthorsAndCharactersViewModel> GetAllBooks();
         ComicBookWithAuthorsViewModel GetBookById(int bookId);
+        void AddBookWithAuthors(ComicBookViewModel book);
         void UpdateBook(int id, ComicBookViewModel book);
     }
 }

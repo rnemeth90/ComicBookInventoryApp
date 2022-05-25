@@ -1,6 +1,6 @@
 ﻿namespace ComicBookInventory.Shared
 {
-    public class ComicBookWithCharactersViewModel
+    public class ComicBookWithAuthorsAndCharactersViewModel
     {
         public string Title { get; set; }
         public string Description { get; set; }
@@ -13,7 +13,8 @@
         /// <summary>
         /// Navigation properties
         /// </summary>
-        /// a book can have many characters
+        /// a book can have many authors
+        public List<string> AuthorNames { get; set; }
         public List<string> CharacterNames { get; set; }
 
     }

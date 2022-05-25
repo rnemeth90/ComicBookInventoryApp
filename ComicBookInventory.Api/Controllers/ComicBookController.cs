@@ -18,7 +18,7 @@ namespace My_Books.Api.Controllers
         [HttpGet("get-all-comics")]
         public IActionResult GetAllBooks()
         {
-            var books = _unitOfWork.ComicBooks.GetAll();
+            var books = _unitOfWork.ComicBooks.GetAllBooks();
             return Ok(books);
         }
 
