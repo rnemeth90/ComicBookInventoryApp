@@ -2,6 +2,7 @@
 using Microsoft.OpenApi.Models;
 using ComicBookInventory.Shared;
 using ComicBookInventory.DataAccess;
+using ComicBookInventory.Api.Middleware;
 
 namespace ComicBookInventory.API
 {
@@ -52,6 +53,9 @@ namespace ComicBookInventory.API
             app.UseHttpsRedirection();
             app.UseRouting();
             app.UseAuthorization();
+
+            app.ConfigureBuiltInExceptionHandler();
+            
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapGet("/healthz", () => "Healthy");

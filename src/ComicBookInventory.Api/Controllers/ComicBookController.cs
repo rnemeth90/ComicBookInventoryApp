@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using ComicBookInventory.DataAccess;
 using ComicBookInventory.Shared;
+using System.Text.Json;
 
 namespace My_Books.Api.Controllers
 {
@@ -8,91 +8,132 @@ namespace My_Books.Api.Controllers
     [ApiController]
     public class ComicBookController : ControllerBase
     {
+        #region 
         private IUnitOfWork _unitOfWork;
 
         public ComicBookController(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
         }
+        #endregion
 
         [HttpGet("get-all-books")]
         public IActionResult GetAllBooks()
         {
-            var books = _unitOfWork.ComicBooks.GetAllBooks();
-            if (books != null)
+            throw new Exception("This will be handled by middleware");
+            try
             {
-                return Ok(books);
+                var books = _unitOfWork.ComicBooks.GetAllBooks();
+                if (books != null)
+                {
+                    return Ok(books);
+                }
+                else
+                {
+                    return NotFound("No books found");
+                }
             }
-            else
+            catch (Exception ex)
             {
-                return StatusCode(StatusCodes.Status204NoContent);
+                return StatusCode(StatusCodes.Status500InternalServerError, $"{ex.Message}");
             }
         }
 
         [HttpGet("get-book-by-id/{id}")]
         public IActionResult GetBookById(int id)
-        { 
-            var book = _unitOfWork.ComicBooks.GetBookById(id);
-            if (book != null)
+        {
+            try
             {
-                return Ok(book);
+                var book = _unitOfWork.ComicBooks.GetBookById(id);
+                if (book != null)
+                {
+                    return Ok(book);
+                }
+                else
+                {
+                    return NotFound($"Book with id {id} not found");
+                }
             }
-            else
+            catch (Exception ex)
             {
-                return StatusCode(StatusCodes.Status204NoContent);
+                return StatusCode(StatusCodes.Status500InternalServerError, $"{ex.Message}");
+
             }
         }
 
-        [HttpGet("get-book-by-title")]
+        [HttpGet("get-book-by-title/{title}")]
         public IActionResult GetBookByTitle(string title)
-        { 
+        {
             // We should be able to fuzzy match the title as well...
-            var book = _unitOfWork.ComicBooks.Find(b => b.Title == title);
-            if (book != null)
+            try
             {
-                return Ok(book);
+                var book = _unitOfWork.ComicBooks.Find(b => b.Title == title);
+                if (book != null)
+                {
+                    return Ok(book);
+                }
+                else
+                {
+                    return NotFound($"{title} not found");
+                }
             }
-            else
+            catch (Exception ex)
             {
-                return StatusCode(StatusCodes.Status404NotFound);
+                return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
             }
         }
 
         [HttpPost("add-book")]
         public IActionResult AddBook([FromBody] ComicBookViewModel book)
         {
-            _unitOfWork.ComicBooks.AddBook(book);
-            var entity = _unitOfWork.ComicBooks.GetWhere(c => c.Title == book.Title);
-            if (entity != null)
-            { 
-                return Ok($"{book.Title} created.");
-            }
-            else
+            try
             {
-                return StatusCode(StatusCodes.Status500InternalServerError);
+                _unitOfWork.ComicBooks.AddBook(book);
+                var entity = _unitOfWork.ComicBooks.GetWhere(c => c.Title == book.Title);
+                if (entity != null)
+                {
+                    return Created(nameof(AddBook), JsonSerializer.Serialize(entity));
+                }
+                else
+                {
+                    return BadRequest($"Unable to create {book.Title}. Please try again.");
+                }
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);  
             }
         }
 
-        // here we should verify the book was updated
         [HttpPut("update-book/{id}")]
         public IActionResult UpdateBook(int id, [FromBody] ComicBookViewModel book)
         {
             _unitOfWork.ComicBooks.UpdateBook(id, book);
-            return Ok();
+            
+            // here we should verify the book was updated
+            return StatusCode(StatusCodes.Status202Accepted);
         }
 
-        [HttpDelete("delete-comic-book")]
+        [HttpDelete("delete-comic-book/{id}")]
         public IActionResult DeleteBookById(int id)
         {
-            _unitOfWork.ComicBooks.RemoveById(id);
-            var entity = _unitOfWork.ComicBooks.GetBookById(id);
-            if (entity == null)
+            try
             {
-                return Ok($"{entity.Title} removed");
+                var entity = _unitOfWork.ComicBooks.GetBookById(id);
+                if (entity != null)
+                {
+                    _unitOfWork.ComicBooks.RemoveById(id);
+                    return Ok($"{entity.Title} removed");
+                }
+                else
+                {
+                    return NotFound($"Id: {id} not found");
+                }
+
             }
-            else
+            catch (Exception ex)
             {
-                return Ok($"Cannot remove {entity.Title}");
+                return StatusCode(StatusCodes.Status500InternalServerError, $"{ex.Message}");
             }
         }
     }
