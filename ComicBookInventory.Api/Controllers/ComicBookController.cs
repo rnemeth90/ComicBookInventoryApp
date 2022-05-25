@@ -15,38 +15,30 @@ namespace My_Books.Api.Controllers
             _unitOfWork = unitOfWork;
         }
 
-        [HttpGet("get-all-comics")]
+        [HttpGet("get-all-books")]
         public IActionResult GetAllBooks()
         {
             var books = _unitOfWork.ComicBooks.GetAllBooks();
             return Ok(books);
         }
 
-        [HttpGet("get-comic-by-id/{id}")]
+        [HttpGet("get-book-by-id/{id}")]
         public IActionResult GetBookById(int id)
         { 
             var book = _unitOfWork.ComicBooks.GetBookById(id);
             return Ok(book);    
         }
 
-        //[HttpPost("add-book")]
-        //public IActionResult a([FromBody] ComicBookViewModel book)
-        //{
-        //    _unitOfWork.ComicBooks.AddBookWithAuthors(book);
-        //    return Ok();
-        //}
-
-
-        [HttpPost("add-book-with-authors")]
+        [HttpPost("add-book")]
         public IActionResult AddBookWithAuthors([FromBody] ComicBookViewModel book)
         {
-            _unitOfWork.ComicBooks.AddBookWithAuthors(book);
+            _unitOfWork.ComicBooks.AddBook(book);
             _unitOfWork.Save();
             _unitOfWork.Dispose();
             return Ok();
         }
 
-        [HttpPut("update-comic-book/{id}")]
+        [HttpPut("update-book/{id}")]
         public IActionResult UpdateBook(int id, [FromBody] ComicBookViewModel book)
         {
             _unitOfWork.ComicBooks.UpdateBook(id, book);
