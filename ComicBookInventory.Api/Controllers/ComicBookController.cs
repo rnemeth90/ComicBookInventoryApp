@@ -43,8 +43,23 @@ namespace My_Books.Api.Controllers
             }
         }
 
+        [HttpGet("get-book-by-title")]
+        public IActionResult GetBookByTitle(string title)
+        { 
+            // We should be able to fuzzy match the title as well...
+            var book = _unitOfWork.ComicBooks.Find(b => b.Title == title);
+            if (book != null)
+            {
+                return Ok(book);
+            }
+            else
+            {
+                return StatusCode(StatusCodes.Status404NotFound);
+            }
+        }
+
         [HttpPost("add-book")]
-        public IActionResult AddBookWithAuthors([FromBody] ComicBookViewModel book)
+        public IActionResult AddBook([FromBody] ComicBookViewModel book)
         {
             _unitOfWork.ComicBooks.AddBook(book);
             var entity = _unitOfWork.ComicBooks.GetWhere(c => c.Title == book.Title);
@@ -58,6 +73,7 @@ namespace My_Books.Api.Controllers
             }
         }
 
+        // here we should verify the book was created
         [HttpPut("update-book/{id}")]
         public IActionResult UpdateBook(int id, [FromBody] ComicBookViewModel book)
         {
