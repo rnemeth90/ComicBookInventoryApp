@@ -73,7 +73,7 @@ namespace My_Books.Api.Controllers
             }
         }
 
-        // here we should verify the book was created
+        // here we should verify the book was updated
         [HttpPut("update-book/{id}")]
         public IActionResult UpdateBook(int id, [FromBody] ComicBookViewModel book)
         {
