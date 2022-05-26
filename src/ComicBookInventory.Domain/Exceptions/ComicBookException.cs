@@ -1,6 +1,6 @@
 ﻿namespace ComicBookInventory.Exceptions
 {
-    internal class ComicBookException : Exception
+    public class ComicBookException : Exception
     {
         public string ComicBookName{ get; set; }
 

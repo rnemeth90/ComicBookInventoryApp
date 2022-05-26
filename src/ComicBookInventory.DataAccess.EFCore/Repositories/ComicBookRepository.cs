@@ -1,4 +1,5 @@
-﻿using ComicBookInventory.Shared;
+﻿using ComicBookInventory.Exceptions;
+using ComicBookInventory.Shared;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ComicBookInventory.DataAccess
@@ -98,6 +99,11 @@ namespace ComicBookInventory.DataAccess
                 book.Rating = model.Rating;
                 book.CoverUrl = model.CoverUrl;
                 book.Title = model.Title;
+                DbContext.SaveChanges();
+            }
+            else
+            {
+                throw new ComicBookException($"Comic Book with id {id} not found");
             }
         }
     }

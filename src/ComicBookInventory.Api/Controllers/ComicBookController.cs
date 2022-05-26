@@ -20,7 +20,6 @@ namespace My_Books.Api.Controllers
         [HttpGet("get-all-books")]
         public IActionResult GetAllBooks()
         {
-            throw new Exception("This will be handled by middleware");
             try
             {
                 var books = _unitOfWork.ComicBooks.GetAllBooks();
@@ -39,10 +38,22 @@ namespace My_Books.Api.Controllers
             }
         }
 
-        //[HttpGet("get-books-by-characters")]
+        //[HttpGet("get-books-by-character")]
         //public IActionResult GetBooksByCharacter(string characterName)
         //{
-        //    var books = _unitOfWork.ComicBooks.GetWhere(c => c.ComicBook_Characters.Where(ch => ch.Character.FullName == characterName));
+        //    var books = _unitOfWork.ComicBooks.GetWhere(c => c.ComicBook_Characters.FindAll(c => c.Character.FullName == characterName))
+        //        .Select(c => new ComicBookWithCharactersViewModel()
+        //        {
+        //            Title = c.Title,
+        //            Description = c.Description,
+        //            Genre = c.Genre,
+        //            IsRead = c.IsRead,
+        //            DateRead = c.DateRead,
+        //            Rating = c.Rating,
+        //            CoverUrl = c.CoverUrl,
+        //            CharacterNames = c.ComicBook_Characters.Select(c => c.Character.FullName).ToList()
+        //        }).ToList();
+        //    return Ok(books);
         //}
 
 
@@ -108,7 +119,7 @@ namespace My_Books.Api.Controllers
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);  
+                return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
             }
         }
 
@@ -118,7 +129,7 @@ namespace My_Books.Api.Controllers
             _unitOfWork.ComicBooks.UpdateBook(id, book);
             
             // here we should verify the book was updated
-            return StatusCode(StatusCodes.Status202Accepted);
+            return Accepted(book);
         }
 
         [HttpDelete("delete-comic-book/{id}")]
