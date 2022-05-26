@@ -2,5 +2,6 @@
 {
     public interface ICharacterRepository : IGenericRepository<Character>
     {
+        void AddCharacter(CharacterViewModel character);
     }
 }

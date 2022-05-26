@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ComicBookInventory.DataAccess;
 using ComicBookInventory.Shared;
+using System.Text.Json;
 
 namespace My_Books.Api.Controllers
 {
@@ -15,7 +16,7 @@ namespace My_Books.Api.Controllers
             _unitOfWork = unitOfWork;
         }
 
-        [HttpGet]
+        [HttpGet("get-all-characters")]
         public IActionResult GetAllCharacters()
         {
             var characters = _unitOfWork.Characters.GetAll();
@@ -23,11 +24,26 @@ namespace My_Books.Api.Controllers
         }
 
         [HttpPost]
-        public IActionResult CreateCharacter([FromBody] Character model)
+        [HttpPost("create-character")]
+        public IActionResult CreateCharacter([FromBody] CharacterViewModel character)
         {
-            _unitOfWork.Characters.Add(model);
-            _unitOfWork.Save();
-            return Ok();
+            try
+            {
+                _unitOfWork.Characters.AddCharacter(character);
+                var entity = _unitOfWork.Characters.GetWhere(c => c.FullName == character.FullName);
+                if (entity != null)
+                {
+                    return Created(nameof(CreateCharacter), JsonSerializer.Serialize(entity));
+                }
+                else
+                {
+                    return BadRequest($"Unable to create {character.FullName}. Please try again.");
+                }
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
     }
 }

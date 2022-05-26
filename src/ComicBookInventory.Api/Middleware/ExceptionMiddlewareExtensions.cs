@@ -14,7 +14,7 @@ namespace ComicBookInventory.Api.Middleware
                 {
                     context.Response.StatusCode = StatusCodes.Status500InternalServerError;
                     context.Response.ContentType = "application/json";
-
+                    
                     var contextFeature = context.Features.Get<IExceptionHandlerFeature>();
                     var contextRequest = context.Features.Get<IHttpRequestFeature>();
 

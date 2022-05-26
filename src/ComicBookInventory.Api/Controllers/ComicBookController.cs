@@ -39,6 +39,13 @@ namespace My_Books.Api.Controllers
             }
         }
 
+        //[HttpGet("get-books-by-characters")]
+        //public IActionResult GetBooksByCharacter(string characterName)
+        //{
+        //    var books = _unitOfWork.ComicBooks.GetWhere(c => c.ComicBook_Characters.Where(ch => ch.Character.FullName == characterName));
+        //}
+
+
         [HttpGet("get-book-by-id/{id}")]
         public IActionResult GetBookById(int id)
         {
