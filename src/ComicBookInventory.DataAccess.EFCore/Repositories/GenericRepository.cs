@@ -51,7 +51,12 @@ namespace ComicBookInventory.DataAccess
 
         public void Remove(T entity)
         {
-            DbContext.Set<T>().Remove(entity);
+            var e = DbContext.Set<T>().Find(entity);
+            if (e != null)
+            { 
+                DbContext.Set<T>().Remove(entity);
+                DbContext.SaveChanges();
+            }
         }
 
         public void RemoveById(int id)

@@ -1,4 +1,5 @@
-﻿using ComicBookInventory.Shared;
+﻿using ComicBookInventory.Exceptions;
+using ComicBookInventory.Shared;
 
 namespace ComicBookInventory.DataAccess
 {
@@ -18,14 +19,29 @@ namespace ComicBookInventory.DataAccess
             return characters;
         }
 
-        public void AddCharacter(CharacterViewModel character)
+        public void AddCharacter(CharacterViewModel model)
         {
             var _character = new Character()
             {
-                FullName = character.FullName,
+                FullName = model.FullName,
             };
             DbContext.Characters.Add(_character);
             DbContext.SaveChanges();
+        }
+
+
+        public void UpdateCharacter(int id, CharacterViewModel model)
+        {
+            var entity = DbContext.Characters.Where(c => c.Id == id).FirstOrDefault();
+            if (entity != null)
+            {
+                entity.FullName = model.FullName;
+                DbContext.SaveChanges();
+            }
+            else
+            {
+                throw new CharacterException($"Character with id {id} not found");
+            }
         }
     }
 }

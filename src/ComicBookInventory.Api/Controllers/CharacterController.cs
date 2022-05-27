@@ -22,7 +22,6 @@ namespace My_Books.Api.Controllers
             return Ok(characters);
         }
 
-        [HttpPost]
         [HttpPost("create-character")]
         public IActionResult CreateCharacter([FromBody] CharacterViewModel character)
         {
@@ -42,6 +41,35 @@ namespace My_Books.Api.Controllers
             catch (Exception ex)
             {
                 return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpPut("update-character/{id}")]
+        public IActionResult UpdateCharacter(int id, [FromBody] CharacterViewModel character)
+        {
+            _unitOfWork.Characters.UpdateCharacter(id, character);
+            return Ok();
+        }
+
+        [HttpDelete("delete-character/{id}")]
+        public IActionResult DeleteCharacter(int id)
+        {
+            try
+            {
+                var character = _unitOfWork.Characters.GetWhere(c => c.Id == id).FirstOrDefault();
+                if (character != null)
+                {
+                    _unitOfWork.Characters.Remove(character);
+                    return Ok($"{character.FullName} removed");
+                }
+                else
+                {
+                    return NotFound($"Id: {id} not found");
+                }
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, $"{ex.Message}");
             }
         }
     }
