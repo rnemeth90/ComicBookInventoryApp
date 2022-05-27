@@ -19,13 +19,30 @@ namespace ComicBookInventory.DataAccess
             return characters;
         }
 
+        public CharacterViewModel GetCharacterById(int id)
+        {
+            try
+            {
+                var entity = DbContext.Characters.Where(a => a.Id == id)
+                                        .Select(a => new CharacterViewModel()
+                                        {
+                                            FullName = a.FullName
+                                        }).FirstOrDefault();
+                return entity;
+            }
+            catch (CharacterException ex)
+            {
+                throw;
+            }
+        }
+
         public void AddCharacter(CharacterViewModel model)
         {
-            var _character = new Character()
+            var character = new Character()
             {
                 FullName = model.FullName,
             };
-            DbContext.Characters.Add(_character);
+            DbContext.Characters.Add(character);
             DbContext.SaveChanges();
         }
 

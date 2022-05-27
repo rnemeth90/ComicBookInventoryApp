@@ -9,39 +9,55 @@ namespace ComicBookInventory.DataAccess
         {
         }
 
-        public void AddAuthor(AuthorViewModel author)
+        public void AddAuthor(AuthorViewModel model)
         {
-            var _author = new Author()
+            try
             {
-                FullName = author.FullName,
-            };
-            DbContext.Authors.Add(_author);
-            DbContext.SaveChanges();
+                var author = new Author()
+                {
+                    FullName = model.FullName,
+                };
+                DbContext.Authors.Add(author);
+                DbContext.SaveChanges();
+            }
+            catch (AuthorException ex)
+            {
+                throw;
+            }
         }
 
         public AuthorViewModel GetAuthorById(int id)
         {
-            var _author = DbContext.Authors.Where(a => a.Id == id)
-                .Select(a => new AuthorViewModel()
-                { 
-                    FullName = a.FullName
-                }).FirstOrDefault();
-
-            return _author;
+            try
+            {
+                var entity = DbContext.Authors.Where(a => a.Id == id)
+                                        .Select(a => new AuthorViewModel()
+                                        {
+                                            FullName = a.FullName
+                                        }).FirstOrDefault();
+                return entity;
+            }
+            catch (AuthorException ex)
+            {
+                throw;
+            }
         }
 
-        public void UpdateAuthor(int id, AuthorViewModel author)
+        public void UpdateAuthor(int id, AuthorViewModel model)
         {
-            var _author = DbContext.Authors.Where(x => x.Id == id).FirstOrDefault();
-
-            if (_author != null)
-            { 
-                _author.FullName = author.FullName;
-                DbContext.SaveChanges();
-            }
-            else
+            try
             {
-                throw new AuthorException($"Author with id {id} not found");
+                var entity = DbContext.Authors.Where(x => x.Id == id).FirstOrDefault();
+
+                if (entity != null)
+                {
+                    entity.FullName = model.FullName;
+                    DbContext.SaveChanges();
+                }
+            }
+            catch (AuthorException ex)
+            {
+                throw;
             }
         }
     }

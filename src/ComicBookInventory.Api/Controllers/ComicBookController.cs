@@ -8,7 +8,7 @@ namespace My_Books.Api.Controllers
     [ApiController]
     public class ComicBookController : ControllerBase
     {
-        #region 
+        #region
         private IUnitOfWork _unitOfWork;
 
         public ComicBookController(IUnitOfWork unitOfWork)
@@ -75,7 +75,6 @@ namespace My_Books.Api.Controllers
             catch (Exception ex)
             {
                 return StatusCode(StatusCodes.Status500InternalServerError, $"{ex.Message}");
-
             }
         }
 
@@ -85,7 +84,7 @@ namespace My_Books.Api.Controllers
             // We should be able to fuzzy match the title as well...
             try
             {
-                var book = _unitOfWork.ComicBooks.Find(b => b.Title == title);
+                var book = _unitOfWork.ComicBooks.GetWhere(b => b.Title == title).FirstOrDefault();
                 if (book != null)
                 {
                     return Ok(book);
@@ -126,13 +125,18 @@ namespace My_Books.Api.Controllers
         [HttpPut("update-book/{id}")]
         public IActionResult UpdateBook(int id, [FromBody] ComicBookViewModel book)
         {
-            _unitOfWork.ComicBooks.UpdateBook(id, book);
-            
-            // here we should verify the book was updated
-            return Accepted(book);
+            try
+            {
+                _unitOfWork.ComicBooks.UpdateBook(id, book);
+                return Accepted(book);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, $"{ex.Message}");
+            }
         }
 
-        [HttpDelete("delete-comic-book/{id}")]
+        [HttpDelete("delete-comic-book-by-id/{id}")]
         public IActionResult DeleteBookById(int id)
         {
             try
@@ -147,7 +151,6 @@ namespace My_Books.Api.Controllers
                 {
                     return NotFound($"Id: {id} not found");
                 }
-
             }
             catch (Exception ex)
             {

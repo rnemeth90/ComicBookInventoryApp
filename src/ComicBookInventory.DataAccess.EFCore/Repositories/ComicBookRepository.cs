@@ -12,98 +12,137 @@ namespace ComicBookInventory.DataAccess
 
         public IEnumerable<ComicBookWithAuthorsAndCharactersViewModel> GetAllBooks()
         {
-            var books = DbContext.ComicBooks.Select(book => new ComicBookWithAuthorsAndCharactersViewModel()
+            try
             {
-                Title = book.Title,
-                Description = book.Description,
-                IsRead = book.IsRead,
-                DateRead = book.IsRead ? book.DateRead.Value : null,
-                Rating = book.IsRead ? book.Rating.Value : null,
-                Genre = book.Genre,
-                CoverUrl = book.CoverUrl,
-                AuthorNames = book.ComicBook_Authors.Select(n => n.Author.FullName).ToList(),
-                CharacterNames = book.ComicBook_Characters.Select(n => n.Character.FullName).ToList()   
-            }).ToList();
-            return books;
-        }
-
-        public ComicBookWithAuthorsAndCharactersViewModel GetBookById(int bookId)
-        {
-            var _book = DbContext.ComicBooks.Where(n => n.Id == bookId).Select(book => new ComicBookWithAuthorsAndCharactersViewModel()
-            {
-                Title = book.Title,
-                Description = book.Description,
-                IsRead = book.IsRead,
-                DateRead = book.IsRead ? book.DateRead.Value : null,
-                Rating = book.IsRead ? book.Rating.Value : null,
-                Genre = book.Genre,
-                CoverUrl = book.CoverUrl,
-                AuthorNames = book.ComicBook_Authors.Select(n => n.Author.FullName).ToList(),
-                CharacterNames = book.ComicBook_Characters.Select(n => n.Character.FullName).ToList()
-            }).FirstOrDefault();
-
-            return _book;
-        }
-
-        public void AddBook(ComicBookViewModel book)
-        {
-            var _book = new ComicBook()
-            {
-                Title = book.Title,
-                Description = book.Description,
-                IsRead = book.IsRead,
-                DateRead = book.IsRead ? book.DateRead.Value : null,
-                Rating = book.IsRead ? book.Rating.Value : null,
-                Genre = book.Genre,
-                CoverUrl = book.CoverUrl,
-                DateAdded = DateTime.Now,
-
-            };
-            DbContext.ComicBooks.Add(_book);
-            DbContext.SaveChanges();
-
-            foreach (var id in book.AuthorIds)
-            {
-                var _book_author = new ComicBook_Author()
+                var entities = DbContext.ComicBooks.Select(model => new ComicBookWithAuthorsAndCharactersViewModel()
                 {
-                    ComicBookId = _book.Id,
-                    AuthorId = id
-                };
-                DbContext.ComicBooks_Authors.Add(_book_author);
-                DbContext.SaveChanges();
+                    Title = model.Title,
+                    Description = model.Description,
+                    IsRead = model.IsRead,
+                    DateRead = model.IsRead ? model.DateRead.Value : null,
+                    Rating = model.IsRead ? model.Rating.Value : null,
+                    Genre = model.Genre,
+                    CoverUrl = model.CoverUrl,
+                    AuthorNames = model.ComicBook_Authors.Select(n => n.Author.FullName).ToList(),
+                    CharacterNames = model.ComicBook_Characters.Select(n => n.Character.FullName).ToList()
+                }).ToList();
+                return entities;
             }
-
-            foreach (var id in book.CharacterIds)
+            catch (ComicBookException ex)
             {
-                var _book_character = new ComicBook_Character()
+                throw;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        public ComicBookWithAuthorsAndCharactersViewModel GetBookById(int id)
+        {
+            try
+            {
+                var entity = DbContext.ComicBooks.Where(n => n.Id == id).Select(model => new ComicBookWithAuthorsAndCharactersViewModel()
                 {
-                    ComicBookId = _book.Id,
-                    CharacterId = id
+                    Title = model.Title,
+                    Description = model.Description,
+                    IsRead = model.IsRead,
+                    DateRead = model.IsRead ? model.DateRead.Value : null,
+                    Rating = model.IsRead ? model.Rating.Value : null,
+                    Genre = model.Genre,
+                    CoverUrl = model.CoverUrl,
+                    AuthorNames = model.ComicBook_Authors.Select(n => n.Author.FullName).ToList(),
+                    CharacterNames = model.ComicBook_Characters.Select(n => n.Character.FullName).ToList()
+                }).FirstOrDefault();
+                return entity;
+            }
+            catch (ComicBookException ex)
+            {
+                throw;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        public void AddBook(ComicBookViewModel model)
+        {
+            // do we need to call .SaveChanges() 3x here?? Likely not. Need to test
+            try
+            {
+                var entity = new ComicBook()
+                {
+                    Title = model.Title,
+                    Description = model.Description,
+                    IsRead = model.IsRead,
+                    DateRead = model.IsRead ? model.DateRead.Value : null,
+                    Rating = model.IsRead ? model.Rating.Value : null,
+                    Genre = model.Genre,
+                    CoverUrl = model.CoverUrl,
+                    DateAdded = DateTime.Now,
+
                 };
-                DbContext.ComicBooks_Characters.Add(_book_character);
+                DbContext.ComicBooks.Add(entity);
                 DbContext.SaveChanges();
+
+                foreach (var id in model.AuthorIds)
+                {
+                    var _book_author = new ComicBook_Author()
+                    {
+                        ComicBookId = entity.Id,
+                        AuthorId = id
+                    };
+                    DbContext.ComicBooks_Authors.Add(_book_author);
+                    DbContext.SaveChanges();
+                }
+
+                foreach (var id in model.CharacterIds)
+                {
+                    var _book_character = new ComicBook_Character()
+                    {
+                        ComicBookId = entity.Id,
+                        CharacterId = id
+                    };
+                    DbContext.ComicBooks_Characters.Add(_book_character);
+                    DbContext.SaveChanges();
+                }
+            }
+            catch (ComicBookException ex)
+            {
+                throw;
+            }
+            catch (Exception ex)
+            {
+                throw;
             }
         }
 
         public void UpdateBook(int id, ComicBookViewModel model)
         {
-            var book = DbContext.ComicBooks.Where(n => n.Id == id).FirstOrDefault();
-
-            if (book != null)
-            { 
-                book.Genre = model.Genre;
-                book.CoverUrl = model.CoverUrl;
-                book.IsRead = model.IsRead;
-                book.Description = model.Description;
-                book.DateRead = book.DateRead == null ? book.DateRead = DateTime.Now : book.DateRead;
-                book.Rating = model.Rating;
-                book.CoverUrl = model.CoverUrl;
-                book.Title = model.Title;
-                DbContext.SaveChanges();
-            }
-            else
+            try
             {
-                throw new ComicBookException($"Comic Book with id {id} not found");
+                var entity = DbContext.ComicBooks.Where(n => n.Id == id).FirstOrDefault();
+                if (entity != null)
+                {
+                    entity.Genre = model.Genre;
+                    entity.CoverUrl = model.CoverUrl;
+                    entity.IsRead = model.IsRead;
+                    entity.Description = model.Description;
+                    entity.DateRead = entity.DateRead == null ? entity.DateRead = DateTime.Now : entity.DateRead;
+                    entity.Rating = model.Rating;
+                    entity.CoverUrl = model.CoverUrl;
+                    entity.Title = model.Title;
+                    DbContext.SaveChanges();
+                }
+            }
+            catch (ComicBookException ex)
+            {
+                throw;
+            }
+            catch (Exception ex)
+            {
+                throw;
             }
         }
     }

@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ComicBookInventory.Shared;
+using ComicBookInventory.Exceptions;
+using System.Text.Json;
 
 namespace My_Books.Api.Controllers
 {
@@ -17,19 +19,34 @@ namespace My_Books.Api.Controllers
         [HttpGet("get-all-authors")]
         public IActionResult GetAllAuthors()
         {
-            var _authors = _unitOfWork.Authors.GetAll();
-            return Ok(_authors);
+            try
+            {
+                var authors = _unitOfWork.Authors.GetAll();
+                if (authors != null)
+                {
+                    return Ok(authors);
+                }
+                else
+                {
+                    return NotFound("No authors found");
+                }
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, $"ex.Message");
+            }
         }
+
 
         [HttpGet("get-author-by-id/{id}")]
         public IActionResult GetAuthorById(int id)
         { 
             try
             {
-                var _author = _unitOfWork.Authors.GetAuthorById(id);
-                if (_author != null)
+                var author = _unitOfWork.Authors.GetAuthorById(id);
+                if (author != null)
                 {
-                    return Ok(_author);
+                    return Ok(author);
                 }
                 else
                 {
@@ -39,40 +56,66 @@ namespace My_Books.Api.Controllers
             catch (Exception ex)
             {
                 return StatusCode(StatusCodes.Status500InternalServerError, $"{ex.Message}");
-
             }
         }
 
-        [HttpPost("add-author")]
-        public IActionResult CreateAuthor([FromBody] AuthorViewModel model)
-        {
-            var author = _unitOfWork.Authors.GetWhere(a => a.FullName == model.FullName);
 
-            if (!author.Any())
+        [HttpPost("add-author")]
+        public IActionResult AddAuthor([FromBody] AuthorViewModel author)
+        {
+            try
             {
-                _unitOfWork.Authors.AddAuthor(model);
-                _unitOfWork.Save();
-                return Ok($"Author {model.FullName} created");
+                _unitOfWork.Authors.AddAuthor(author);
+                var entity = _unitOfWork.Authors.GetWhere(c => c.FullName == author.FullName);
+                if (entity != null)
+                {
+                    return Created(nameof(AddAuthor), JsonSerializer.Serialize(entity));
+                }
+                else
+                {
+                    return BadRequest($"Unable to create {author.FullName}. Please try again.");
+                }
             }
-            else
+            catch (Exception ex)
             {
-                return StatusCode(StatusCodes.Status409Conflict,$"{model.FullName} already exists in the database.");
+                return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
             }
         }
 
         [HttpPut("update-author-by-id/{id}")]
-        public IActionResult UpdateAuthor(int id, [FromBody] AuthorViewModel author)
+        public IActionResult UpdateAuthorById(int id, [FromBody] AuthorViewModel author)
         {
-            _unitOfWork.Authors.UpdateAuthor(id, author);
-            return Accepted(author);
+            try
+            {
+                _unitOfWork.Authors.UpdateAuthor(id, author);
+                return Accepted(author);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, $"{ex.Message}");
+            }
         }
 
-        [HttpDelete("delete-author/{id}")]
-        public IActionResult DeleteById(int id)
+        [HttpDelete("delete-author-by-id/{id}")]
+        public IActionResult DeleteAuthorById(int id)
         { 
-            _unitOfWork.Authors.RemoveById(id);
-            _unitOfWork.Save();
-            return Ok();
+            try
+            {
+                var a = _unitOfWork.Authors.GetAuthorById(id);
+                if (a != null)
+                {
+                    _unitOfWork.Authors.RemoveById(id);
+                    return Ok($"{a.FullName} removed");
+                }
+                else
+                {
+                    return NotFound($"Id: {id} not found");
+                }
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, $"{ex.Message}");
+            }
         }
     }
 }

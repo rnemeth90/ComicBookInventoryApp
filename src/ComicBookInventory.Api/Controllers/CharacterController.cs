@@ -18,12 +18,47 @@ namespace My_Books.Api.Controllers
         [HttpGet("get-all-characters")]
         public IActionResult GetAllCharacters()
         {
-            var characters = _unitOfWork.Characters.GetAll();
-            return Ok(characters);
+            try
+            {
+                var characters = _unitOfWork.Characters.GetAll();
+                if (characters != null)
+                {
+                    return Ok(characters);
+                }
+                else
+                {
+                    return NotFound("No characters found");
+                }
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, $"ex.Message");
+            }
         }
 
-        [HttpPost("create-character")]
-        public IActionResult CreateCharacter([FromBody] CharacterViewModel character)
+        [HttpGet("get-character-by-id/{id}")]
+        public IActionResult GetCharacterById(int id)
+        {
+            try
+            {
+                var character = _unitOfWork.Characters.GetCharacterById(id);
+                if (character != null)
+                {
+                    return Ok(character);
+                }
+                else
+                {
+                    return NotFound($"Character with id {id} not found");
+                }
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, $"{ex.Message}");
+            }
+        }
+
+        [HttpPost("add-character")]
+        public IActionResult AddCharacter([FromBody] CharacterViewModel character)
         {
             try
             {
@@ -31,7 +66,7 @@ namespace My_Books.Api.Controllers
                 var entity = _unitOfWork.Characters.GetWhere(c => c.FullName == character.FullName);
                 if (entity != null)
                 {
-                    return Created(nameof(CreateCharacter), JsonSerializer.Serialize(entity));
+                    return Created(nameof(AddCharacter), JsonSerializer.Serialize(entity));
                 }
                 else
                 {
@@ -47,11 +82,18 @@ namespace My_Books.Api.Controllers
         [HttpPut("update-character/{id}")]
         public IActionResult UpdateCharacter(int id, [FromBody] CharacterViewModel character)
         {
-            _unitOfWork.Characters.UpdateCharacter(id, character);
-            return Ok();
+            try
+            {
+                _unitOfWork.Characters.UpdateCharacter(id, character);
+                return Accepted(character);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, $"{ex.Message}");
+            }
         }
 
-        [HttpDelete("delete-character/{id}")]
+        [HttpDelete("delete-character-by-id/{id}")]
         public IActionResult DeleteCharacter(int id)
         {
             try

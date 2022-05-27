@@ -31,22 +31,26 @@ namespace ComicBookInventory.DataAccess
 
         public void Add(T entity)
         {
-            DbContext.Set<T>().Add(entity);    
+            DbContext.Set<T>().Add(entity);
+            DbContext.SaveChanges();
         }
 
         public void AddRange(IEnumerable<T> entities)
         {
             DbContext.Set<T>().AddRange(entities);
+            DbContext.SaveChanges();
         }
 
         public void Update(T entity)
         { 
             DbContext.Set<T>().Update(entity);
+            DbContext.SaveChanges();
         }
 
         public void UpdateRange(IEnumerable<T> entities)
         { 
             DbContext.Set<T>().UpdateRange(entities);
+            DbContext.SaveChanges();
         }
 
         public void Remove(T entity)
@@ -77,11 +81,13 @@ namespace ComicBookInventory.DataAccess
             { 
                 DbContext.Set<T>().Remove(entity);
             }
+            DbContext.SaveChanges();
         }
 
         public void RemoveRange(IEnumerable<T> entities)
         {
             DbContext.Set<T>().RemoveRange(entities);
+            DbContext.SaveChanges();
         }
     }
 }
