@@ -87,8 +87,16 @@ namespace My_Books.Api.Controllers
         {
             try
             {
-                _unitOfWork.Authors.UpdateAuthor(id, author);
-                return Accepted(author);
+                var a = _unitOfWork.Authors.GetAuthorById(id);
+                if (a != null)
+                {
+                    _unitOfWork.Authors.UpdateAuthor(id, author);
+                    return Accepted(author);
+                }
+                else
+                {
+                    return NotFound($"Author with id {id} not found");
+                }
             }
             catch (Exception ex)
             {
