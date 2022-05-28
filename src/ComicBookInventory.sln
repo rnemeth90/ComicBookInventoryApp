@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ComicBookInventory.Domain",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ComicBookInventory.DataAccess.EFCore", "ComicBookInventory.DataAccess.EFCore\ComicBookInventory.DataAccess.EFCore.csproj", "{8AD43C50-C1E3-4760-B966-EDCAA66D3B1E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ComicBookInventory.Web", "ComicBookInventory.Web\ComicBookInventory.Web.csproj", "{4B6C54E7-3507-4A14-8364-D660396C3E8B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ComicBookInventory.Web", "ComicBookInventory.Web\ComicBookInventory.Web.csproj", "{B6E00D9A-3E62-4BCA-B476-CAFE8D3280DF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +29,10 @@ Global
 		{8AD43C50-C1E3-4760-B966-EDCAA66D3B1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8AD43C50-C1E3-4760-B966-EDCAA66D3B1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8AD43C50-C1E3-4760-B966-EDCAA66D3B1E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4B6C54E7-3507-4A14-8364-D660396C3E8B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4B6C54E7-3507-4A14-8364-D660396C3E8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4B6C54E7-3507-4A14-8364-D660396C3E8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4B6C54E7-3507-4A14-8364-D660396C3E8B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B6E00D9A-3E62-4BCA-B476-CAFE8D3280DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6E00D9A-3E62-4BCA-B476-CAFE8D3280DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6E00D9A-3E62-4BCA-B476-CAFE8D3280DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6E00D9A-3E62-4BCA-B476-CAFE8D3280DF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
