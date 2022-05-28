@@ -18,6 +18,7 @@ namespace ComicBookInventory.API
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors();
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
@@ -43,6 +44,7 @@ namespace ComicBookInventory.API
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+
             if (env.IsDevelopment())
             {
                 AppDbInitializer.Seed(app);
@@ -55,6 +57,12 @@ namespace ComicBookInventory.API
             app.UseAuthorization();
 
             app.ConfigureBuiltInExceptionHandler();
+
+            app.UseCors(configurePolicy: options =>
+            {
+                options.WithMethods("GET", "POST", "PUT", "DELETE");
+                options.WithOrigins("https://localhost:6001");
+            });
             
             app.UseEndpoints(endpoints =>
             {

@@ -1,0 +1,32 @@
+﻿@using ComicBookInventory.Shared;
+@model IEnumerable<ComicBookWithAuthorsAndCharactersViewModel>
+@{
+}
+
+<h2>All Comics</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Rating</th>
+            <th>Authors</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @if (Model is not null)
+        {
+            @foreach (var c in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(i => c.Title)</td>
+                    <td>@Html.DisplayFor(i => c.Description)</td>
+                    <td>@Html.DisplayFor(i => c.Rating)</td>
+                    <td>@Html.DisplayFor(i => c.AuthorNames)</td>
+                </tr>
+            }
+        }
+    </tbody>
+
+</table>
