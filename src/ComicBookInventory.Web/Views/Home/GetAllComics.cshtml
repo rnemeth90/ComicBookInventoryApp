@@ -10,7 +10,7 @@
             <th>Title</th>
             <th>Description</th>
             <th>Rating</th>
-            <th>Authors</th>
+            <th></th>
         </tr>
     </thead>
 
@@ -23,10 +23,13 @@
                     <td>@Html.DisplayFor(i => c.Title)</td>
                     <td>@Html.DisplayFor(i => c.Description)</td>
                     <td>@Html.DisplayFor(i => c.Rating)</td>
-                    <td>@Html.DisplayFor(i => c.AuthorNames)</td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id=c.Title }) |
+                        @Html.ActionLink("Details", "Details", new { id=c.Title}) |
+                        @Html.ActionLink("Delete", "Delete", new { id=c.Title })
+                    </td>
                 </tr>
             }
         }
     </tbody>
-
 </table>
