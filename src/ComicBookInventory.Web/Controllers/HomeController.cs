@@ -1,6 +1,7 @@
 ﻿using ComicBookInventory.Shared;
 using Microsoft.AspNetCore.Mvc;
-using System.Diagnostics;
+
+// this is not DRY, need to abstract repetitive patterns
 
 namespace ComicBookInventory.Web.Controllers
 {
@@ -8,7 +9,6 @@ namespace ComicBookInventory.Web.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly IHttpClientFactory _httpClientFactory;
-
         public HomeController(ILogger<HomeController> logger, IHttpClientFactory httpClientFactory)
         {
             _logger = logger;
@@ -54,6 +54,26 @@ namespace ComicBookInventory.Web.Controllers
 
             return View(model);
         }
+
+
+
+        // need to test this
+        //[HttpGet("{id}")]
+        //public async Task<IActionResult> Edit(int id, [FromBody] ComicBookViewModel body)
+        //{
+        //    string uri = $"https://localhost:5001/api/ComicBook/get-book-by-id/{id}";
+        //    HttpClient client = _httpClientFactory.CreateClient(
+        //            name: "ComicbookInventory.Api");
+
+        //    var response = await client.PostAsJsonAsync(uri, body);
+
+        //    if (response.IsSuccessStatusCode)
+        //    {
+        //        return RedirectToAction($"GetComicById({id})");
+        //    }
+        //    return View("Error");
+        //}
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

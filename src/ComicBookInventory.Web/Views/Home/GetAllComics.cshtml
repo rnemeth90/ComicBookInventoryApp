@@ -24,9 +24,10 @@
                     <td>@Html.DisplayFor(i => c.Description)</td>
                     <td>@Html.DisplayFor(i => c.Rating)</td>
                     <td>
-                        @Html.ActionLink("Edit", "UpdateComic", new { id=c.Id }) |
+                        @Html.ActionLink("Edit", "EditComic", new { id=c.Id }) |
                         @Html.ActionLink("Details", "GetComicByid", new { id=c.Id}) |
                         @Html.ActionLink("Delete", "DeleteComic", new { id=c.Id })
+
                     </td>
                 </tr>
             }
