@@ -1,0 +1,34 @@
+﻿@using ComicBookInventory.Shared;
+@model ComicBookWithAuthorsAndCharactersViewModel
+@{
+}
+
+<h2>All Comics</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Rating</th>
+            <th>Genre</th>
+            <th>Read?</th>
+            <th>Date Read</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @if (Model is not null)
+        {
+            <tr>
+                <td>@Html.DisplayFor(i => Model.Id)</td>
+                <td>@Html.DisplayFor(i => Model.Title)</td>
+                <td>@Html.DisplayFor(i => Model.Description)</td>
+                <td>@Html.DisplayFor(i => Model.Rating)</td>
+                <td>@Html.DisplayFor(i => Model.Genre)</td>
+                <td>@Html.DisplayFor(i => Model.IsRead)</td>
+                <td>@Html.DisplayFor(i => Model.DateRead)</td>
+            </tr>
+        }
+    </tbody>
+</table>

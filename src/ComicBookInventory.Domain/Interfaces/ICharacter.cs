@@ -3,6 +3,5 @@
     public interface ICharacter
     {
         string? FullName { get; set; }
-    
     }
 }

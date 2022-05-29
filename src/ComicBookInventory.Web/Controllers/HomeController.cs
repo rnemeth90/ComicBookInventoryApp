@@ -40,6 +40,21 @@ namespace ComicBookInventory.Web.Controllers
             return View(model);
         }
 
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetComicById(int id)
+        {
+            string uri = $"https://localhost:5001/api/ComicBook/get-book-by-id/{id}";
+            HttpClient client = _httpClientFactory.CreateClient(
+                    name: "ComicbookInventory.Api");
+
+            var request = new HttpRequestMessage(HttpMethod.Get, uri);
+            var response = await client.SendAsync(request);
+            ComicBookWithAuthorsAndCharactersViewModel? model = await response.Content
+                .ReadFromJsonAsync<ComicBookWithAuthorsAndCharactersViewModel>();
+
+            return View(model);
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

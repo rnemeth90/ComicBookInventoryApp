@@ -14,6 +14,7 @@ namespace ComicBookInventory.DataAccess
         {
             var characters = DbContext.Characters.Select(c => new CharacterViewModel()
             {
+                Id = c.Id,
                 FullName = c.FullName
             }).ToList();
             return characters;
@@ -26,6 +27,7 @@ namespace ComicBookInventory.DataAccess
                 var entity = DbContext.Characters.Where(a => a.Id == id)
                                         .Select(a => new CharacterViewModel()
                                         {
+                                            Id =a.Id,
                                             FullName = a.FullName
                                         }).FirstOrDefault();
                 return entity;

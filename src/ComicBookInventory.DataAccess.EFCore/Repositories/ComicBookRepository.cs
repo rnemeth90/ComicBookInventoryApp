@@ -16,6 +16,7 @@ namespace ComicBookInventory.DataAccess
             {
                 var entities = DbContext.ComicBooks.Select(model => new ComicBookWithAuthorsAndCharactersViewModel()
                 {
+                    Id = model.Id,
                     Title = model.Title,
                     Description = model.Description,
                     IsRead = model.IsRead,
@@ -44,6 +45,7 @@ namespace ComicBookInventory.DataAccess
             {
                 var entity = DbContext.ComicBooks.Where(n => n.Id == id).Select(model => new ComicBookWithAuthorsAndCharactersViewModel()
                 {
+                    Id = model.Id,
                     Title = model.Title,
                     Description = model.Description,
                     IsRead = model.IsRead,

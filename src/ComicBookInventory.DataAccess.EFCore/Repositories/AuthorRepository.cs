@@ -15,6 +15,7 @@ namespace ComicBookInventory.DataAccess
             {
                 var author = new Author()
                 {
+                    Id = model.Id,
                     FullName = model.FullName,
                 };
                 DbContext.Authors.Add(author);
@@ -33,6 +34,7 @@ namespace ComicBookInventory.DataAccess
                 var entity = DbContext.Authors.Where(a => a.Id == id)
                                         .Select(a => new AuthorViewModel()
                                         {
+                                            Id = a.Id,
                                             FullName = a.FullName
                                         }).FirstOrDefault();
                 return entity;
