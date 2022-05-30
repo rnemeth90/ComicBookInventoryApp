@@ -15,8 +15,8 @@
         /// Navigation properties
         /// </summary>
         /// a book can have many authors and characters
-        public List<int> AuthorIds { get; set; }
-        public List<int> CharacterIds { get; set; }
+        public List<int>? AuthorIds { get; set; }
+        public List<int>? CharacterIds { get; set; }
 
     }
 }

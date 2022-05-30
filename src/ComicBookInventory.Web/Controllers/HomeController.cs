@@ -1,5 +1,7 @@
 ﻿using ComicBookInventory.Shared;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
+using System.Text;
 
 // this is not DRY, need to abstract repetitive patterns
 
@@ -78,10 +80,11 @@ namespace ComicBookInventory.Web.Controllers
             string uri = $"https://localhost:5001/api/ComicBook/update-book/{model.Id}";
             HttpClient client = _httpClientFactory.CreateClient(
                     name: "ComicbookInventory.Api");
+            var json = new StringContent(JsonConvert.SerializeObject(model), Encoding.UTF8, "application/json");
 
-            var put = client.PutAsJsonAsync<ComicBookWithAuthorsAndCharactersViewModel>(uri, model);
-            put.Wait();
-            var result = put.Result;
+            var patch = client.PatchAsync(uri, json);
+            patch.Wait();
+            var result = patch.Result;
             if (result.IsSuccessStatusCode)
             {
                 return RedirectToAction("GetAllComics");
@@ -91,7 +94,7 @@ namespace ComicBookInventory.Web.Controllers
 
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActioneResult Error()
+        public IActionResult Error()
         {
             return View(new ErrorViewModel { });
         }
