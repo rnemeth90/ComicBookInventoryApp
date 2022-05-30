@@ -59,7 +59,7 @@ namespace ComicBookInventory.Web.Controllers
 
         public async Task<IActionResult> EditComic(int id)
         {
-            ComicBookWithAuthorsAndCharactersViewModel? model = null;
+            ComicBookViewModel? model = null;
             string uri = $"https://localhost:5001/api/ComicBook/get-book-by-id/{id}";
             HttpClient client = _httpClientFactory.CreateClient(
                     name: "ComicbookInventory.Api");
@@ -69,27 +69,43 @@ namespace ComicBookInventory.Web.Controllers
 
             if (response.IsSuccessStatusCode)
             {
-                model = await response.Content.ReadFromJsonAsync<ComicBookWithAuthorsAndCharactersViewModel>();
+                model = await response.Content.ReadFromJsonAsync<ComicBookViewModel>();
             }
             return View(model);
         }
 
         [HttpPost]
-        public ActionResult EditComic(ComicBookWithAuthorsAndCharactersViewModel model)
+        public async Task<ActionResult> EditComic(ComicBookViewModel model)
         {
             string uri = $"https://localhost:5001/api/ComicBook/update-book/{model.Id}";
             HttpClient client = _httpClientFactory.CreateClient(
                     name: "ComicbookInventory.Api");
             var json = new StringContent(JsonConvert.SerializeObject(model), Encoding.UTF8, "application/json");
 
-            var patch = client.PatchAsync(uri, json);
-            patch.Wait();
-            var result = patch.Result;
+            var result = await client.PatchAsync(uri, json);
+
             if (result.IsSuccessStatusCode)
             {
                 return RedirectToAction("GetAllComics");
             }
             return View(model);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> DeleteComic(int id)
+        {
+            string uri = $"https://localhost:5001/api/ComicBook/delete-comic-book-by-id/{id}";
+            HttpClient client = _httpClientFactory.CreateClient(
+                    name: "ComicbookInventory.Api");
+
+            //var request = new HttpRequestMessage(HttpMethod.Delete, uri);
+            var response = await client.DeleteAsync(uri);
+
+            if (response.IsSuccessStatusCode)
+            {
+                return RedirectToAction("GetAllComics");
+            }
+            return View(Error);
         }
 
 
