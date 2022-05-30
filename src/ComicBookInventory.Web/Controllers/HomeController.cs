@@ -55,23 +55,39 @@ namespace ComicBookInventory.Web.Controllers
             return View(model);
         }
 
+        public async Task<IActionResult> EditComic(int id)
+        {
+            ComicBookWithAuthorsAndCharactersViewModel? model = null;
+            string uri = $"https://localhost:5001/api/ComicBook/get-book-by-id/{id}";
+            HttpClient client = _httpClientFactory.CreateClient(
+                    name: "ComicbookInventory.Api");
 
+            var request = new HttpRequestMessage(HttpMethod.Get, uri);
+            var response = await client.SendAsync(request);
 
-        // need to test this
-        //[HttpGet("{id}")]
-        //public async Task<IActionResult> Edit(int id, [FromBody] ComicBookViewModel body)
+            if (response.IsSuccessStatusCode)
+            {
+                model = await response.Content.ReadFromJsonAsync<ComicBookWithAuthorsAndCharactersViewModel>();
+            }
+            return View(model);
+        }
+
+        //[HttpPost]
+        //public ActionResult Edit(ComicBookWithAuthorsAndCharactersViewModel model)
         //{
+        //    var userId = Request.HttpContext.Request;
         //    string uri = $"https://localhost:5001/api/ComicBook/get-book-by-id/{id}";
         //    HttpClient client = _httpClientFactory.CreateClient(
         //            name: "ComicbookInventory.Api");
 
-        //    var response = await client.PostAsJsonAsync(uri, body);
-
-        //    if (response.IsSuccessStatusCode)
+        //    var put = client.PutAsJsonAsync<ComicBookWithAuthorsAndCharactersViewModel>(uri, model);
+        //    put.Wait();
+        //    var result = put.Result;
+        //    if (result.IsSuccessStatusCode)
         //    {
-        //        return RedirectToAction($"GetComicById({id})");
+        //        return RedirectToAction("GetAllComics");
         //    }
-        //    return View("Error");
+        //    return View(model);
         //}
 
 
