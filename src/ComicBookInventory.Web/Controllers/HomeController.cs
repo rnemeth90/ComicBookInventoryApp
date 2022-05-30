@@ -72,27 +72,26 @@ namespace ComicBookInventory.Web.Controllers
             return View(model);
         }
 
-        //[HttpPost]
-        //public ActionResult Edit(ComicBookWithAuthorsAndCharactersViewModel model)
-        //{
-        //    var userId = Request.HttpContext.Request;
-        //    string uri = $"https://localhost:5001/api/ComicBook/get-book-by-id/{id}";
-        //    HttpClient client = _httpClientFactory.CreateClient(
-        //            name: "ComicbookInventory.Api");
+        [HttpPost]
+        public ActionResult EditComic(ComicBookWithAuthorsAndCharactersViewModel model)
+        {
+            string uri = $"https://localhost:5001/api/ComicBook/update-book/{model.Id}";
+            HttpClient client = _httpClientFactory.CreateClient(
+                    name: "ComicbookInventory.Api");
 
-        //    var put = client.PutAsJsonAsync<ComicBookWithAuthorsAndCharactersViewModel>(uri, model);
-        //    put.Wait();
-        //    var result = put.Result;
-        //    if (result.IsSuccessStatusCode)
-        //    {
-        //        return RedirectToAction("GetAllComics");
-        //    }
-        //    return View(model);
-        //}
+            var put = client.PutAsJsonAsync<ComicBookWithAuthorsAndCharactersViewModel>(uri, model);
+            put.Wait();
+            var result = put.Result;
+            if (result.IsSuccessStatusCode)
+            {
+                return RedirectToAction("GetAllComics");
+            }
+            return View(model);
+        }
 
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
+        public IActioneResult Error()
         {
             return View(new ErrorViewModel { });
         }
