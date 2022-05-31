@@ -3,8 +3,6 @@ using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System.Text;
 
-// this is not DRY, need to abstract repetitive patterns
-
 namespace ComicBookInventory.Web.Controllers
 {
     public class HomeController : Controller

@@ -82,7 +82,7 @@ namespace My_Books.Api.Controllers
             }
         }
 
-        [HttpPut("update-author-by-id/{id}")]
+        [HttpPatch("update-author-by-id/{id}")]
         public IActionResult UpdateAuthorById(int id, [FromBody] AuthorViewModel author)
         {
             try
