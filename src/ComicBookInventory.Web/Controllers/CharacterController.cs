@@ -5,59 +5,59 @@ using System.Text;
 
 namespace ComicBookInventory.Web.Controllers
 {
-    public class AuthorController : Controller
+    public class CharacterController : Controller
     {
-        private readonly ILogger<ComicBookController> _logger;
+        private readonly ILogger<CharacterController> _logger;
         private readonly IHttpClientFactory _httpClientFactory;
 
-        public AuthorController(ILogger<ComicBookController> logger, IHttpClientFactory httpClientFactory)
+        public CharacterController(ILogger<CharacterController> logger, IHttpClientFactory httpClientFactory)
         {
             _logger = logger;
-            _httpClientFactory = httpClientFactory;
+            _httpClientFactory = httpClientFactory; 
         }
 
-        public ActionResult Index()
+        public IActionResult Index()
         {
             return RedirectToAction("Index", "Home");
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetAllAuthors()
+        public async Task<IActionResult> GetAllCharacters()
         {
-            string uri = "https://localhost:5001/api/Authors/get-all-authors";
+            string uri = "https://localhost:5001/api/character/get-all-characters";
 
             HttpClient client = _httpClientFactory.CreateClient(
                     name: "ComicbookInventory.Api");
 
             var request = new HttpRequestMessage(HttpMethod.Get, uri);
             var response = await client.SendAsync(request);
-            IEnumerable<AuthorViewModel>? model = await response.Content
-                .ReadFromJsonAsync<IEnumerable<AuthorViewModel>>();
+            IEnumerable<CharacterViewModel>? model = await response.Content
+                .ReadFromJsonAsync<IEnumerable<CharacterViewModel>>();
 
             return View(model);
         }
 
         [HttpGet("{id}")]
-        [Route("author/")]
+        [Route("character/")]
         public async Task<IActionResult> AuthorDetails(int id)
         {
-            string uri = $"https://localhost:5001/api/Authors/get-author-by-id/{id}";
+            string uri = $"https://localhost:5001/api/character/get-character-by-id/{id}";
             HttpClient client = _httpClientFactory.CreateClient(
                     name: "ComicbookInventory.Api");
 
             var request = new HttpRequestMessage(HttpMethod.Get, uri);
             var response = await client.SendAsync(request);
-            AuthorViewModel? model = await response.Content
-                .ReadFromJsonAsync<AuthorViewModel>();
+            CharacterViewModel? model = await response.Content
+                .ReadFromJsonAsync<CharacterViewModel>();
 
             return View(model);
         }
 
         [HttpGet]
-        public async Task<IActionResult> EditAuthor(int id)
+        public async Task<IActionResult> EditCharacter(int id)
         {
-            AuthorViewModel? model = null;
-            string uri = $"https://localhost:5001/api/Authors/get-author-by-id/{id}";
+            CharacterViewModel? model = null;
+            string uri = $"https://localhost:5001/api/character/get-character-by-id/{id}";
             HttpClient client = _httpClientFactory.CreateClient(
                     name: "ComicbookInventory.Api");
 
@@ -66,15 +66,15 @@ namespace ComicBookInventory.Web.Controllers
 
             if (response.IsSuccessStatusCode)
             {
-                model = await response.Content.ReadFromJsonAsync<AuthorViewModel>();
+                model = await response.Content.ReadFromJsonAsync<CharacterViewModel>();
             }
             return View(model);
         }
 
         [HttpPost]
-        public async Task<ActionResult> EditAuthor(AuthorViewModel model)
+        public async Task<ActionResult> EditCharacter(CharacterViewModel model)
         {
-            string uri = $"https://localhost:5001/api/Authors/update-author-by-id/{model.Id}";
+            string uri = $"https://localhost:5001/api/character/update-character-by-id/{model.Id}";
             HttpClient client = _httpClientFactory.CreateClient(
                     name: "ComicbookInventory.Api");
             var json = new StringContent(JsonConvert.SerializeObject(model), Encoding.UTF8, "application/json");
@@ -83,15 +83,15 @@ namespace ComicBookInventory.Web.Controllers
 
             if (result.IsSuccessStatusCode)
             {
-                return RedirectToAction("GetAllAuthors");
+                return RedirectToAction("GetAllCharacters");
             }
             return View(model);
         }
 
         [HttpGet]
-        public async Task<IActionResult> DeleteAuthor(int id)
+        public async Task<IActionResult> DeleteCharacter(int id)
         {
-            string uri = $"https://localhost:5001/api/Authors/delete-author-by-id/{id}";
+            string uri = $"https://localhost:5001/api/character/delete-character-by-id/{id}";
             HttpClient client = _httpClientFactory.CreateClient(
                     name: "ComicbookInventory.Api");
 
@@ -99,7 +99,7 @@ namespace ComicBookInventory.Web.Controllers
 
             if (response.IsSuccessStatusCode)
             {
-                return RedirectToAction("GetAllAuthors");
+                return RedirectToAction("GetAllCharacters");
             }
             return RedirectToAction("Error");
         }
