@@ -1,0 +1,31 @@
+﻿@using ComicBookInventory.Shared;
+@model IEnumerable<CharacterViewModel>
+@{
+}
+
+<h2>All Authors</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Full Name</th>
+            <th></th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @if (Model is not null)
+        {
+            @foreach (var c in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(i => c.FullName)</td>
+                    <td>
+                        @Html.ActionLink("Edit", "EditCharacter", new { id=c.Id }) |
+                        @Html.ActionLink("Details", "CharacterDetails", new { id=c.Id}) |
+                        @Html.ActionLink("Delete", "DeleteCharacter", new { id=c.Id })
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
