@@ -104,6 +104,26 @@ namespace ComicBookInventory.Web.Controllers
             return RedirectToAction("Error");
         }
 
+        public async Task<IActionResult> CreateAuthor(AuthorViewModel model)
+        {
+            string uri = $"https://localhost:5001/api/Authors/add-author/";
+            HttpClient client = _httpClientFactory.CreateClient(
+                    name: "ComicBookInventory.Api");
+
+            var postTask = client.PostAsJsonAsync<AuthorViewModel>(uri, model);
+            postTask.Wait();
+            var result = postTask.Result;
+            if (result.IsSuccessStatusCode)
+            {
+                return RedirectToAction("GetAllAuthors");
+            }
+            else
+            {
+                return View (model);
+            }
+        }
+
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

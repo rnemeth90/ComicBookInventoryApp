@@ -39,7 +39,7 @@ namespace ComicBookInventory.Web.Controllers
 
         [HttpGet("{id}")]
         [Route("character/")]
-        public async Task<IActionResult> AuthorDetails(int id)
+        public async Task<IActionResult> CharacterDetails(int id)
         {
             string uri = $"https://localhost:5001/api/character/get-character-by-id/{id}";
             HttpClient client = _httpClientFactory.CreateClient(
@@ -102,6 +102,25 @@ namespace ComicBookInventory.Web.Controllers
                 return RedirectToAction("GetAllCharacters");
             }
             return RedirectToAction("Error");
+        }
+
+        public async Task<IActionResult> CreateCharacter(CharacterViewModel model)
+        {
+            string uri = $"https://localhost:5001/api/Character/add-character/";
+            HttpClient client = _httpClientFactory.CreateClient(
+                    name: "ComicBookInventory.Api");
+
+            var postTask = client.PostAsJsonAsync<CharacterViewModel>(uri, model);
+            postTask.Wait();
+            var result = postTask.Result;
+            if (result.IsSuccessStatusCode)
+            {
+                return RedirectToAction("GetAllCharacters");
+            }
+            else
+            {
+                return View(model);
+            }
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
