@@ -98,10 +98,10 @@ namespace My_Books.Api.Controllers
         {
             try
             {
-                var character = _unitOfWork.Characters.GetWhere(c => c.Id == id).FirstOrDefault();
+                var character = _unitOfWork.Characters.GetCharacterById(id);
                 if (character != null)
                 {
-                    _unitOfWork.Characters.Remove(character);
+                    _unitOfWork.Characters.RemoveById(id);
                     return Ok($"{character.FullName} removed");
                 }
                 else
