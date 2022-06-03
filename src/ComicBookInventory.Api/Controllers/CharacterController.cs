@@ -79,7 +79,7 @@ namespace My_Books.Api.Controllers
             }
         }
 
-        [HttpPut("update-character/{id}")]
+        [HttpPatch("update-character/{id}")]
         public IActionResult UpdateCharacter(int id, [FromBody] CharacterViewModel character)
         {
             try

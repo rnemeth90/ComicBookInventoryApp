@@ -74,7 +74,7 @@ namespace ComicBookInventory.Web.Controllers
         [HttpPost]
         public async Task<ActionResult> EditCharacter(CharacterViewModel model)
         {
-            string uri = $"https://localhost:5001/api/character/update-character-by-id/{model.Id}";
+            string uri = $"https://localhost:5001/api/character/update-character/{model.Id}";
             HttpClient client = _httpClientFactory.CreateClient(
                     name: "ComicbookInventory.Api");
             var json = new StringContent(JsonConvert.SerializeObject(model), Encoding.UTF8, "application/json");
