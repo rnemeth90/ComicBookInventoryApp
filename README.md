@@ -1,6 +1,4 @@
 ### In progress:
-- [ ] Add 'create' operation to all controllers in mvc app
-- [ ] Verify CRUD operations work for all object types from MVC
 
 ### To do:
 - [ ] Remove ID from view models presented in MVC app (we don't want to display these to the user)
@@ -14,3 +12,6 @@
 
 
 ### Done:
+#### 06/03/2022
+- [x] Add 'create' operation to all controllers in mvc app
+- [x] Verify CRUD operations work for all object types from MVC
