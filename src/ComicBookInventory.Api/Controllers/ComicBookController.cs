@@ -103,7 +103,7 @@ namespace My_Books.Api.Controllers
             }
         }
 
-        [HttpPut("update-book/{id}")]
+        [HttpPatch("update-book/{id}")]
         public IActionResult UpdateBook(int id, [FromBody] ComicBookViewModel book)
         {
             try

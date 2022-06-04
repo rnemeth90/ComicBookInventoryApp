@@ -1,16 +1,17 @@
-﻿@model ComicBookInventory.Shared.ComicBookWithAuthorsAndCharactersViewModel
+﻿@model ComicBookInventory.Shared.ComicBookViewModel
 
 @{
-    ViewData["Title"] = "EditComic";
+    ViewData["Title"] = "CreateComicBook";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Edit @Model?.Title</h1>
+<h1>CreateComicBook</h1>
 
+<h4>ComicBookViewModel</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="EditComic">
+        <form asp-action="CreateComicBook">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Id" class="control-label"></label>
@@ -53,17 +54,28 @@
                 <span asp-validation-for="CoverUrl" class="text-danger"></span>
             </div>
             <div class="form-group">
-                @*<input type="hidden" name="Id" value="@Model.Id" />*@
-                <input type="submit" value="Save" class="btn btn-primary"/>
+                <label asp-for="AuthorIds" class="control-label"></label>
+                <input asp-for="AuthorIds" class="form-control" />
+                <span asp-validation-for="AuthorIds" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CharacterIds" class="control-label"></label>
+                <input asp-for="CharacterIds" class="form-control" />
+                <span asp-validation-for="CharacterIds" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="GetAllComics">Back to List</a>
+    <a asp-action="Index">Back to List</a>
 </div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+    await Html.RenderPartialAsync("_ValidationScriptsPartial");
+}
 }

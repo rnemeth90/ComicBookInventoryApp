@@ -35,7 +35,26 @@ namespace ComicBookInventory.DataAccess
                 {
                     context.Authors.Add(new Author()
                     {
-                        FullName = "Empty"
+                        FullName = "Stan Lee"
+                    });
+
+                    context.Authors.Add(new Author()
+                    { 
+                        FullName = "Jack Kirby"
+                    });
+                    context.SaveChanges();
+                }
+
+                if (!context.Characters.Any())
+                {
+                    context.Characters.Add(new Character()
+                    { 
+                        FullName = "Ant-Man"
+                    });
+
+                    context.Characters.Add(new Character()
+                    { 
+                        FullName = "Iron Man"
                     });
                     context.SaveChanges();
                 }

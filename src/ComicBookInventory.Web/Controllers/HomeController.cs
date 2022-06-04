@@ -1,7 +1,7 @@
 ﻿using ComicBookInventory.Shared;
 using Microsoft.AspNetCore.Mvc;
-
-// this is not DRY, need to abstract repetitive patterns
+using Newtonsoft.Json;
+using System.Text;
 
 namespace ComicBookInventory.Web.Controllers
 {
@@ -25,73 +25,8 @@ namespace ComicBookInventory.Web.Controllers
             return View();
         }
 
-        public async Task<IActionResult> GetAllComics()
-        {
-            string uri = "https://localhost:5001/api/ComicBook/get-all-books";
-
-            HttpClient client = _httpClientFactory.CreateClient(
-                    name: "ComicbookInventory.Api");
-
-            var request = new HttpRequestMessage(HttpMethod.Get, uri);
-            var response = await client.SendAsync(request);
-            IEnumerable<ComicBookWithAuthorsAndCharactersViewModel>? model = await response.Content
-                .ReadFromJsonAsync<IEnumerable<ComicBookWithAuthorsAndCharactersViewModel>>();
-
-            return View(model);
-        }
-
-        [HttpGet("{id}")]
-        public async Task<IActionResult> GetComicById(int id)
-        {
-            string uri = $"https://localhost:5001/api/ComicBook/get-book-by-id/{id}";
-            HttpClient client = _httpClientFactory.CreateClient(
-                    name: "ComicbookInventory.Api");
-
-            var request = new HttpRequestMessage(HttpMethod.Get, uri);
-            var response = await client.SendAsync(request);
-            ComicBookWithAuthorsAndCharactersViewModel? model = await response.Content
-                .ReadFromJsonAsync<ComicBookWithAuthorsAndCharactersViewModel>();
-
-            return View(model);
-        }
-
-        public async Task<IActionResult> EditComic(int id)
-        {
-            ComicBookWithAuthorsAndCharactersViewModel? model = null;
-            string uri = $"https://localhost:5001/api/ComicBook/get-book-by-id/{id}";
-            HttpClient client = _httpClientFactory.CreateClient(
-                    name: "ComicbookInventory.Api");
-
-            var request = new HttpRequestMessage(HttpMethod.Get, uri);
-            var response = await client.SendAsync(request);
-
-            if (response.IsSuccessStatusCode)
-            {
-                model = await response.Content.ReadFromJsonAsync<ComicBookWithAuthorsAndCharactersViewModel>();
-            }
-            return View(model);
-        }
-
-        [HttpPost]
-        public ActionResult EditComic(ComicBookWithAuthorsAndCharactersViewModel model)
-        {
-            string uri = $"https://localhost:5001/api/ComicBook/update-book/{model.Id}";
-            HttpClient client = _httpClientFactory.CreateClient(
-                    name: "ComicbookInventory.Api");
-
-            var put = client.PutAsJsonAsync<ComicBookWithAuthorsAndCharactersViewModel>(uri, model);
-            put.Wait();
-            var result = put.Result;
-            if (result.IsSuccessStatusCode)
-            {
-                return RedirectToAction("GetAllComics");
-            }
-            return View(model);
-        }
-
-
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActioneResult Error()
+        public IActionResult Error()
         {
             return View(new ErrorViewModel { });
         }

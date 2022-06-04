@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace ComicBookInventory.DataAccess.EFCore.Migrations
 {
-    public partial class reInitialize : Migration
+    public partial class nullables : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

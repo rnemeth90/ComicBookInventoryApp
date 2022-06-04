@@ -4,6 +4,9 @@
 }
 
 <h2>All Comics</h2>
+<div>
+    <h3 class="">@Html.ActionLink("Create","CreateComicBook")</h3>
+</div>
 <table class="table">
     <thead>
         <tr>
@@ -25,9 +28,8 @@
                     <td>@Html.DisplayFor(i => c.Rating)</td>
                     <td>
                         @Html.ActionLink("Edit", "EditComic", new { id=c.Id }) |
-                        @Html.ActionLink("Details", "GetComicByid", new { id=c.Id}) |
+                        @Html.ActionLink("Details", "ComicDetails", new { id=c.Id}) |
                         @Html.ActionLink("Delete", "DeleteComic", new { id=c.Id })
-
                     </td>
                 </tr>
             }

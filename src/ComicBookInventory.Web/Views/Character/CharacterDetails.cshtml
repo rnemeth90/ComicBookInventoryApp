@@ -1,0 +1,22 @@
+﻿@using ComicBookInventory.Shared;
+@model CharacterViewModel
+@{
+}
+
+<h2>All Characters</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Full Name</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @if (Model is not null)
+        {
+            <tr>
+                <td>@Html.DisplayFor(i => Model.FullName)</td>
+            </tr>
+        }
+    </tbody>
+</table>
