@@ -7,7 +7,6 @@
 <table class="table">
     <thead>
         <tr>
-            <th>Id</th>
             <th>Title</th>
             <th>Description</th>
             <th>Rating</th>
@@ -21,7 +20,6 @@
         @if (Model is not null)
         {
             <tr>
-                <td>@Html.DisplayFor(i => Model.Id)</td>
                 <td>@Html.DisplayFor(i => Model.Title)</td>
                 <td>@Html.DisplayFor(i => Model.Description)</td>
                 <td>@Html.DisplayFor(i => Model.Rating)</td>
