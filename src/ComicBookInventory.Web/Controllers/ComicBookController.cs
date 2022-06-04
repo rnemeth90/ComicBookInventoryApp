@@ -102,7 +102,7 @@ namespace ComicBookInventory.Web.Controllers
 
         public async Task<IActionResult> CreateComicBook(ComicBookViewModel model)
         {
-            string uri = $"https://localhost:5001/api/Character/add-book/";
+            string uri = $"https://localhost:5001/api/comicbook/add-book/";
             HttpClient client = _httpClientFactory.CreateClient(
                     name: "ComicBookInventory.Api");
 

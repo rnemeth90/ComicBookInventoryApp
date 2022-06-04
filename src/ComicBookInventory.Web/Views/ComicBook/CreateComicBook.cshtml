@@ -54,6 +54,16 @@
                 <span asp-validation-for="CoverUrl" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="AuthorIds" class="control-label"></label>
+                <input asp-for="AuthorIds" class="form-control" />
+                <span asp-validation-for="AuthorIds" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CharacterIds" class="control-label"></label>
+                <input asp-for="CharacterIds" class="form-control" />
+                <span asp-validation-for="CharacterIds" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
         </form>
@@ -65,5 +75,7 @@
 </div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+    await Html.RenderPartialAsync("_ValidationScriptsPartial");
+}
 }
