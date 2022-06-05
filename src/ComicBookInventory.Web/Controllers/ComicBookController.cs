@@ -100,13 +100,13 @@ namespace ComicBookInventory.Web.Controllers
             return RedirectToAction("Error");
         }
 
-        public async Task<IActionResult> CreateComicBook(ComicBookViewModel model)
+        public async Task<IActionResult> CreateComicBook(ComicBookWithAuthorsAndCharactersViewModel model)
         {
             string uri = $"https://localhost:5001/api/comicbook/add-book/";
             HttpClient client = _httpClientFactory.CreateClient(
                     name: "ComicBookInventory.Api");
 
-            var postTask = client.PostAsJsonAsync<ComicBookViewModel>(uri, model);
+            var postTask = client.PostAsJsonAsync<ComicBookWithAuthorsAndCharactersViewModel>(uri, model);
             postTask.Wait();
             var result = postTask.Result;
             if (result.IsSuccessStatusCode)

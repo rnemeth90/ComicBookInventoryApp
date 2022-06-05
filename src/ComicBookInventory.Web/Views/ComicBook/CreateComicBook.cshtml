@@ -1,4 +1,4 @@
-﻿@model ComicBookInventory.Shared.ComicBookViewModel
+﻿@model ComicBookInventory.Shared.ComicBookWithAuthorsAndCharactersViewModel
 
 @{
     ViewData["Title"] = "CreateComicBook";
@@ -49,14 +49,14 @@
                 <span asp-validation-for="CoverUrl" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="AuthorIds" class="control-label"></label>
-                <input asp-for="AuthorIds" class="form-control" />
-                <span asp-validation-for="AuthorIds" class="text-danger"></span>
+                <label asp-for="AuthorNames" class="control-label"></label>
+                <input asp-for="AuthorNames" class="form-control" />
+                <span asp-validation-for="AuthorNames" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="CharacterIds" class="control-label"></label>
-                <input asp-for="CharacterIds" class="form-control" />
-                <span asp-validation-for="CharacterIds" class="text-danger"></span>
+                <label asp-for="CharacterNames" class="control-label"></label>
+                <input asp-for="CharacterNames" class="form-control" />
+                <span asp-validation-for="CharacterNames" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
