@@ -68,7 +68,7 @@ namespace ComicBookInventory.DataAccess
             }
         }
 
-        public void AddBook(ComicBookViewModel model)
+        public void AddBook(ComicBookWithAuthorsAndCharactersViewModel model)
         {
             // do we need to call .SaveChanges() 3x here?? Likely not. Need to test
             try
@@ -88,26 +88,36 @@ namespace ComicBookInventory.DataAccess
                 DbContext.ComicBooks.Add(entity);
                 DbContext.SaveChanges();
 
-                foreach (var id in model.AuthorIds)
+
+                foreach (var name in model.AuthorNames)
                 {
-                    var _book_author = new ComicBook_Author()
+                    // this does not seem efficient
+                    var author = DbContext.Authors.FirstOrDefault(a => a.FullName == name);
+                    if (author != null)
                     {
-                        ComicBookId = entity.Id,
-                        AuthorId = id
-                    };
-                    DbContext.ComicBooks_Authors.Add(_book_author);
-                    DbContext.SaveChanges();
+                        var _book_author = new ComicBook_Author()
+                        {
+                            ComicBookId = entity.Id,
+                            AuthorId = author.Id
+                        };
+                        DbContext.ComicBooks_Authors.Add(_book_author);
+                        DbContext.SaveChanges();
+                    }
                 }
 
-                foreach (var id in model.CharacterIds)
+                foreach (var name in model.CharacterNames)
                 {
-                    var _book_character = new ComicBook_Character()
+                    var character = DbContext.Characters.FirstOrDefault(c => c.FullName == name);
+                    if (character != null)
                     {
-                        ComicBookId = entity.Id,
-                        CharacterId = id
-                    };
-                    DbContext.ComicBooks_Characters.Add(_book_character);
-                    DbContext.SaveChanges();
+                        var _book_character = new ComicBook_Character()
+                        {
+                            ComicBookId = entity.Id,
+                            CharacterId = character.Id
+                        };
+                        DbContext.ComicBooks_Characters.Add(_book_character);
+                        DbContext.SaveChanges();
+                    }
                 }
             }
             catch (ComicBookException ex)

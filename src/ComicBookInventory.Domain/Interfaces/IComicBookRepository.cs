@@ -4,7 +4,7 @@
     {
         IEnumerable<ComicBookWithAuthorsAndCharactersViewModel> GetAllBooks();
         ComicBookWithAuthorsAndCharactersViewModel GetBookById(int bookId);
-        void AddBook(ComicBookViewModel book);
+        void AddBook(ComicBookWithAuthorsAndCharactersViewModel book);
         void UpdateBook(int id, ComicBookViewModel book);
     }
 }

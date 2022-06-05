@@ -82,7 +82,7 @@ namespace My_Books.Api.Controllers
         }
 
         [HttpPost("add-book")]
-        public IActionResult AddBook([FromBody] ComicBookViewModel book)
+        public IActionResult AddBook([FromBody] ComicBookWithAuthorsAndCharactersViewModel book)
         {
             try
             {
