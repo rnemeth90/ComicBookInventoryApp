@@ -15,7 +15,6 @@
         /// Navigation properties
         /// </summary>
         /// a book can have many characters
-        public List<string> CharacterNames { get; set; }
-
+        public ICollection<string> CharacterNames { get; set; }
     }
 }

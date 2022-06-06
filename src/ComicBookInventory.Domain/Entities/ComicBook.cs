@@ -17,8 +17,8 @@ namespace ComicBookInventory.Shared
 
         // navigation properties
         [JsonIgnore]
-        public List<ComicBook_Author> ComicBook_Authors { get; set; }
+        public ICollection<ComicBook_Author> ComicBook_Authors { get; set; }
         [JsonIgnore]
-        public List<ComicBook_Character> ComicBook_Characters { get; set; } 
+        public ICollection<ComicBook_Character> ComicBook_Characters { get; set; } 
     }
 }

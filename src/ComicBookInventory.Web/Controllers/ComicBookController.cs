@@ -1,7 +1,8 @@
 ﻿using ComicBookInventory.Shared;
 using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Text;
+using System.Text.Json;
 
 namespace ComicBookInventory.Web.Controllers
 {
@@ -72,7 +73,7 @@ namespace ComicBookInventory.Web.Controllers
             string uri = $"https://localhost:5001/api/ComicBook/update-book/{model.Id}";
             HttpClient client = _httpClientFactory.CreateClient(
                     name: "ComicbookInventory.Api");
-            var json = new StringContent(JsonConvert.SerializeObject(model), Encoding.UTF8, "application/json");
+            var json = new StringContent(JsonSerializer.Serialize(model), Encoding.UTF8, "application/json");
 
             var result = await client.PatchAsync(uri, json);
 
@@ -103,13 +104,22 @@ namespace ComicBookInventory.Web.Controllers
         public async Task<IActionResult> CreateComicBook(ComicBookWithAuthorsAndCharactersViewModel model)
         {
             string uri = $"https://localhost:5001/api/comicbook/add-book/";
+            string authorUri = $"https://localhost:5001/api/authors/get-all-authors/";
             HttpClient client = _httpClientFactory.CreateClient(
                     name: "ComicBookInventory.Api");
 
-            var postTask = client.PostAsJsonAsync<ComicBookWithAuthorsAndCharactersViewModel>(uri, model);
-            postTask.Wait();
-            var result = postTask.Result;
-            if (result.IsSuccessStatusCode)
+
+            var authorRequest = new HttpRequestMessage(HttpMethod.Get, authorUri);
+            var authorResponse = await client.SendAsync(authorRequest);
+            IEnumerable<AuthorViewModel>? authors = await authorResponse.Content
+                .ReadFromJsonAsync<IEnumerable<AuthorViewModel>>();
+            ViewBag.Authors = new SelectList(authors, "Id", "FullName");
+
+            model.AuthorNames = Request.Form["Authors"].ToList();
+
+            var postTask = await client.PostAsJsonAsync<ComicBookWithAuthorsAndCharactersViewModel>(uri, model);
+
+            if (postTask.IsSuccessStatusCode)
             {
                 return RedirectToAction("GetAllComics");
             }
@@ -118,7 +128,6 @@ namespace ComicBookInventory.Web.Controllers
                 return View(model);
             }
         }
-
 
         public IActionResult Index()
         {
@@ -130,6 +139,20 @@ namespace ComicBookInventory.Web.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { });
+        }
+
+        private async Task<IEnumerable<SelectListItem>> PopulateAuthorDropDownList(IEnumerable<AuthorViewModel> authors)
+        {
+            var selectList = new List<SelectListItem>();
+            foreach (var a in authors)
+            {
+                selectList.Add(new SelectListItem
+                {
+                    Value = a.Id.ToString(),
+                    Text = a.FullName
+                });
+            }
+            return selectList;
         }
     }
 }
