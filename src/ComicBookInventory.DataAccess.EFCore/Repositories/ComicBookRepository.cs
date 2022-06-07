@@ -92,7 +92,7 @@ namespace ComicBookInventory.DataAccess
                 foreach (var name in model.AuthorNames)
                 {
                     // this does not seem efficient
-                    var author = DbContext.Authors.FirstOrDefault(a => a.FullName == name);
+                    var author = DbContext.Authors.FirstOrDefault(a => a.Id.ToString() == name);
                     if (author != null)
                     {
                         var _book_author = new ComicBook_Author()
