@@ -113,9 +113,9 @@ namespace ComicBookInventory.Web.Controllers
             var authorResponse = await client.SendAsync(authorRequest);
             IEnumerable<AuthorViewModel>? authors = await authorResponse.Content
                 .ReadFromJsonAsync<IEnumerable<AuthorViewModel>>();
-            ViewBag.Authors = new SelectList(authors, "Id", "FullName");
+            ViewBag.AuthorNames = new SelectList(authors, "Id", "FullName");
 
-            model.AuthorNames = Request.Form["Authors"].ToList();
+            //model.AuthorNames = Request.Form["Authors"].ToList();
 
             var postTask = await client.PostAsJsonAsync<ComicBookWithAuthorsAndCharactersViewModel>(uri, model);
 
