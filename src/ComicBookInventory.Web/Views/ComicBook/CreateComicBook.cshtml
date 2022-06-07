@@ -5,9 +5,8 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>CreateComicBook</h1>
+<h1>Create Comic Book</h1>
 
-<h4>ComicBookViewModel</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -48,33 +47,20 @@
                 <input asp-for="CoverUrl" class="form-control" />
                 <span asp-validation-for="CoverUrl" class="text-danger"></span>
             </div>
-
             <div class="form-group">
-                @Html.LabelFor(model => model.AuthorNames, "Authors", htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.LabelFor(model => model.AuthorNames, "Author", htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
                     @Html.DropDownList("AuthorNames", null, htmlAttributes: new { @class = "form-control" })
                     @Html.ValidationMessageFor(model => model.AuthorNames, "", new { @class = "text-danger" })
                 </div>
             </div>
-
-@*            <div class="form-group">
-                <label asp-for="AuthorNames" class="control-label"></label>
-                <input asp-for="AuthorNames" class="form-control" />
-                <span asp-validation-for="AuthorNames" class="text-danger"></span>
-                <div class="col-md-10">
-                    @Html.DropDownList("Authors", null, htmlAttributes: new { @class = "form-control" })
-                    @Html.ValidationMessageFor(model => model.AuthorNames, "", new { @class = "text-danger" })
-                </div>
-            </div>*@
             <div class="form-group">
-                <label asp-for="CharacterNames" class="control-label"></label>
-                <input asp-for="CharacterNames" class="form-control" />
-                <span asp-validation-for="CharacterNames" class="text-danger"></span>
+                @Html.LabelFor(model => model.CharacterNames, "Character", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("CharacterNames", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.CharacterNames, "", new { @class = "text-danger" })
+                </div>
             </div>
-
-
-
-
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>

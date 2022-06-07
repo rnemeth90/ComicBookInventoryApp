@@ -89,10 +89,11 @@ namespace ComicBookInventory.DataAccess
                 DbContext.SaveChanges();
 
 
-                foreach (var name in model.AuthorNames)
+                foreach (var id in model.AuthorNames)
                 {
                     // this does not seem efficient
-                    var author = DbContext.Authors.FirstOrDefault(a => a.Id.ToString() == name);
+                    // we shouldn't convert the Id to string here. 
+                    var author = DbContext.Authors.FirstOrDefault(a => a.Id.ToString() == id);
                     if (author != null)
                     {
                         var _book_author = new ComicBook_Author()
@@ -105,9 +106,9 @@ namespace ComicBookInventory.DataAccess
                     }
                 }
 
-                foreach (var name in model.CharacterNames)
+                foreach (var id in model.CharacterNames)
                 {
-                    var character = DbContext.Characters.FirstOrDefault(c => c.FullName == name);
+                    var character = DbContext.Characters.FirstOrDefault(c => c.Id.ToString() == id);
                     if (character != null)
                     {
                         var _book_character = new ComicBook_Character()

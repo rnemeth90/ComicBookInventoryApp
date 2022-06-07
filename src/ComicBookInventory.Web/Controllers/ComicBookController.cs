@@ -105,9 +105,9 @@ namespace ComicBookInventory.Web.Controllers
         {
             string uri = $"https://localhost:5001/api/comicbook/add-book/";
             string authorUri = $"https://localhost:5001/api/authors/get-all-authors/";
+            string characterUri = $"https://localhost:5001/api/character/get-all-characters/";
             HttpClient client = _httpClientFactory.CreateClient(
                     name: "ComicBookInventory.Api");
-
 
             var authorRequest = new HttpRequestMessage(HttpMethod.Get, authorUri);
             var authorResponse = await client.SendAsync(authorRequest);
@@ -115,7 +115,11 @@ namespace ComicBookInventory.Web.Controllers
                 .ReadFromJsonAsync<IEnumerable<AuthorViewModel>>();
             ViewBag.AuthorNames = new SelectList(authors, "Id", "FullName");
 
-            //model.AuthorNames = Request.Form["Authors"].ToList();
+            var characterRequest = new HttpRequestMessage(HttpMethod.Get, characterUri);
+            var characterResponse = await client.SendAsync(characterRequest);
+            IEnumerable<CharacterViewModel>? characters = await characterResponse.Content
+                .ReadFromJsonAsync<IEnumerable<CharacterViewModel>>();
+            ViewBag.CharacterNames = new SelectList(characters, "Id", "FullName");
 
             var postTask = await client.PostAsJsonAsync<ComicBookWithAuthorsAndCharactersViewModel>(uri, model);
 
