@@ -87,6 +87,32 @@ namespace ComicBookInventory.Web.Controllers
         [HttpGet]
         public async Task<IActionResult> DeleteComic(int id)
         {
+            if (id == null)
+            {
+                return BadRequest();
+            }
+
+            string uri = $"https://localhost:5001/api/ComicBook/get-book-by-id/{id}";
+            HttpClient client = _httpClientFactory.CreateClient(
+                    name: "ComicbookInventory.Api");
+
+            var request = new HttpRequestMessage(HttpMethod.Get, uri);
+            var response = await client.SendAsync(request);
+            ComicBookWithAuthorsAndCharactersViewModel? model = await response.Content
+                .ReadFromJsonAsync<ComicBookWithAuthorsAndCharactersViewModel>();
+
+            return View(model);
+        }
+
+        [HttpPost, ActionName("DeleteComic")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteComicConfirmed(int id)
+        {
+            if (id == null)
+            {
+                return BadRequest();
+            }
+
             string uri = $"https://localhost:5001/api/ComicBook/delete-comic-book-by-id/{id}";
             HttpClient client = _httpClientFactory.CreateClient(
                     name: "ComicbookInventory.Api");
