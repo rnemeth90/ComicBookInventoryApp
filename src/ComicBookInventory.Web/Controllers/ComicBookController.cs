@@ -113,13 +113,13 @@ namespace ComicBookInventory.Web.Controllers
             var authorResponse = await client.SendAsync(authorRequest);
             IEnumerable<AuthorViewModel>? authors = await authorResponse.Content
                 .ReadFromJsonAsync<IEnumerable<AuthorViewModel>>();
-            ViewBag.AuthorNames = new SelectList(authors, "Id", "FullName");
+            ViewBag.AuthorNames = new SelectList(authors, "FullName", "FullName");
 
             var characterRequest = new HttpRequestMessage(HttpMethod.Get, characterUri);
             var characterResponse = await client.SendAsync(characterRequest);
             IEnumerable<CharacterViewModel>? characters = await characterResponse.Content
                 .ReadFromJsonAsync<IEnumerable<CharacterViewModel>>();
-            ViewBag.CharacterNames = new SelectList(characters, "Id", "FullName");
+            ViewBag.CharacterNames = new SelectList(characters, "FullName", "FullName");
 
             var postTask = await client.PostAsJsonAsync<ComicBookWithAuthorsAndCharactersViewModel>(uri, model);
 
