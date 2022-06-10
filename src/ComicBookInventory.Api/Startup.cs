@@ -3,6 +3,8 @@ using Microsoft.OpenApi.Models;
 using ComicBookInventory.Shared;
 using ComicBookInventory.DataAccess;
 using ComicBookInventory.Api.Middleware;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Versioning;
 
 namespace ComicBookInventory.API
 {
@@ -19,6 +21,12 @@ namespace ComicBookInventory.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddCors();
+            services.AddApiVersioning(config =>
+            {
+                config.DefaultApiVersion = new ApiVersion(1,0);
+                config.AssumeDefaultVersionWhenUnspecified = true;
+                config.ApiVersionReader = new HeaderApiVersionReader("version");
+            });
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
@@ -44,7 +52,6 @@ namespace ComicBookInventory.API
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-
             if (env.IsDevelopment())
             {
                 AppDbInitializer.Seed(app);
@@ -63,7 +70,7 @@ namespace ComicBookInventory.API
                 options.WithMethods("GET", "POST", "PUT", "DELETE");
                 options.WithOrigins("https://localhost:6001");
             });
-            
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapGet("/healthz", () => "Healthy");
