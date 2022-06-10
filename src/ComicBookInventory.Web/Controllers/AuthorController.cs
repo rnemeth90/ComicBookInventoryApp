@@ -24,7 +24,7 @@ namespace ComicBookInventory.Web.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAllAuthors()
         {
-            string uri = "https://localhost:5001/api/Authors/get-all-authors";
+            string uri = "https://localhost:5001/api/Author/get-all-authors";
 
             HttpClient client = _httpClientFactory.CreateClient(
                     name: "ComicbookInventory.Api");
@@ -41,7 +41,7 @@ namespace ComicBookInventory.Web.Controllers
         [Route("author/")]
         public async Task<IActionResult> AuthorDetails(int id)
         {
-            string uri = $"https://localhost:5001/api/Authors/get-author-by-id/{id}";
+            string uri = $"https://localhost:5001/api/Author/get-author-by-id/{id}";
             HttpClient client = _httpClientFactory.CreateClient(
                     name: "ComicbookInventory.Api");
 
@@ -57,7 +57,7 @@ namespace ComicBookInventory.Web.Controllers
         public async Task<IActionResult> EditAuthor(int id)
         {
             AuthorViewModel? model = null;
-            string uri = $"https://localhost:5001/api/Authors/get-author-by-id/{id}";
+            string uri = $"https://localhost:5001/api/Author/get-author-by-id/{id}";
             HttpClient client = _httpClientFactory.CreateClient(
                     name: "ComicbookInventory.Api");
 
@@ -74,7 +74,7 @@ namespace ComicBookInventory.Web.Controllers
         [HttpPost]
         public async Task<ActionResult> EditAuthor(AuthorViewModel model)
         {
-            string uri = $"https://localhost:5001/api/Authors/update-author-by-id/{model.Id}";
+            string uri = $"https://localhost:5001/api/Author/update-author-by-id/{model.Id}";
             HttpClient client = _httpClientFactory.CreateClient(
                     name: "ComicbookInventory.Api");
             var json = new StringContent(JsonConvert.SerializeObject(model), Encoding.UTF8, "application/json");
@@ -91,7 +91,7 @@ namespace ComicBookInventory.Web.Controllers
         [HttpGet]
         public async Task<IActionResult> DeleteAuthor(int id)
         {
-            string uri = $"https://localhost:5001/api/Authors/delete-author-by-id/{id}";
+            string uri = $"https://localhost:5001/api/Author/delete-author-by-id/{id}";
             HttpClient client = _httpClientFactory.CreateClient(
                     name: "ComicbookInventory.Api");
 
@@ -106,7 +106,7 @@ namespace ComicBookInventory.Web.Controllers
 
         public async Task<IActionResult> CreateAuthor(AuthorViewModel model)
         {
-            string uri = $"https://localhost:5001/api/Authors/add-author/";
+            string uri = $"https://localhost:5001/api/Author/add-author/";
             HttpClient client = _httpClientFactory.CreateClient(
                     name: "ComicBookInventory.Api");
 

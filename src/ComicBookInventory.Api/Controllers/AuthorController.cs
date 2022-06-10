@@ -7,11 +7,11 @@ namespace My_Books.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class AuthorsController : ControllerBase
+    public class AuthorController : ControllerBase
     {
         private IUnitOfWork _unitOfWork;
 
-        public AuthorsController(IUnitOfWork unitOfWork)
+        public AuthorController(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
         }

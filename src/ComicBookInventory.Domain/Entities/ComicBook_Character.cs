@@ -3,7 +3,6 @@
     public class ComicBook_Character
     {
         public int Id { get; set; }
-
         
         // navigation properties
         public int? ComicBookId { get; set; }
