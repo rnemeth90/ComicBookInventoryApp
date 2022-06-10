@@ -68,18 +68,23 @@ namespace ComicBookInventory.Web.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<ActionResult> EditComic(ComicBookViewModel model)
         {
-            string uri = $"https://localhost:5001/api/ComicBook/update-book/{model.Id}";
-            HttpClient client = _httpClientFactory.CreateClient(
-                    name: "ComicbookInventory.Api");
-            var json = new StringContent(JsonSerializer.Serialize(model), Encoding.UTF8, "application/json");
 
-            var result = await client.PatchAsync(uri, json);
+            if (ModelState.IsValid)
+            { 
+                string uri = $"https://localhost:5001/api/ComicBook/update-book/{model.Id}";
+                HttpClient client = _httpClientFactory.CreateClient(
+                        name: "ComicbookInventory.Api");
+                var json = new StringContent(JsonSerializer.Serialize(model), Encoding.UTF8, "application/json");
 
-            if (result.IsSuccessStatusCode)
-            {
-                return RedirectToAction("GetAllComics");
+                var result = await client.PatchAsync(uri, json);
+
+                if (result.IsSuccessStatusCode)
+                {
+                    return RedirectToAction("GetAllComics");
+                }
             }
             return View(model);
         }
@@ -144,22 +149,27 @@ namespace ComicBookInventory.Web.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> CreateComicBook(ComicBookWithAuthorsAndCharactersViewModel model)
         {
-            string uri = $"https://localhost:5001/api/comicbook/add-book/";
-            HttpClient client = _httpClientFactory.CreateClient(
-                    name: "ComicBookInventory.Api");
-            
-            ViewBag.AuthorNames = PopulateAuthorDropDown();
-            ViewBag.CharacterNames = PopulateCharacterDropDown();
-            var postTask = await client.PostAsJsonAsync<ComicBookWithAuthorsAndCharactersViewModel>(uri, model);
 
-            if (postTask.IsSuccessStatusCode)
+            if (ModelState.IsValid)
             {
-                return RedirectToAction("GetAllComics");
+                string uri = $"https://localhost:5001/api/comicbook/add-book/";
+                HttpClient client = _httpClientFactory.CreateClient(
+                        name: "ComicBookInventory.Api");
+
+                ViewBag.AuthorNames = PopulateDropDownWithFullName<AuthorViewModel>("authors");
+                ViewBag.CharacterNames = PopulateDropDownWithFullName<CharacterViewModel>("characters");
+                var postTask = await client.PostAsJsonAsync<ComicBookWithAuthorsAndCharactersViewModel>(uri, model);
+
+                if (postTask.IsSuccessStatusCode)
+                {
+                    return RedirectToAction("GetAllComics");
+                }
+                else
+                {
+                    return View(model);
+                }
             }
-            else
-            {
-                return View(model);
-            }
+            return View();
         }
 
         public IActionResult Index()
@@ -173,30 +183,17 @@ namespace ComicBookInventory.Web.Controllers
             return View(new ErrorViewModel { });
         }
 
-        public async Task<SelectList> PopulateAuthorDropDown()
+        public async Task<SelectList> PopulateDropDownWithFullName<T>(string type)
         {
-            string uri = $"https://localhost:5001/api/authors/get-all-authors/";
-            HttpClient client = _httpClientFactory.CreateClient(
-                    name: "ComicBookInventory.Api");
-
-            var authorRequest = new HttpRequestMessage(HttpMethod.Get, uri);
-            var authorResponse = await client.SendAsync(authorRequest);
-            IEnumerable<AuthorViewModel>? authors = await authorResponse.Content
-                .ReadFromJsonAsync<IEnumerable<AuthorViewModel>>();
-            return new SelectList(authors, "FullName", "FullName");
-        }
-
-        public async Task<SelectList> PopulateCharacterDropDown()
-        {
-            string uri = $"https://localhost:5001/api/character/get-all-characters/";
+            string uri = $"https://localhost:5001/api/{type}/get-all-{type}/";
             HttpClient client = _httpClientFactory.CreateClient(
                     name: "ComicBookInventory.Api");
 
             var request = new HttpRequestMessage(HttpMethod.Get, uri);
             var response = await client.SendAsync(request);
-            IEnumerable<CharacterViewModel>? characters = await response.Content
-                .ReadFromJsonAsync<IEnumerable<CharacterViewModel>>();
-            return new SelectList(characters, "FullName", "FullName");
+            IEnumerable<T>? entities = await response.Content
+                .ReadFromJsonAsync<IEnumerable<T>>();
+            return new SelectList(type, "FullName", "FullName");
         }
     }
 }
