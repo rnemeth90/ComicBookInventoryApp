@@ -1,20 +1,22 @@
 ## In progress:
-- [ ] Add model validation
-- [ ] Users should only be allowed to set book rating between 1 and 10
 
 
 ## To do:
 - [ ] IsRead should be a drop down
 - [ ] Generic controllers in MVC? Maybe help reduce code
 - [ ] In api, add functionality for uploading covers as blobs to storage
-- [ ] Create SPA frontend
+- [ ] Create SPA frontend (likely Angular)
 - [ ] Change favicon for MVC
-
-
-
+- [ ] We are handling errors in too many ways, need to streamline
+- [ ] Add more properties to comic books, characters, and authors
+- [ ] Can we invoke Marvel's API to get some info?
 
 ## Done:
-#### 06/8/2022
+#### 06/10/2022
+- [x] Add model validation
+- [x] Users should only be allowed to set book rating between 1 and 10
+
+#### 06/08/2022
 - [x] As a user, we should be able to specify Characters and Authors when creating a comic
 
 #### 06/04/2022
