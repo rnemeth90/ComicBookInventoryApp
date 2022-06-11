@@ -1,7 +1,8 @@
 ## In progress:
-
+- [ ] Implement Searching
 
 ## To do:
+- [ ] Implement Paging
 - [ ] Generic controllers in MVC? Maybe help reduce code
 - [ ] In api, add functionality for uploading covers as blobs to storage
 - [ ] Create SPA frontend (likely Angular)
@@ -12,6 +13,7 @@
 
 ## Done:
 #### 06/11/2022
+- [x] Add API Versioning Header Support
 - [x] IsRead should be a check box
 
 #### 06/10/2022

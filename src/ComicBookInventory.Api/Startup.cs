@@ -25,7 +25,8 @@ namespace ComicBookInventory.API
             {
                 config.DefaultApiVersion = new ApiVersion(1,0);
                 config.AssumeDefaultVersionWhenUnspecified = true;
-                config.ApiVersionReader = new HeaderApiVersionReader("version");
+                config.ReportApiVersions = true;
+                config.ApiVersionReader = new HeaderApiVersionReader("version-string");
             });
             services.AddControllers();
             services.AddSwaggerGen(c =>

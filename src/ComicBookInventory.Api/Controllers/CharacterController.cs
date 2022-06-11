@@ -4,8 +4,9 @@ using System.Text.Json;
 
 namespace My_Books.Api.Controllers
 {
-    [Route("api/[controller]")]
+    [ApiVersion("1.0")]
     [ApiController]
+    [Route("api/[controller]")]
     public class CharacterController : ControllerBase
     {
         private IUnitOfWork _unitOfWork;
