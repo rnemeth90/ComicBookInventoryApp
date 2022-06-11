@@ -121,8 +121,6 @@ namespace ComicBookInventory.Web.Controllers
             string uri = $"https://localhost:5001/api/ComicBook/delete-comic-book-by-id/{id}";
             HttpClient client = _httpClientFactory.CreateClient(
                     name: "ComicbookInventory.Api");
-
-            //var request = new HttpRequestMessage(HttpMethod.Delete, uri);
             var response = await client.DeleteAsync(uri);
 
             if (response.IsSuccessStatusCode)
@@ -140,7 +138,6 @@ namespace ComicBookInventory.Web.Controllers
             ViewBag.CharacterNames = PopulateDropDownWithFullName<CharacterViewModel>("character").GetAwaiter().GetResult();
             return View();
         }
-
 
         // POST: ComicBook/CreateComicBook
         // To protect from overposting attacks, enable the specific properties you want to bind to.
@@ -195,31 +192,5 @@ namespace ComicBookInventory.Web.Controllers
                 .ReadFromJsonAsync<IEnumerable<T>>();
             return new SelectList(entities, "FullName", "FullName");
         }
-
-        //public async Task<SelectList> PopulateAuthorDropDown()
-        //{
-        //    string uri = $"https://localhost:5001/api/author/get-all-authors/";
-        //    HttpClient client = _httpClientFactory.CreateClient(
-        //            name: "ComicBookInventory.Api");
-
-        //    var authorRequest = new HttpRequestMessage(HttpMethod.Get, uri);
-        //    var authorResponse = await client.SendAsync(authorRequest);
-        //    IEnumerable<AuthorViewModel>? authors = await authorResponse.Content
-        //        .ReadFromJsonAsync<IEnumerable<AuthorViewModel>>();
-        //    return new SelectList(authors, "FullName", "FullName");
-        //}
-
-        //public async Task<SelectList> PopulateCharacterDropDown()
-        //{
-        //    string uri = $"https://localhost:5001/api/character/get-all-characters/";
-        //    HttpClient client = _httpClientFactory.CreateClient(
-        //            name: "ComicBookInventory.Api");
-
-        //    var request = new HttpRequestMessage(HttpMethod.Get, uri);
-        //    var response = await client.SendAsync(request);
-        //    IEnumerable<CharacterViewModel>? characters = await response.Content
-        //        .ReadFromJsonAsync<IEnumerable<CharacterViewModel>>();
-        //    return new SelectList(characters, "FullName", "FullName");
-        //}
     }
 }
