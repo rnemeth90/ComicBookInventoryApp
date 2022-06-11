@@ -60,20 +60,26 @@ namespace My_Books.Api.Controllers
             }
         }
 
-        [HttpGet("get-book-by-title/{title}")]
-        public IActionResult GetBookByTitle(string title)
+        [HttpGet("find-book")]
+        public IActionResult FindBook(string searchString)
         {
-            // We should be able to fuzzy match the title as well...
             try
             {
-                var book = _unitOfWork.ComicBooks.GetWhere(b => b.Title == title).FirstOrDefault();
-                if (book != null)
+                if (!string.IsNullOrEmpty(searchString))
                 {
-                    return Ok(book);
+                    var books = _unitOfWork.ComicBooks.GetWhere(b => b.Title.Contains(searchString));
+                    if (books != null)
+                    {
+                        return Ok(books);
+                    }
+                    else
+                    {
+                        return NotFound();
+                    }
                 }
                 else
                 {
-                    return NotFound($"{title} not found");
+                    return BadRequest();
                 }
             }
             catch (Exception ex)
