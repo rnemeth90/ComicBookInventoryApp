@@ -1,8 +1,8 @@
 ## In progress:
-
+- [ ] Implement Searching
 
 ## To do:
-- [ ] IsRead should be a drop down
+- [ ] Implement Paging
 - [ ] Generic controllers in MVC? Maybe help reduce code
 - [ ] In api, add functionality for uploading covers as blobs to storage
 - [ ] Create SPA frontend (likely Angular)
@@ -12,6 +12,10 @@
 - [ ] Can we invoke Marvel's API to get some info?
 
 ## Done:
+#### 06/11/2022
+- [x] Add API Versioning Header Support
+- [x] IsRead should be a check box
+
 #### 06/10/2022
 - [x] Add model validation
 - [x] Users should only be allowed to set book rating between 1 and 10
