@@ -4,6 +4,12 @@
 }
 
 <h2>All Characters</h2>
+<form asp-controller="Character" asp-action="GetAllCharacters" method="get">
+    <p>
+        Title: <input type="text" name="searchString" />
+        <input type="submit" value="Filter" />
+    </p>
+</form>
 <div>
     <h3 class="">@Html.ActionLink("Create","CreateCharacter")</h3>
 </div>

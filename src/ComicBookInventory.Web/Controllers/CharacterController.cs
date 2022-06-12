@@ -27,11 +27,11 @@ namespace ComicBookInventory.Web.Controllers
             string uri = "";
             if (!string.IsNullOrEmpty(searchString))
             {
-                uri = "https://localhost:5001/api/character/get-all-characters";
+                uri = $"https://localhost:5001/api/character/get-all-characters?searchstring={searchString}";
             }
             else
             {
-                uri = $"https://localhost:5001/api/character/get-all-characters?searchstring={searchString}";
+                uri = "https://localhost:5001/api/character/get-all-characters";
             }
 
 

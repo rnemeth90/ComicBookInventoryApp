@@ -4,6 +4,12 @@
 }
 
 <h2>All Comics</h2>
+<form asp-controller="ComicBook" asp-action="GetAllComics" method="get">
+    <p>
+        Title: <input type="text" name="searchString" />
+        <input type="submit" value="Filter" />
+    </p>
+</form>
 <div>
     <h3 class="">@Html.ActionLink("Create","CreateComicBook")</h3>
 </div>

@@ -27,11 +27,11 @@ namespace ComicBookInventory.Web.Controllers
             string uri = "";
             if (!string.IsNullOrEmpty(searchString))
             {
-                uri = "https://localhost:5001/api/Author/get-all-authors";
+                uri = $"https://localhost:5001/api/Author/get-all-authors?searchstring={searchString}";
             }
             else
             {
-                uri = $"https://localhost:5001/api/Author/get-all-authors?searchstring={searchString}";
+                uri = "https://localhost:5001/api/Author/get-all-authors";
             }
 
             HttpClient client = _httpClientFactory.CreateClient(
