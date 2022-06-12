@@ -22,9 +22,18 @@ namespace ComicBookInventory.Web.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetAllCharacters()
+        public async Task<IActionResult> GetAllCharacters(string searchString)
         {
-            string uri = "https://localhost:5001/api/character/get-all-characters";
+            string uri = "";
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                uri = "https://localhost:5001/api/character/get-all-characters";
+            }
+            else
+            {
+                uri = $"https://localhost:5001/api/character/get-all-characters?searchstring={searchString}";
+            }
+
 
             HttpClient client = _httpClientFactory.CreateClient(
                     name: "ComicbookInventory.Api");
