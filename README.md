@@ -1,5 +1,4 @@
 ## In progress:
-- [ ] Implement Searching
 
 ## To do:
 - [ ] Implement Paging
@@ -12,6 +11,9 @@
 - [ ] Can we invoke Marvel's API to get some info?
 
 ## Done:
+####06/12/20222
+- [x] Implement Searching
+
 #### 06/11/2022
 - [x] Add API Versioning Header Support
 - [x] IsRead should be a check box
