@@ -19,7 +19,7 @@ namespace My_Books.Api.Controllers
         #endregion
 
         [HttpGet("get-all-books")]
-        public IActionResult GetAllBooks()
+        public IActionResult GetAllBooks(int pageNumber)
         {
             try
             {

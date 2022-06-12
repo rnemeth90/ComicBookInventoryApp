@@ -18,8 +18,9 @@ namespace ComicBookInventory.Web.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetAllComics(string searchString)
+        public async Task<IActionResult> GetAllComics(string searchString, int? pageNumber)
         {
+            int pageSize = 5;
             string uri = "";
             if (!string.IsNullOrEmpty(searchString))
             {
@@ -37,6 +38,8 @@ namespace ComicBookInventory.Web.Controllers
             var response = await client.SendAsync(request);
             IEnumerable<ComicBookWithAuthorsAndCharactersViewModel>? model = await response.Content
                 .ReadFromJsonAsync<IEnumerable<ComicBookWithAuthorsAndCharactersViewModel>>();
+
+            model = PaginatedList<ComicBookWithAuthorsAndCharactersViewModel>.Create(model.AsQueryable(), pageNumber ?? 1, pageSize);
 
             return View(model);
         }
