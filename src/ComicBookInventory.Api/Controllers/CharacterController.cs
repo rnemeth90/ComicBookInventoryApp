@@ -58,6 +58,34 @@ namespace My_Books.Api.Controllers
             }
         }
 
+        [HttpGet("find-character")]
+        public IActionResult Findcharacter(string searchString)
+        {
+            try
+            {
+                if (!string.IsNullOrEmpty(searchString))
+                {
+                    var characters = _unitOfWork.Characters.GetWhere(b => b.FullName.Contains(searchString));
+                    if (characters != null)
+                    {
+                        return Ok(characters);
+                    }
+                    else
+                    {
+                        return NotFound();
+                    }
+                }
+                else
+                {
+                    return BadRequest();
+                }
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
+            }
+        }
+
         [HttpPost("add-character")]
         public IActionResult AddCharacter([FromBody] CharacterViewModel character)
         {

@@ -4,6 +4,12 @@
 }
 
 <h2>All Authors</h2>
+<form asp-controller="Author" asp-action="GetAllAuthors" method="get">
+    <p>
+        Name: <input type="text" name="searchString" />
+        <input type="submit" value="Filter" />
+    </p>
+</form>
 <div>
     <h3 class="">@Html.ActionLink("Create","CreateAuthor")</h3>
 </div>

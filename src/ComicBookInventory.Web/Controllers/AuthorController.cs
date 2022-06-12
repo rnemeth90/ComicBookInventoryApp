@@ -22,9 +22,17 @@ namespace ComicBookInventory.Web.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetAllAuthors()
+        public async Task<IActionResult> GetAllAuthors(string searchString)
         {
-            string uri = "https://localhost:5001/api/Author/get-all-authors";
+            string uri = "";
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                uri = $"https://localhost:5001/api/Author/find-author?searchstring={searchString}";
+            }
+            else
+            {
+                uri = "https://localhost:5001/api/Author/get-all-authors";
+            }
 
             HttpClient client = _httpClientFactory.CreateClient(
                     name: "ComicbookInventory.Api");

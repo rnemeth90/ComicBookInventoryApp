@@ -60,6 +60,34 @@ namespace My_Books.Api.Controllers
             }
         }
 
+        [HttpGet("find-author")]
+        public IActionResult FindAuthor(string searchString)
+        {
+            try
+            {
+                if (!string.IsNullOrEmpty(searchString))
+                {
+                    var authors = _unitOfWork.Authors.GetWhere(b => b.FullName.Contains(searchString));
+                    if (authors != null)
+                    {
+                        return Ok(authors);
+                    }
+                    else
+                    {
+                        return NotFound();
+                    }
+                }
+                else
+                {
+                    return BadRequest();
+                }
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
+            }
+        }
+
 
         [HttpPost("add-author")]
         public IActionResult AddAuthor([FromBody] AuthorViewModel author)
