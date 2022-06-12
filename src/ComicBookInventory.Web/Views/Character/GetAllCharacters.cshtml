@@ -1,6 +1,8 @@
 ﻿@using ComicBookInventory.Shared;
-@model IEnumerable<CharacterViewModel>
+@model PaginatedList<CharacterViewModel>
 @{
+    var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.HasNextPage ? "disabled" : "";
 }
 
 <h2>All Characters</h2>
@@ -38,3 +40,22 @@
         }
     </tbody>
 </table>
+<div class="btn">
+    <a asp-action="GetAllCharacters"
+       asp-route-sortOrder="@ViewData["CurrentSort"]"
+       asp-route-pageNumber="@(Model.PageIndex - 1)"
+       asp-route-currentFilter="@ViewData["CurrentFilter"]"
+       class="btn btn-default @prevDisabled">
+        Previous
+    </a>
+
+</div>
+<div class="btn">
+    <a asp-action="GetAllCharacters"
+       asp-route-sortOrder="@ViewData["CurrentSort"]"
+       asp-route-pageNumber="@(Model.PageIndex + 1)"
+       asp-route-currentFilter="@ViewData["CurrentFilter"]"
+       class="btn btn-default @nextDisabled">
+        Next
+    </a>
+</div>
