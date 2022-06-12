@@ -22,18 +22,21 @@ namespace ComicBookInventory.Web.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetAllAuthors(string searchString)
+        public async Task<IActionResult> GetAllAuthors(string searchString, int? pageNumber, string sortOrder, string currentFilter)
         {
             string uri = "";
             if (!string.IsNullOrEmpty(searchString))
             {
+                pageNumber = 1;
                 uri = $"https://localhost:5001/api/Author/find-author?searchstring={searchString}";
             }
             else
             {
+                searchString = currentFilter;
                 uri = "https://localhost:5001/api/Author/get-all-authors";
             }
 
+            ViewBag.CurrentFilter = searchString;
             HttpClient client = _httpClientFactory.CreateClient(
                     name: "ComicbookInventory.Api");
 
@@ -41,8 +44,10 @@ namespace ComicBookInventory.Web.Controllers
             var response = await client.SendAsync(request);
             IEnumerable<AuthorViewModel>? model = await response.Content
                 .ReadFromJsonAsync<IEnumerable<AuthorViewModel>>();
+            
+            int pageSize = 10;
 
-            return View(model);
+            return View(PaginatedList<AuthorViewModel>.Create(model.AsQueryable(), pageNumber ?? 1, pageSize));
         }
 
         [HttpGet("{id}")]

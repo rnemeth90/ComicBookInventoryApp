@@ -22,19 +22,22 @@ namespace ComicBookInventory.Web.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetAllCharacters(string searchString)
+        public async Task<IActionResult> GetAllCharacters(string searchString, int? pageNumber, string sortOrder, string currentFilter)
         {
             string uri = "";
             if (!string.IsNullOrEmpty(searchString))
             {
+                pageNumber = 1;
                 uri = $"https://localhost:5001/api/character/find-character?searchstring={searchString}";
             }
             else
             {
+                searchString = currentFilter;
                 uri = "https://localhost:5001/api/character/get-all-characters";
             }
 
 
+            ViewBag.CurrentFilter = searchString;
             HttpClient client = _httpClientFactory.CreateClient(
                     name: "ComicbookInventory.Api");
 
@@ -43,7 +46,9 @@ namespace ComicBookInventory.Web.Controllers
             IEnumerable<CharacterViewModel>? model = await response.Content
                 .ReadFromJsonAsync<IEnumerable<CharacterViewModel>>();
 
-            return View(model);
+            int pageSize = 10;
+
+            return View(PaginatedList<CharacterViewModel>.Create(model.AsQueryable(), pageNumber ?? 1, pageSize));
         }
 
         [HttpGet("{id}")]
