@@ -1,5 +1,4 @@
 ## In progress:
-- [ ] Implement Paging
 
 ## To do:
 - [ ] Generic controllers in MVC? Maybe help reduce code
@@ -12,6 +11,7 @@
 
 ## Done:
 ####06/12/20222
+- [x] Implement Paging
 - [x] Implement Searching
 
 #### 06/11/2022
