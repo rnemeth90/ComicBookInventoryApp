@@ -65,7 +65,7 @@ namespace My_Books.Api.Controllers
             {
                 if (!string.IsNullOrEmpty(searchString))
                 {
-                    var characters = _unitOfWork.Authors.GetWhere(b => b.FullName.Contains(searchString));
+                    var characters = _unitOfWork.Characters.GetWhere(b => b.FullName.Contains(searchString));
                     if (characters != null)
                     {
                         return Ok(characters);

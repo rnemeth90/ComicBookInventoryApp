@@ -27,7 +27,7 @@ namespace ComicBookInventory.Web.Controllers
             string uri = "";
             if (!string.IsNullOrEmpty(searchString))
             {
-                uri = $"https://localhost:5001/api/Author/get-all-authors?searchstring={searchString}";
+                uri = $"https://localhost:5001/api/Author/find-author?searchstring={searchString}";
             }
             else
             {
