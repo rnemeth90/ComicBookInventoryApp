@@ -5,6 +5,7 @@ using ComicBookInventory.DataAccess;
 using ComicBookInventory.Api.Middleware;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Versioning;
+using Serilog;
 
 namespace ComicBookInventory.API
 {
@@ -60,6 +61,7 @@ namespace ComicBookInventory.API
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "ComicBookApi v1"));
             }
+            app.UseSerilogRequestLogging();
             app.UseHttpsRedirection();
             app.UseRouting();
             app.UseAuthorization();
