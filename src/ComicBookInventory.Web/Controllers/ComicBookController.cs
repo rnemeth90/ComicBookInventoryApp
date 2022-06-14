@@ -22,6 +22,7 @@ namespace ComicBookInventory.Web.Controllers
         {
             int pageSize = 10;
             string uri = "";
+            ViewData["CurrentSort"] = sortOrder;
             ViewData["TitleSortParam"] = String.IsNullOrEmpty(sortOrder) ? "title_desc" : "";
             ViewData["RatingSortParam"] = String.IsNullOrEmpty(sortOrder) ? "rating_asc" : "";
 
