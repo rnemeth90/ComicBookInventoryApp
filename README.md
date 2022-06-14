@@ -1,6 +1,8 @@
 ## In progress:
+- [ ] Add sorting
 
 ## To do:
+- [ ] Add healthcheckUI
 - [ ] Generic controllers in MVC? Maybe help reduce code
 - [ ] In api, add functionality for uploading covers as blobs to storage
 - [ ] Create SPA frontend (likely Angular)
@@ -10,7 +12,10 @@
 - [ ] Can we invoke Marvel's API to get some info?
 
 ## Done:
-####06/12/20222
+#### 06/14/2022
+- [x] Add serilog logging
+
+#### 06/12/20222
 - [x] Implement Paging
 - [x] Implement Searching
 
