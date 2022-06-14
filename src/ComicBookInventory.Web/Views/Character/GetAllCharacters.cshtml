@@ -1,0 +1,61 @@
+﻿@using ComicBookInventory.Shared;
+@model PaginatedList<CharacterViewModel>
+@{
+    var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+}
+
+<h2>All Characters</h2>
+<form asp-controller="Character" asp-action="GetAllCharacters" method="get">
+    <p>
+        Title: <input type="text" name="searchString" />
+        <input type="submit" value="Filter" />
+    </p>
+</form>
+<div>
+    <h3 class="">@Html.ActionLink("Create","CreateCharacter")</h3>
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Full Name</th>
+            <th></th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @if (Model is not null)
+        {
+            @foreach (var c in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(i => c.FullName)</td>
+                    <td>
+                        @Html.ActionLink("Edit", "EditCharacter", new { id=c.Id }) |
+                        @Html.ActionLink("Details", "CharacterDetails", new { id=c.Id}) |
+                        @Html.ActionLink("Delete", "DeleteCharacter", new { id=c.Id })
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+<div class="btn">
+    <a asp-action="GetAllCharacters"
+       asp-route-sortOrder="@ViewData["CurrentSort"]"
+       asp-route-pageNumber="@(Model.PageIndex - 1)"
+       asp-route-currentFilter="@ViewData["CurrentFilter"]"
+       class="btn btn-default @prevDisabled">
+        Previous
+    </a>
+
+</div>
+<div class="btn">
+    <a asp-action="GetAllCharacters"
+       asp-route-sortOrder="@ViewData["CurrentSort"]"
+       asp-route-pageNumber="@(Model.PageIndex + 1)"
+       asp-route-currentFilter="@ViewData["CurrentFilter"]"
+       class="btn btn-default @nextDisabled">
+        Next
+    </a>
+</div>
