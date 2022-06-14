@@ -1,4 +1,5 @@
 ## In progress:
+- [ ] Add sorting
 
 ## To do:
 - [ ] Generic controllers in MVC? Maybe help reduce code
@@ -10,7 +11,10 @@
 - [ ] Can we invoke Marvel's API to get some info?
 
 ## Done:
-####06/12/20222
+#### 06/14/2022
+- [x] Add serilog logging
+
+#### 06/12/20222
 - [x] Implement Paging
 - [x] Implement Searching
 
