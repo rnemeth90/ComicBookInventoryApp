@@ -2,6 +2,7 @@
 - [ ] Add sorting
 
 ## To do:
+- [ ] Add healthcheckUI
 - [ ] Generic controllers in MVC? Maybe help reduce code
 - [ ] In api, add functionality for uploading covers as blobs to storage
 - [ ] Create SPA frontend (likely Angular)
