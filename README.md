@@ -2,6 +2,8 @@
 - [ ] Add sorting
 
 ## To do:
+- [ ] Add API Load Testing
+- [ ] Create Upload Service
 - [ ] Add healthcheckUI
 - [ ] Generic controllers in MVC? Maybe help reduce code
 - [ ] In api, add functionality for uploading covers as blobs to storage
