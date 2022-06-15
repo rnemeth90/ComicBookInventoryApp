@@ -4,11 +4,10 @@
     var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
     var nextDisabled = !Model.HasNextPage ? "disabled" : "";
 }
-
 <h2>All Characters</h2>
 <form asp-controller="Character" asp-action="GetAllCharacters" method="get">
     <p>
-        Title: <input type="text" name="searchString" />
+        Name: <input type="text" name="searchString" />
         <input type="submit" value="Filter" />
     </p>
 </form>
@@ -18,7 +17,9 @@
 <table class="table">
     <thead>
         <tr>
-            <th>Full Name</th>
+            <th>
+                <a asp-action="GetAllCharacters" asp-route-sortOrder="@ViewData["NameSortParam"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Full Name</a>
+            </th>
             <th></th>
         </tr>
     </thead>

@@ -1,7 +1,8 @@
 ## In progress:
-- [ ] Add sorting
+- [ ] Extend Character Model
 
 ## To do:
+- [ ] fix regex for URL
 - [ ] Add API Load Testing
 - [ ] Create Upload Service
 - [ ] Add healthcheckUI
@@ -10,10 +11,14 @@
 - [ ] Create SPA frontend (likely Angular)
 - [ ] Change favicon for MVC
 - [ ] We are handling errors in too many ways, need to streamline
-- [ ] Add more properties to comic books, characters, and authors
+- [ ] Add more properties to comic books and characters
 - [ ] Can we invoke Marvel's API to get some info?
 
 ## Done:
+#### 06/15/2022
+- [x] Add sorting
+
+
 #### 06/14/2022
 - [x] Add serilog logging
 

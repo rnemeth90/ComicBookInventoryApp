@@ -7,6 +7,9 @@
 <table class="table">
     <thead>
         <tr>
+            <th>
+                <a asp-action="GetAllAuthors" asp-route-sortOrder="@ViewData["nameSortParam"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Title</a>
+            </th>
             <th>Full Name</th>
         </tr>
     </thead>
