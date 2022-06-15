@@ -42,10 +42,6 @@ namespace ComicBookInventory.API
             #region Repositories
             services.AddTransient<IUnitOfWork, UnitOfWork>();
             services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
-            //services.AddScoped<IAuthorRepository, AuthorRepository>();
-            //services.AddScoped<ICharacterRepository, CharacterRepository>();
-            //services.AddScoped<IComicBookRepository, ComicBookRepository>();
-            //services.AddScoped<IAuthor, Author>();
             #endregion
 
             // serialize as XML if application/xml mime type specified in call

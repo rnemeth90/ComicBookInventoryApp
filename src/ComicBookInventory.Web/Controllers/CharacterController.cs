@@ -24,7 +24,11 @@ namespace ComicBookInventory.Web.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAllCharacters(string searchString, int? pageNumber, string sortOrder, string currentFilter)
         {
+            int pageSize = 10;
             string uri = "";
+            ViewData["CurrentSort"] = sortOrder;
+            ViewData["NameSortParam"] = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+
             if (!string.IsNullOrEmpty(searchString))
             {
                 pageNumber = 1;
@@ -36,8 +40,7 @@ namespace ComicBookInventory.Web.Controllers
                 uri = "https://localhost:5001/api/character/get-all-characters";
             }
 
-
-            ViewBag.CurrentFilter = searchString;
+            ViewData["CurrentFilter"] = searchString;
             HttpClient client = _httpClientFactory.CreateClient(
                     name: "ComicbookInventory.Api");
 
@@ -46,7 +49,15 @@ namespace ComicBookInventory.Web.Controllers
             IEnumerable<CharacterViewModel>? model = await response.Content
                 .ReadFromJsonAsync<IEnumerable<CharacterViewModel>>();
 
-            int pageSize = 10;
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    model = model.OrderByDescending(a => a.FullName);
+                    break;
+                default:
+                    model = model.OrderBy(t => t.FullName);
+                    break;
+            }
 
             return View(PaginatedList<CharacterViewModel>.Create(model.AsQueryable(), pageNumber ?? 1, pageSize));
         }

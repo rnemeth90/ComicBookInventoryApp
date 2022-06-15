@@ -20,8 +20,13 @@ namespace ComicBookInventory.Web.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAllComics(string searchString, int? pageNumber, string sortOrder, string currentFilter)
         {
+            int pageSize = 10;
             string uri = "";
-            if (!string.IsNullOrEmpty(searchString))
+            ViewData["CurrentSort"] = sortOrder;
+            ViewData["TitleSortParam"] = String.IsNullOrEmpty(sortOrder) ? "title_desc" : "";
+            ViewData["RatingSortParam"] = String.IsNullOrEmpty(sortOrder) ? "rating_asc" : "";
+
+            if (searchString != null)
             {
                 pageNumber = 1;
                 uri = $"https://localhost:5001/api/ComicBook/find-book?searchstring={searchString}";
@@ -32,7 +37,7 @@ namespace ComicBookInventory.Web.Controllers
                 uri = "https://localhost:5001/api/ComicBook/get-all-books";
             }
 
-            ViewBag.CurrentFilter = searchString;
+            ViewData["CurrentFilter"] = searchString;
             HttpClient client = _httpClientFactory.CreateClient(
                     name: "ComicbookInventory.Api");
 
@@ -41,9 +46,19 @@ namespace ComicBookInventory.Web.Controllers
             IEnumerable<ComicBookWithAuthorsAndCharactersViewModel>? model = await response.Content
                 .ReadFromJsonAsync<IEnumerable<ComicBookWithAuthorsAndCharactersViewModel>>();
 
-            // paging
-            int pageSize = 10;
-            //model = PaginatedList<ComicBookWithAuthorsAndCharactersViewModel>.Create(model.AsQueryable(), pageNumber ?? 1, pageSize);
+            
+            switch (sortOrder)
+            {
+                case "title_desc":
+                    model = model.OrderByDescending(t => t.Title);
+                    break;
+                case "rating_asc":
+                    model = model.OrderBy(r => r.Rating.ToString());
+                    break;
+                default:
+                    model = model.OrderBy(t => t.Title);
+                    break;
+            }
 
             return View(PaginatedList<ComicBookWithAuthorsAndCharactersViewModel>.Create(model.AsQueryable(), pageNumber ?? 1, pageSize));
         }
