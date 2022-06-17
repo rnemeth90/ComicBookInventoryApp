@@ -1,6 +1,7 @@
 ﻿@using ComicBookInventory.Shared;
 @model PaginatedList<ComicBookWithAuthorsAndCharactersViewModel>
 @{
+    ViewData["Title"] = "Comics";
     var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
     var nextDisabled = !Model.HasNextPage ? "disabled" : "";
 }

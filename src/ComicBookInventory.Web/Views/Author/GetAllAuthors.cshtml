@@ -1,9 +1,11 @@
 ﻿@using ComicBookInventory.Shared;
 @model PaginatedList<AuthorViewModel>
 @{
+    ViewData["Title"] = "Authors";
     var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
     var nextDisabled = !Model.HasNextPage ? "disabled" : "";
 }
+
 <h2>All Authors</h2>
 <form asp-controller="Author" asp-action="GetAllAuthors" method="get">
     <p>
