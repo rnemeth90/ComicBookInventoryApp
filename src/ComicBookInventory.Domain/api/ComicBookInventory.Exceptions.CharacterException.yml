@@ -1,0 +1,252 @@
+### YamlMime:ManagedReference
+items:
+- uid: ComicBookInventory.Exceptions.CharacterException
+  commentId: T:ComicBookInventory.Exceptions.CharacterException
+  id: CharacterException
+  parent: ComicBookInventory.Exceptions
+  children:
+  - ComicBookInventory.Exceptions.CharacterException.#ctor
+  - ComicBookInventory.Exceptions.CharacterException.#ctor(System.String)
+  - ComicBookInventory.Exceptions.CharacterException.#ctor(System.String,Exception)
+  - ComicBookInventory.Exceptions.CharacterException.#ctor(System.String,System.String)
+  - ComicBookInventory.Exceptions.CharacterException.CharacterName
+  langs:
+  - csharp
+  - vb
+  name: CharacterException
+  nameWithType: CharacterException
+  fullName: ComicBookInventory.Exceptions.CharacterException
+  type: Class
+  source:
+    remote:
+      path: src/ComicBookInventory.Domain/Exceptions/CharacterException.cs
+      branch: wip/extend-character-model
+      repo: git@github.com:rnemeth90/ComicBookInventoryApp.git
+    id: CharacterException
+    path: Exceptions/CharacterException.cs
+    startLine: 2
+  assemblies:
+  - ComicBookInventory.Domain
+  namespace: ComicBookInventory.Exceptions
+  syntax:
+    content: 'public class CharacterException : Exception'
+    content.vb: >-
+      Public Class CharacterException
+          Inherits Exception
+  inheritance:
+  - System.Object
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: ComicBookInventory.Exceptions.CharacterException.CharacterName
+  commentId: P:ComicBookInventory.Exceptions.CharacterException.CharacterName
+  id: CharacterName
+  parent: ComicBookInventory.Exceptions.CharacterException
+  langs:
+  - csharp
+  - vb
+  name: CharacterName
+  nameWithType: CharacterException.CharacterName
+  fullName: ComicBookInventory.Exceptions.CharacterException.CharacterName
+  type: Property
+  source:
+    remote:
+      path: src/ComicBookInventory.Domain/Exceptions/CharacterException.cs
+      branch: wip/extend-character-model
+      repo: git@github.com:rnemeth90/ComicBookInventoryApp.git
+    id: CharacterName
+    path: Exceptions/CharacterException.cs
+    startLine: 4
+  assemblies:
+  - ComicBookInventory.Domain
+  namespace: ComicBookInventory.Exceptions
+  syntax:
+    content: public string CharacterName { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property CharacterName As String
+  overload: ComicBookInventory.Exceptions.CharacterException.CharacterName*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: ComicBookInventory.Exceptions.CharacterException.#ctor
+  commentId: M:ComicBookInventory.Exceptions.CharacterException.#ctor
+  id: '#ctor'
+  parent: ComicBookInventory.Exceptions.CharacterException
+  langs:
+  - csharp
+  - vb
+  name: CharacterException()
+  nameWithType: CharacterException.CharacterException()
+  fullName: ComicBookInventory.Exceptions.CharacterException.CharacterException()
+  type: Constructor
+  source:
+    remote:
+      path: src/ComicBookInventory.Domain/Exceptions/CharacterException.cs
+      branch: wip/extend-character-model
+      repo: git@github.com:rnemeth90/ComicBookInventoryApp.git
+    id: .ctor
+    path: Exceptions/CharacterException.cs
+    startLine: 6
+  assemblies:
+  - ComicBookInventory.Domain
+  namespace: ComicBookInventory.Exceptions
+  syntax:
+    content: public CharacterException()
+    content.vb: Public Sub New
+  overload: ComicBookInventory.Exceptions.CharacterException.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ComicBookInventory.Exceptions.CharacterException.#ctor(System.String)
+  commentId: M:ComicBookInventory.Exceptions.CharacterException.#ctor(System.String)
+  id: '#ctor(System.String)'
+  parent: ComicBookInventory.Exceptions.CharacterException
+  langs:
+  - csharp
+  - vb
+  name: CharacterException(String)
+  nameWithType: CharacterException.CharacterException(String)
+  fullName: ComicBookInventory.Exceptions.CharacterException.CharacterException(System.String)
+  type: Constructor
+  source:
+    remote:
+      path: src/ComicBookInventory.Domain/Exceptions/CharacterException.cs
+      branch: wip/extend-character-model
+      repo: git@github.com:rnemeth90/ComicBookInventoryApp.git
+    id: .ctor
+    path: Exceptions/CharacterException.cs
+    startLine: 11
+  assemblies:
+  - ComicBookInventory.Domain
+  namespace: ComicBookInventory.Exceptions
+  syntax:
+    content: public CharacterException(string message)
+    parameters:
+    - id: message
+      type: System.String
+    content.vb: Public Sub New(message As String)
+  overload: ComicBookInventory.Exceptions.CharacterException.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ComicBookInventory.Exceptions.CharacterException.#ctor(System.String,Exception)
+  commentId: M:ComicBookInventory.Exceptions.CharacterException.#ctor(System.String,Exception)
+  id: '#ctor(System.String,Exception)'
+  parent: ComicBookInventory.Exceptions.CharacterException
+  langs:
+  - csharp
+  - vb
+  name: CharacterException(String, Exception)
+  nameWithType: CharacterException.CharacterException(String, Exception)
+  fullName: ComicBookInventory.Exceptions.CharacterException.CharacterException(System.String, Exception)
+  type: Constructor
+  source:
+    remote:
+      path: src/ComicBookInventory.Domain/Exceptions/CharacterException.cs
+      branch: wip/extend-character-model
+      repo: git@github.com:rnemeth90/ComicBookInventoryApp.git
+    id: .ctor
+    path: Exceptions/CharacterException.cs
+    startLine: 16
+  assemblies:
+  - ComicBookInventory.Domain
+  namespace: ComicBookInventory.Exceptions
+  syntax:
+    content: public CharacterException(string message, Exception inner)
+    parameters:
+    - id: message
+      type: System.String
+    - id: inner
+      type: Exception
+    content.vb: Public Sub New(message As String, inner As Exception)
+  overload: ComicBookInventory.Exceptions.CharacterException.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ComicBookInventory.Exceptions.CharacterException.#ctor(System.String,System.String)
+  commentId: M:ComicBookInventory.Exceptions.CharacterException.#ctor(System.String,System.String)
+  id: '#ctor(System.String,System.String)'
+  parent: ComicBookInventory.Exceptions.CharacterException
+  langs:
+  - csharp
+  - vb
+  name: CharacterException(String, String)
+  nameWithType: CharacterException.CharacterException(String, String)
+  fullName: ComicBookInventory.Exceptions.CharacterException.CharacterException(System.String, System.String)
+  type: Constructor
+  source:
+    remote:
+      path: src/ComicBookInventory.Domain/Exceptions/CharacterException.cs
+      branch: wip/extend-character-model
+      repo: git@github.com:rnemeth90/ComicBookInventoryApp.git
+    id: .ctor
+    path: Exceptions/CharacterException.cs
+    startLine: 21
+  assemblies:
+  - ComicBookInventory.Domain
+  namespace: ComicBookInventory.Exceptions
+  syntax:
+    content: public CharacterException(string message, string characterName)
+    parameters:
+    - id: message
+      type: System.String
+    - id: characterName
+      type: System.String
+    content.vb: Public Sub New(message As String, characterName As String)
+  overload: ComicBookInventory.Exceptions.CharacterException.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+references:
+- uid: ComicBookInventory.Exceptions
+  commentId: N:ComicBookInventory.Exceptions
+  name: ComicBookInventory.Exceptions
+  nameWithType: ComicBookInventory.Exceptions
+  fullName: ComicBookInventory.Exceptions
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ComicBookInventory.Exceptions.CharacterException.CharacterName*
+  commentId: Overload:ComicBookInventory.Exceptions.CharacterException.CharacterName
+  name: CharacterName
+  nameWithType: CharacterException.CharacterName
+  fullName: ComicBookInventory.Exceptions.CharacterException.CharacterName
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: ComicBookInventory.Exceptions.CharacterException.#ctor*
+  commentId: Overload:ComicBookInventory.Exceptions.CharacterException.#ctor
+  name: CharacterException
+  nameWithType: CharacterException.CharacterException
+  fullName: ComicBookInventory.Exceptions.CharacterException.CharacterException
+- uid: Exception
+  isExternal: true
+  name: Exception
+  nameWithType: Exception
+  fullName: Exception

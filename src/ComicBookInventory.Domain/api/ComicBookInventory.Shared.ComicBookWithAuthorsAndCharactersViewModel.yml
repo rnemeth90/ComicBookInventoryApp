@@ -1,0 +1,1019 @@
+### YamlMime:ManagedReference
+items:
+- uid: ComicBookInventory.Shared.ComicBookWithAuthorsAndCharactersViewModel
+  commentId: T:ComicBookInventory.Shared.ComicBookWithAuthorsAndCharactersViewModel
+  id: ComicBookWithAuthorsAndCharactersViewModel
+  parent: ComicBookInventory.Shared
+  children:
+  - ComicBookInventory.Shared.ComicBookWithAuthorsAndCharactersViewModel.AuthorNames
+  - ComicBookInventory.Shared.ComicBookWithAuthorsAndCharactersViewModel.CharacterNames
+  - ComicBookInventory.Shared.ComicBookWithAuthorsAndCharactersViewModel.CoverUrl
+  - ComicBookInventory.Shared.ComicBookWithAuthorsAndCharactersViewModel.DateRead
+  - ComicBookInventory.Shared.ComicBookWithAuthorsAndCharactersViewModel.Description
+  - ComicBookInventory.Shared.ComicBookWithAuthorsAndCharactersViewModel.Genre
+  - ComicBookInventory.Shared.ComicBookWithAuthorsAndCharactersViewModel.Id
+  - ComicBookInventory.Shared.ComicBookWithAuthorsAndCharactersViewModel.IsRead
+  - ComicBookInventory.Shared.ComicBookWithAuthorsAndCharactersViewModel.Rating
+  - ComicBookInventory.Shared.ComicBookWithAuthorsAndCharactersViewModel.Title
+  langs:
+  - csharp
+  - vb
+  name: ComicBookWithAuthorsAndCharactersViewModel
+  nameWithType: ComicBookWithAuthorsAndCharactersViewModel
+  fullName: ComicBookInventory.Shared.ComicBookWithAuthorsAndCharactersViewModel
+  type: Class
+  source:
+    remote:
+      path: src/ComicBookInventory.Domain/Entities/ViewModels/ComicBookWithAuthorsAndCharactersViewModel.cs
+      branch: wip/extend-character-model
+      repo: git@github.com:rnemeth90/ComicBookInventoryApp.git
+    id: ComicBookWithAuthorsAndCharactersViewModel
+    path: Entities/ViewModels/ComicBookWithAuthorsAndCharactersViewModel.cs
+    startLine: 4
+  assemblies:
+  - ComicBookInventory.Domain
+  namespace: ComicBookInventory.Shared
+  syntax:
+    content: public class ComicBookWithAuthorsAndCharactersViewModel
+    content.vb: Public Class ComicBookWithAuthorsAndCharactersViewModel
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: ComicBookInventory.Shared.ComicBookWithAuthorsAndCharactersViewModel.Id
+  commentId: P:ComicBookInventory.Shared.ComicBookWithAuthorsAndCharactersViewModel.Id
+  id: Id
+  parent: ComicBookInventory.Shared.ComicBookWithAuthorsAndCharactersViewModel
+  langs:
+  - csharp
+  - vb
+  name: Id
+  nameWithType: ComicBookWithAuthorsAndCharactersViewModel.Id
+  fullName: ComicBookInventory.Shared.ComicBookWithAuthorsAndCharactersViewModel.Id
+  type: Property
+  source:
+    remote:
+      path: src/ComicBookInventory.Domain/Entities/ViewModels/ComicBookWithAuthorsAndCharactersViewModel.cs
+      branch: wip/extend-character-model
+      repo: git@github.com:rnemeth90/ComicBookInventoryApp.git
+    id: Id
+    path: Entities/ViewModels/ComicBookWithAuthorsAndCharactersViewModel.cs
+    startLine: 6
+  assemblies:
+  - ComicBookInventory.Domain
+  namespace: ComicBookInventory.Shared
+  syntax:
+    content: public int Id { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property Id As Integer
+  overload: ComicBookInventory.Shared.ComicBookWithAuthorsAndCharactersViewModel.Id*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: ComicBookInventory.Shared.ComicBookWithAuthorsAndCharactersViewModel.Title
+  commentId: P:ComicBookInventory.Shared.ComicBookWithAuthorsAndCharactersViewModel.Title
+  id: Title
+  parent: ComicBookInventory.Shared.ComicBookWithAuthorsAndCharactersViewModel
+  langs:
+  - csharp
+  - vb
+  name: Title
+  nameWithType: ComicBookWithAuthorsAndCharactersViewModel.Title
+  fullName: ComicBookInventory.Shared.ComicBookWithAuthorsAndCharactersViewModel.Title
+  type: Property
+  source:
+    remote:
+      path: src/ComicBookInventory.Domain/Entities/ViewModels/ComicBookWithAuthorsAndCharactersViewModel.cs
+      branch: wip/extend-character-model
+      repo: git@github.com:rnemeth90/ComicBookInventoryApp.git
+    id: Title
+    path: Entities/ViewModels/ComicBookWithAuthorsAndCharactersViewModel.cs
+    startLine: 8
+  assemblies:
+  - ComicBookInventory.Domain
+  namespace: ComicBookInventory.Shared
+  syntax:
+    content: >-
+      [Required]
+
+      [StringLength(60, MinimumLength = 2)]
+
+      public string Title { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <Required>
+
+      <StringLength(60, MinimumLength:=2)>
+
+      Public Property Title As String
+  overload: ComicBookInventory.Shared.ComicBookWithAuthorsAndCharactersViewModel.Title*
+  attributes:
+  - type: System.ComponentModel.DataAnnotations.RequiredAttribute
+    ctor: System.ComponentModel.DataAnnotations.RequiredAttribute.#ctor
+    arguments: []
+  - type: System.ComponentModel.DataAnnotations.StringLengthAttribute
+    ctor: System.ComponentModel.DataAnnotations.StringLengthAttribute.#ctor(System.Int32)
+    arguments:
+    - type: System.Int32
+      value: 60
+    namedArguments:
+    - name: MinimumLength
+      type: System.Int32
+      value: 2
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: ComicBookInventory.Shared.ComicBookWithAuthorsAndCharactersViewModel.Description
+  commentId: P:ComicBookInventory.Shared.ComicBookWithAuthorsAndCharactersViewModel.Description
+  id: Description
+  parent: ComicBookInventory.Shared.ComicBookWithAuthorsAndCharactersViewModel
+  langs:
+  - csharp
+  - vb
+  name: Description
+  nameWithType: ComicBookWithAuthorsAndCharactersViewModel.Description
+  fullName: ComicBookInventory.Shared.ComicBookWithAuthorsAndCharactersViewModel.Description
+  type: Property
+  source:
+    remote:
+      path: src/ComicBookInventory.Domain/Entities/ViewModels/ComicBookWithAuthorsAndCharactersViewModel.cs
+      branch: wip/extend-character-model
+      repo: git@github.com:rnemeth90/ComicBookInventoryApp.git
+    id: Description
+    path: Entities/ViewModels/ComicBookWithAuthorsAndCharactersViewModel.cs
+    startLine: 11
+  assemblies:
+  - ComicBookInventory.Domain
+  namespace: ComicBookInventory.Shared
+  syntax:
+    content: public string Description { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Description As String
+  overload: ComicBookInventory.Shared.ComicBookWithAuthorsAndCharactersViewModel.Description*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: ComicBookInventory.Shared.ComicBookWithAuthorsAndCharactersViewModel.IsRead
+  commentId: P:ComicBookInventory.Shared.ComicBookWithAuthorsAndCharactersViewModel.IsRead
+  id: IsRead
+  parent: ComicBookInventory.Shared.ComicBookWithAuthorsAndCharactersViewModel
+  langs:
+  - csharp
+  - vb
+  name: IsRead
+  nameWithType: ComicBookWithAuthorsAndCharactersViewModel.IsRead
+  fullName: ComicBookInventory.Shared.ComicBookWithAuthorsAndCharactersViewModel.IsRead
+  type: Property
+  source:
+    remote:
+      path: src/ComicBookInventory.Domain/Entities/ViewModels/ComicBookWithAuthorsAndCharactersViewModel.cs
+      branch: wip/extend-character-model
+      repo: git@github.com:rnemeth90/ComicBookInventoryApp.git
+    id: IsRead
+    path: Entities/ViewModels/ComicBookWithAuthorsAndCharactersViewModel.cs
+    startLine: 12
+  assemblies:
+  - ComicBookInventory.Domain
+  namespace: ComicBookInventory.Shared
+  syntax:
+    content: public bool IsRead { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IsRead As Boolean
+  overload: ComicBookInventory.Shared.ComicBookWithAuthorsAndCharactersViewModel.IsRead*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: ComicBookInventory.Shared.ComicBookWithAuthorsAndCharactersViewModel.DateRead
+  commentId: P:ComicBookInventory.Shared.ComicBookWithAuthorsAndCharactersViewModel.DateRead
+  id: DateRead
+  parent: ComicBookInventory.Shared.ComicBookWithAuthorsAndCharactersViewModel
+  langs:
+  - csharp
+  - vb
+  name: DateRead
+  nameWithType: ComicBookWithAuthorsAndCharactersViewModel.DateRead
+  fullName: ComicBookInventory.Shared.ComicBookWithAuthorsAndCharactersViewModel.DateRead
+  type: Property
+  source:
+    remote:
+      path: src/ComicBookInventory.Domain/Entities/ViewModels/ComicBookWithAuthorsAndCharactersViewModel.cs
+      branch: wip/extend-character-model
+      repo: git@github.com:rnemeth90/ComicBookInventoryApp.git
+    id: DateRead
+    path: Entities/ViewModels/ComicBookWithAuthorsAndCharactersViewModel.cs
+    startLine: 13
+  assemblies:
+  - ComicBookInventory.Domain
+  namespace: ComicBookInventory.Shared
+  syntax:
+    content: public DateTime? DateRead { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{DateTime}
+    content.vb: Public Property DateRead As DateTime?
+  overload: ComicBookInventory.Shared.ComicBookWithAuthorsAndCharactersViewModel.DateRead*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: ComicBookInventory.Shared.ComicBookWithAuthorsAndCharactersViewModel.Rating
+  commentId: P:ComicBookInventory.Shared.ComicBookWithAuthorsAndCharactersViewModel.Rating
+  id: Rating
+  parent: ComicBookInventory.Shared.ComicBookWithAuthorsAndCharactersViewModel
+  langs:
+  - csharp
+  - vb
+  name: Rating
+  nameWithType: ComicBookWithAuthorsAndCharactersViewModel.Rating
+  fullName: ComicBookInventory.Shared.ComicBookWithAuthorsAndCharactersViewModel.Rating
+  type: Property
+  source:
+    remote:
+      path: src/ComicBookInventory.Domain/Entities/ViewModels/ComicBookWithAuthorsAndCharactersViewModel.cs
+      branch: wip/extend-character-model
+      repo: git@github.com:rnemeth90/ComicBookInventoryApp.git
+    id: Rating
+    path: Entities/ViewModels/ComicBookWithAuthorsAndCharactersViewModel.cs
+    startLine: 15
+  assemblies:
+  - ComicBookInventory.Domain
+  namespace: ComicBookInventory.Shared
+  syntax:
+    content: >-
+      [Range(1, 10)]
+
+      public int? Rating { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{System.Int32}
+    content.vb: >-
+      <Range(1, 10)>
+
+      Public Property Rating As Integer?
+  overload: ComicBookInventory.Shared.ComicBookWithAuthorsAndCharactersViewModel.Rating*
+  attributes:
+  - type: System.ComponentModel.DataAnnotations.RangeAttribute
+    ctor: System.ComponentModel.DataAnnotations.RangeAttribute.#ctor(System.Int32,System.Int32)
+    arguments:
+    - type: System.Int32
+      value: 1
+    - type: System.Int32
+      value: 10
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: ComicBookInventory.Shared.ComicBookWithAuthorsAndCharactersViewModel.Genre
+  commentId: P:ComicBookInventory.Shared.ComicBookWithAuthorsAndCharactersViewModel.Genre
+  id: Genre
+  parent: ComicBookInventory.Shared.ComicBookWithAuthorsAndCharactersViewModel
+  langs:
+  - csharp
+  - vb
+  name: Genre
+  nameWithType: ComicBookWithAuthorsAndCharactersViewModel.Genre
+  fullName: ComicBookInventory.Shared.ComicBookWithAuthorsAndCharactersViewModel.Genre
+  type: Property
+  source:
+    remote:
+      path: src/ComicBookInventory.Domain/Entities/ViewModels/ComicBookWithAuthorsAndCharactersViewModel.cs
+      branch: wip/extend-character-model
+      repo: git@github.com:rnemeth90/ComicBookInventoryApp.git
+    id: Genre
+    path: Entities/ViewModels/ComicBookWithAuthorsAndCharactersViewModel.cs
+    startLine: 17
+  assemblies:
+  - ComicBookInventory.Domain
+  namespace: ComicBookInventory.Shared
+  syntax:
+    content: public string Genre { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Genre As String
+  overload: ComicBookInventory.Shared.ComicBookWithAuthorsAndCharactersViewModel.Genre*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: ComicBookInventory.Shared.ComicBookWithAuthorsAndCharactersViewModel.CoverUrl
+  commentId: P:ComicBookInventory.Shared.ComicBookWithAuthorsAndCharactersViewModel.CoverUrl
+  id: CoverUrl
+  parent: ComicBookInventory.Shared.ComicBookWithAuthorsAndCharactersViewModel
+  langs:
+  - csharp
+  - vb
+  name: CoverUrl
+  nameWithType: ComicBookWithAuthorsAndCharactersViewModel.CoverUrl
+  fullName: ComicBookInventory.Shared.ComicBookWithAuthorsAndCharactersViewModel.CoverUrl
+  type: Property
+  source:
+    remote:
+      path: src/ComicBookInventory.Domain/Entities/ViewModels/ComicBookWithAuthorsAndCharactersViewModel.cs
+      branch: wip/extend-character-model
+      repo: git@github.com:rnemeth90/ComicBookInventoryApp.git
+    id: CoverUrl
+    path: Entities/ViewModels/ComicBookWithAuthorsAndCharactersViewModel.cs
+    startLine: 28
+  assemblies:
+  - ComicBookInventory.Domain
+  namespace: ComicBookInventory.Shared
+  summary: "\nMatch any sanely formed URI\nExamples:\nhttps://www.google.com\nwww.google.com/googler.pic\nhttp://www.google.com\nhttps://www.google.com/apiod.jpg\n"
+  example: []
+  syntax:
+    content: >-
+      [RegularExpression("(?:(())(www\\.([^/?#\\s]*))|((http(s)?|ftp):)(\\/\\/([^/?#\\s]*)))([^?#\\s]*)(\\?([^#\\s]*))?(#([^\\s]*))?")]
+
+      public string CoverUrl { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <RegularExpression("(?:(())(www\.([^/?#\s]*))|((http(s)?|ftp):)(\/\/([^/?#\s]*)))([^?#\s]*)(\?([^#\s]*))?(#([^\s]*))?")>
+
+      Public Property CoverUrl As String
+  overload: ComicBookInventory.Shared.ComicBookWithAuthorsAndCharactersViewModel.CoverUrl*
+  attributes:
+  - type: System.ComponentModel.DataAnnotations.RegularExpressionAttribute
+    ctor: System.ComponentModel.DataAnnotations.RegularExpressionAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: (?:(())(www\.([^/?#\s]*))|((http(s)?|ftp):)(\/\/([^/?#\s]*)))([^?#\s]*)(\?([^#\s]*))?(#([^\s]*))?
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: ComicBookInventory.Shared.ComicBookWithAuthorsAndCharactersViewModel.AuthorNames
+  commentId: P:ComicBookInventory.Shared.ComicBookWithAuthorsAndCharactersViewModel.AuthorNames
+  id: AuthorNames
+  parent: ComicBookInventory.Shared.ComicBookWithAuthorsAndCharactersViewModel
+  langs:
+  - csharp
+  - vb
+  name: AuthorNames
+  nameWithType: ComicBookWithAuthorsAndCharactersViewModel.AuthorNames
+  fullName: ComicBookInventory.Shared.ComicBookWithAuthorsAndCharactersViewModel.AuthorNames
+  type: Property
+  source:
+    remote:
+      path: src/ComicBookInventory.Domain/Entities/ViewModels/ComicBookWithAuthorsAndCharactersViewModel.cs
+      branch: wip/extend-character-model
+      repo: git@github.com:rnemeth90/ComicBookInventoryApp.git
+    id: AuthorNames
+    path: Entities/ViewModels/ComicBookWithAuthorsAndCharactersViewModel.cs
+    startLine: 35
+  assemblies:
+  - ComicBookInventory.Domain
+  namespace: ComicBookInventory.Shared
+  summary: "\nNavigation properties\n"
+  example: []
+  syntax:
+    content: public ICollection<string>? AuthorNames { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{ICollection{System.String}}
+    content.vb: Public Property AuthorNames As ICollection(Of String)?
+  overload: ComicBookInventory.Shared.ComicBookWithAuthorsAndCharactersViewModel.AuthorNames*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: ComicBookInventory.Shared.ComicBookWithAuthorsAndCharactersViewModel.CharacterNames
+  commentId: P:ComicBookInventory.Shared.ComicBookWithAuthorsAndCharactersViewModel.CharacterNames
+  id: CharacterNames
+  parent: ComicBookInventory.Shared.ComicBookWithAuthorsAndCharactersViewModel
+  langs:
+  - csharp
+  - vb
+  name: CharacterNames
+  nameWithType: ComicBookWithAuthorsAndCharactersViewModel.CharacterNames
+  fullName: ComicBookInventory.Shared.ComicBookWithAuthorsAndCharactersViewModel.CharacterNames
+  type: Property
+  source:
+    remote:
+      path: src/ComicBookInventory.Domain/Entities/ViewModels/ComicBookWithAuthorsAndCharactersViewModel.cs
+      branch: wip/extend-character-model
+      repo: git@github.com:rnemeth90/ComicBookInventoryApp.git
+    id: CharacterNames
+    path: Entities/ViewModels/ComicBookWithAuthorsAndCharactersViewModel.cs
+    startLine: 36
+  assemblies:
+  - ComicBookInventory.Domain
+  namespace: ComicBookInventory.Shared
+  syntax:
+    content: public ICollection<string>? CharacterNames { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{ICollection{System.String}}
+    content.vb: Public Property CharacterNames As ICollection(Of String)?
+  overload: ComicBookInventory.Shared.ComicBookWithAuthorsAndCharactersViewModel.CharacterNames*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+references:
+- uid: ComicBookInventory.Shared
+  commentId: N:ComicBookInventory.Shared
+  name: ComicBookInventory.Shared
+  nameWithType: ComicBookInventory.Shared
+  fullName: ComicBookInventory.Shared
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Object.Equals(Object)
+  fullName: System.Object.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Object.GetHashCode()
+  fullName: System.Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: Object.ToString()
+  fullName: System.Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ComicBookInventory.Shared.ComicBookWithAuthorsAndCharactersViewModel.Id*
+  commentId: Overload:ComicBookInventory.Shared.ComicBookWithAuthorsAndCharactersViewModel.Id
+  name: Id
+  nameWithType: ComicBookWithAuthorsAndCharactersViewModel.Id
+  fullName: ComicBookInventory.Shared.ComicBookWithAuthorsAndCharactersViewModel.Id
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: ComicBookInventory.Shared.ComicBookWithAuthorsAndCharactersViewModel.Title*
+  commentId: Overload:ComicBookInventory.Shared.ComicBookWithAuthorsAndCharactersViewModel.Title
+  name: Title
+  nameWithType: ComicBookWithAuthorsAndCharactersViewModel.Title
+  fullName: ComicBookInventory.Shared.ComicBookWithAuthorsAndCharactersViewModel.Title
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: ComicBookInventory.Shared.ComicBookWithAuthorsAndCharactersViewModel.Description*
+  commentId: Overload:ComicBookInventory.Shared.ComicBookWithAuthorsAndCharactersViewModel.Description
+  name: Description
+  nameWithType: ComicBookWithAuthorsAndCharactersViewModel.Description
+  fullName: ComicBookInventory.Shared.ComicBookWithAuthorsAndCharactersViewModel.Description
+- uid: ComicBookInventory.Shared.ComicBookWithAuthorsAndCharactersViewModel.IsRead*
+  commentId: Overload:ComicBookInventory.Shared.ComicBookWithAuthorsAndCharactersViewModel.IsRead
+  name: IsRead
+  nameWithType: ComicBookWithAuthorsAndCharactersViewModel.IsRead
+  fullName: ComicBookInventory.Shared.ComicBookWithAuthorsAndCharactersViewModel.IsRead
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: ComicBookInventory.Shared.ComicBookWithAuthorsAndCharactersViewModel.DateRead*
+  commentId: Overload:ComicBookInventory.Shared.ComicBookWithAuthorsAndCharactersViewModel.DateRead
+  name: DateRead
+  nameWithType: ComicBookWithAuthorsAndCharactersViewModel.DateRead
+  fullName: ComicBookInventory.Shared.ComicBookWithAuthorsAndCharactersViewModel.DateRead
+- uid: System.Nullable{DateTime}
+  commentId: T:System.Nullable{DateTime}
+  parent: System
+  definition: System.Nullable`1
+  name: Nullable<DateTime>
+  nameWithType: Nullable<DateTime>
+  fullName: System.Nullable<DateTime>
+  nameWithType.vb: Nullable(Of DateTime)
+  fullName.vb: System.Nullable(Of DateTime)
+  name.vb: Nullable(Of DateTime)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: DateTime
+    name: DateTime
+    nameWithType: DateTime
+    fullName: DateTime
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: DateTime
+    name: DateTime
+    nameWithType: DateTime
+    fullName: DateTime
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: ComicBookInventory.Shared.ComicBookWithAuthorsAndCharactersViewModel.Rating*
+  commentId: Overload:ComicBookInventory.Shared.ComicBookWithAuthorsAndCharactersViewModel.Rating
+  name: Rating
+  nameWithType: ComicBookWithAuthorsAndCharactersViewModel.Rating
+  fullName: ComicBookInventory.Shared.ComicBookWithAuthorsAndCharactersViewModel.Rating
+- uid: System.Nullable{System.Int32}
+  commentId: T:System.Nullable{System.Int32}
+  parent: System
+  definition: System.Nullable`1
+  name: Nullable<Int32>
+  nameWithType: Nullable<Int32>
+  fullName: System.Nullable<System.Int32>
+  nameWithType.vb: Nullable(Of Int32)
+  fullName.vb: System.Nullable(Of System.Int32)
+  name.vb: Nullable(Of Int32)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: ComicBookInventory.Shared.ComicBookWithAuthorsAndCharactersViewModel.Genre*
+  commentId: Overload:ComicBookInventory.Shared.ComicBookWithAuthorsAndCharactersViewModel.Genre
+  name: Genre
+  nameWithType: ComicBookWithAuthorsAndCharactersViewModel.Genre
+  fullName: ComicBookInventory.Shared.ComicBookWithAuthorsAndCharactersViewModel.Genre
+- uid: ComicBookInventory.Shared.ComicBookWithAuthorsAndCharactersViewModel.CoverUrl*
+  commentId: Overload:ComicBookInventory.Shared.ComicBookWithAuthorsAndCharactersViewModel.CoverUrl
+  name: CoverUrl
+  nameWithType: ComicBookWithAuthorsAndCharactersViewModel.CoverUrl
+  fullName: ComicBookInventory.Shared.ComicBookWithAuthorsAndCharactersViewModel.CoverUrl
+- uid: ComicBookInventory.Shared.ComicBookWithAuthorsAndCharactersViewModel.AuthorNames*
+  commentId: Overload:ComicBookInventory.Shared.ComicBookWithAuthorsAndCharactersViewModel.AuthorNames
+  name: AuthorNames
+  nameWithType: ComicBookWithAuthorsAndCharactersViewModel.AuthorNames
+  fullName: ComicBookInventory.Shared.ComicBookWithAuthorsAndCharactersViewModel.AuthorNames
+- uid: System.Nullable{ICollection{System.String}}
+  commentId: T:System.Nullable{ICollection{System.String}}
+  parent: System
+  definition: System.Nullable`1
+  name: Nullable<ICollection<String>>
+  nameWithType: Nullable<ICollection<String>>
+  fullName: System.Nullable<ICollection<System.String>>
+  nameWithType.vb: Nullable(Of ICollection(Of String))
+  fullName.vb: System.Nullable(Of ICollection(Of System.String))
+  name.vb: Nullable(Of ICollection(Of String))
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: ICollection`1
+    name: ICollection
+    nameWithType: ICollection
+    fullName: ICollection
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: ICollection`1
+    name: ICollection
+    nameWithType: ICollection
+    fullName: ICollection
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: ComicBookInventory.Shared.ComicBookWithAuthorsAndCharactersViewModel.CharacterNames*
+  commentId: Overload:ComicBookInventory.Shared.ComicBookWithAuthorsAndCharactersViewModel.CharacterNames
+  name: CharacterNames
+  nameWithType: ComicBookWithAuthorsAndCharactersViewModel.CharacterNames
+  fullName: ComicBookInventory.Shared.ComicBookWithAuthorsAndCharactersViewModel.CharacterNames

@@ -1,0 +1,91 @@
+### YamlMime:ManagedReference
+items:
+- uid: ComicBookInventory.Shared.IComicBook
+  commentId: T:ComicBookInventory.Shared.IComicBook
+  id: IComicBook
+  parent: ComicBookInventory.Shared
+  children:
+  - ComicBookInventory.Shared.IComicBook.Title
+  langs:
+  - csharp
+  - vb
+  name: IComicBook
+  nameWithType: IComicBook
+  fullName: ComicBookInventory.Shared.IComicBook
+  type: Interface
+  source:
+    remote:
+      path: src/ComicBookInventory.Domain/Interfaces/IComicBook.cs
+      branch: wip/extend-character-model
+      repo: git@github.com:rnemeth90/ComicBookInventoryApp.git
+    id: IComicBook
+    path: Interfaces/IComicBook.cs
+    startLine: 2
+  assemblies:
+  - ComicBookInventory.Domain
+  namespace: ComicBookInventory.Shared
+  syntax:
+    content: public interface IComicBook
+    content.vb: Public Interface IComicBook
+  modifiers.csharp:
+  - public
+  - interface
+  modifiers.vb:
+  - Public
+  - Interface
+- uid: ComicBookInventory.Shared.IComicBook.Title
+  commentId: P:ComicBookInventory.Shared.IComicBook.Title
+  id: Title
+  parent: ComicBookInventory.Shared.IComicBook
+  langs:
+  - csharp
+  - vb
+  name: Title
+  nameWithType: IComicBook.Title
+  fullName: ComicBookInventory.Shared.IComicBook.Title
+  type: Property
+  source:
+    remote:
+      path: src/ComicBookInventory.Domain/Interfaces/IComicBook.cs
+      branch: wip/extend-character-model
+      repo: git@github.com:rnemeth90/ComicBookInventoryApp.git
+    id: Title
+    path: Interfaces/IComicBook.cs
+    startLine: 4
+  assemblies:
+  - ComicBookInventory.Domain
+  namespace: ComicBookInventory.Shared
+  syntax:
+    content: string Title { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property Title As String
+  overload: ComicBookInventory.Shared.IComicBook.Title*
+  modifiers.csharp:
+  - get
+  - set
+references:
+- uid: ComicBookInventory.Shared
+  commentId: N:ComicBookInventory.Shared
+  name: ComicBookInventory.Shared
+  nameWithType: ComicBookInventory.Shared
+  fullName: ComicBookInventory.Shared
+- uid: ComicBookInventory.Shared.IComicBook.Title*
+  commentId: Overload:ComicBookInventory.Shared.IComicBook.Title
+  name: Title
+  nameWithType: IComicBook.Title
+  fullName: ComicBookInventory.Shared.IComicBook.Title
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
