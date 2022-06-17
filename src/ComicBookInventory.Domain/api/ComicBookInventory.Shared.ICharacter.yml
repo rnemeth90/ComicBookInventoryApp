@@ -1,0 +1,326 @@
+### YamlMime:ManagedReference
+items:
+- uid: ComicBookInventory.Shared.ICharacter
+  commentId: T:ComicBookInventory.Shared.ICharacter
+  id: ICharacter
+  parent: ComicBookInventory.Shared
+  children:
+  - ComicBookInventory.Shared.ICharacter.Alias
+  - ComicBookInventory.Shared.ICharacter.FullName
+  - ComicBookInventory.Shared.ICharacter.IsAlive
+  - ComicBookInventory.Shared.ICharacter.PrimaryAbility
+  - ComicBookInventory.Shared.ICharacter.SecondaryAbility
+  - ComicBookInventory.Shared.ICharacter.Species
+  - ComicBookInventory.Shared.ICharacter.Weapon
+  langs:
+  - csharp
+  - vb
+  name: ICharacter
+  nameWithType: ICharacter
+  fullName: ComicBookInventory.Shared.ICharacter
+  type: Interface
+  source:
+    remote:
+      path: src/ComicBookInventory.Domain/Interfaces/ICharacter.cs
+      branch: wip/extend-character-model
+      repo: git@github.com:rnemeth90/ComicBookInventoryApp.git
+    id: ICharacter
+    path: Interfaces/ICharacter.cs
+    startLine: 2
+  assemblies:
+  - ComicBookInventory.Domain
+  namespace: ComicBookInventory.Shared
+  syntax:
+    content: public interface ICharacter
+    content.vb: Public Interface ICharacter
+  modifiers.csharp:
+  - public
+  - interface
+  modifiers.vb:
+  - Public
+  - Interface
+- uid: ComicBookInventory.Shared.ICharacter.FullName
+  commentId: P:ComicBookInventory.Shared.ICharacter.FullName
+  id: FullName
+  parent: ComicBookInventory.Shared.ICharacter
+  langs:
+  - csharp
+  - vb
+  name: FullName
+  nameWithType: ICharacter.FullName
+  fullName: ComicBookInventory.Shared.ICharacter.FullName
+  type: Property
+  source:
+    remote:
+      path: src/ComicBookInventory.Domain/Interfaces/ICharacter.cs
+      branch: wip/extend-character-model
+      repo: git@github.com:rnemeth90/ComicBookInventoryApp.git
+    id: FullName
+    path: Interfaces/ICharacter.cs
+    startLine: 4
+  assemblies:
+  - ComicBookInventory.Domain
+  namespace: ComicBookInventory.Shared
+  syntax:
+    content: string FullName { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property FullName As String
+  overload: ComicBookInventory.Shared.ICharacter.FullName*
+  modifiers.csharp:
+  - get
+  - set
+- uid: ComicBookInventory.Shared.ICharacter.PrimaryAbility
+  commentId: P:ComicBookInventory.Shared.ICharacter.PrimaryAbility
+  id: PrimaryAbility
+  parent: ComicBookInventory.Shared.ICharacter
+  langs:
+  - csharp
+  - vb
+  name: PrimaryAbility
+  nameWithType: ICharacter.PrimaryAbility
+  fullName: ComicBookInventory.Shared.ICharacter.PrimaryAbility
+  type: Property
+  source:
+    remote:
+      path: src/ComicBookInventory.Domain/Interfaces/ICharacter.cs
+      branch: wip/extend-character-model
+      repo: git@github.com:rnemeth90/ComicBookInventoryApp.git
+    id: PrimaryAbility
+    path: Interfaces/ICharacter.cs
+    startLine: 5
+  assemblies:
+  - ComicBookInventory.Domain
+  namespace: ComicBookInventory.Shared
+  syntax:
+    content: string PrimaryAbility { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property PrimaryAbility As String
+  overload: ComicBookInventory.Shared.ICharacter.PrimaryAbility*
+  modifiers.csharp:
+  - get
+  - set
+- uid: ComicBookInventory.Shared.ICharacter.SecondaryAbility
+  commentId: P:ComicBookInventory.Shared.ICharacter.SecondaryAbility
+  id: SecondaryAbility
+  parent: ComicBookInventory.Shared.ICharacter
+  langs:
+  - csharp
+  - vb
+  name: SecondaryAbility
+  nameWithType: ICharacter.SecondaryAbility
+  fullName: ComicBookInventory.Shared.ICharacter.SecondaryAbility
+  type: Property
+  source:
+    remote:
+      path: src/ComicBookInventory.Domain/Interfaces/ICharacter.cs
+      branch: wip/extend-character-model
+      repo: git@github.com:rnemeth90/ComicBookInventoryApp.git
+    id: SecondaryAbility
+    path: Interfaces/ICharacter.cs
+    startLine: 6
+  assemblies:
+  - ComicBookInventory.Domain
+  namespace: ComicBookInventory.Shared
+  syntax:
+    content: string SecondaryAbility { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property SecondaryAbility As String
+  overload: ComicBookInventory.Shared.ICharacter.SecondaryAbility*
+  modifiers.csharp:
+  - get
+  - set
+- uid: ComicBookInventory.Shared.ICharacter.Species
+  commentId: P:ComicBookInventory.Shared.ICharacter.Species
+  id: Species
+  parent: ComicBookInventory.Shared.ICharacter
+  langs:
+  - csharp
+  - vb
+  name: Species
+  nameWithType: ICharacter.Species
+  fullName: ComicBookInventory.Shared.ICharacter.Species
+  type: Property
+  source:
+    remote:
+      path: src/ComicBookInventory.Domain/Interfaces/ICharacter.cs
+      branch: wip/extend-character-model
+      repo: git@github.com:rnemeth90/ComicBookInventoryApp.git
+    id: Species
+    path: Interfaces/ICharacter.cs
+    startLine: 7
+  assemblies:
+  - ComicBookInventory.Domain
+  namespace: ComicBookInventory.Shared
+  syntax:
+    content: string Species { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property Species As String
+  overload: ComicBookInventory.Shared.ICharacter.Species*
+  modifiers.csharp:
+  - get
+  - set
+- uid: ComicBookInventory.Shared.ICharacter.Alias
+  commentId: P:ComicBookInventory.Shared.ICharacter.Alias
+  id: Alias
+  parent: ComicBookInventory.Shared.ICharacter
+  langs:
+  - csharp
+  - vb
+  name: Alias
+  nameWithType: ICharacter.Alias
+  fullName: ComicBookInventory.Shared.ICharacter.Alias
+  type: Property
+  source:
+    remote:
+      path: src/ComicBookInventory.Domain/Interfaces/ICharacter.cs
+      branch: wip/extend-character-model
+      repo: git@github.com:rnemeth90/ComicBookInventoryApp.git
+    id: Alias
+    path: Interfaces/ICharacter.cs
+    startLine: 8
+  assemblies:
+  - ComicBookInventory.Domain
+  namespace: ComicBookInventory.Shared
+  syntax:
+    content: string Alias { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property Alias As String
+  overload: ComicBookInventory.Shared.ICharacter.Alias*
+  modifiers.csharp:
+  - get
+  - set
+- uid: ComicBookInventory.Shared.ICharacter.IsAlive
+  commentId: P:ComicBookInventory.Shared.ICharacter.IsAlive
+  id: IsAlive
+  parent: ComicBookInventory.Shared.ICharacter
+  langs:
+  - csharp
+  - vb
+  name: IsAlive
+  nameWithType: ICharacter.IsAlive
+  fullName: ComicBookInventory.Shared.ICharacter.IsAlive
+  type: Property
+  source:
+    remote:
+      path: src/ComicBookInventory.Domain/Interfaces/ICharacter.cs
+      branch: wip/extend-character-model
+      repo: git@github.com:rnemeth90/ComicBookInventoryApp.git
+    id: IsAlive
+    path: Interfaces/ICharacter.cs
+    startLine: 9
+  assemblies:
+  - ComicBookInventory.Domain
+  namespace: ComicBookInventory.Shared
+  syntax:
+    content: bool IsAlive { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Property IsAlive As Boolean
+  overload: ComicBookInventory.Shared.ICharacter.IsAlive*
+  modifiers.csharp:
+  - get
+  - set
+- uid: ComicBookInventory.Shared.ICharacter.Weapon
+  commentId: P:ComicBookInventory.Shared.ICharacter.Weapon
+  id: Weapon
+  parent: ComicBookInventory.Shared.ICharacter
+  langs:
+  - csharp
+  - vb
+  name: Weapon
+  nameWithType: ICharacter.Weapon
+  fullName: ComicBookInventory.Shared.ICharacter.Weapon
+  type: Property
+  source:
+    remote:
+      path: src/ComicBookInventory.Domain/Interfaces/ICharacter.cs
+      branch: wip/extend-character-model
+      repo: git@github.com:rnemeth90/ComicBookInventoryApp.git
+    id: Weapon
+    path: Interfaces/ICharacter.cs
+    startLine: 10
+  assemblies:
+  - ComicBookInventory.Domain
+  namespace: ComicBookInventory.Shared
+  syntax:
+    content: string Weapon { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property Weapon As String
+  overload: ComicBookInventory.Shared.ICharacter.Weapon*
+  modifiers.csharp:
+  - get
+  - set
+references:
+- uid: ComicBookInventory.Shared
+  commentId: N:ComicBookInventory.Shared
+  name: ComicBookInventory.Shared
+  nameWithType: ComicBookInventory.Shared
+  fullName: ComicBookInventory.Shared
+- uid: ComicBookInventory.Shared.ICharacter.FullName*
+  commentId: Overload:ComicBookInventory.Shared.ICharacter.FullName
+  name: FullName
+  nameWithType: ICharacter.FullName
+  fullName: ComicBookInventory.Shared.ICharacter.FullName
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ComicBookInventory.Shared.ICharacter.PrimaryAbility*
+  commentId: Overload:ComicBookInventory.Shared.ICharacter.PrimaryAbility
+  name: PrimaryAbility
+  nameWithType: ICharacter.PrimaryAbility
+  fullName: ComicBookInventory.Shared.ICharacter.PrimaryAbility
+- uid: ComicBookInventory.Shared.ICharacter.SecondaryAbility*
+  commentId: Overload:ComicBookInventory.Shared.ICharacter.SecondaryAbility
+  name: SecondaryAbility
+  nameWithType: ICharacter.SecondaryAbility
+  fullName: ComicBookInventory.Shared.ICharacter.SecondaryAbility
+- uid: ComicBookInventory.Shared.ICharacter.Species*
+  commentId: Overload:ComicBookInventory.Shared.ICharacter.Species
+  name: Species
+  nameWithType: ICharacter.Species
+  fullName: ComicBookInventory.Shared.ICharacter.Species
+- uid: ComicBookInventory.Shared.ICharacter.Alias*
+  commentId: Overload:ComicBookInventory.Shared.ICharacter.Alias
+  name: Alias
+  nameWithType: ICharacter.Alias
+  fullName: ComicBookInventory.Shared.ICharacter.Alias
+- uid: ComicBookInventory.Shared.ICharacter.IsAlive*
+  commentId: Overload:ComicBookInventory.Shared.ICharacter.IsAlive
+  name: IsAlive
+  nameWithType: ICharacter.IsAlive
+  fullName: ComicBookInventory.Shared.ICharacter.IsAlive
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: ComicBookInventory.Shared.ICharacter.Weapon*
+  commentId: Overload:ComicBookInventory.Shared.ICharacter.Weapon
+  name: Weapon
+  nameWithType: ICharacter.Weapon
+  fullName: ComicBookInventory.Shared.ICharacter.Weapon

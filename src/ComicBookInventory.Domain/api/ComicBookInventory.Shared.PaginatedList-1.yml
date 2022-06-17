@@ -1,0 +1,588 @@
+### YamlMime:ManagedReference
+items:
+- uid: ComicBookInventory.Shared.PaginatedList`1
+  commentId: T:ComicBookInventory.Shared.PaginatedList`1
+  id: PaginatedList`1
+  parent: ComicBookInventory.Shared
+  children:
+  - ComicBookInventory.Shared.PaginatedList`1.#ctor(List{`0},System.Int32,System.Int32,System.Int32)
+  - ComicBookInventory.Shared.PaginatedList`1.Create(IQueryable{`0},System.Int32,System.Int32)
+  - ComicBookInventory.Shared.PaginatedList`1.HasNextPage
+  - ComicBookInventory.Shared.PaginatedList`1.HasPreviousPage
+  - ComicBookInventory.Shared.PaginatedList`1.PageIndex
+  - ComicBookInventory.Shared.PaginatedList`1.TotalPages
+  langs:
+  - csharp
+  - vb
+  name: PaginatedList<T>
+  nameWithType: PaginatedList<T>
+  fullName: ComicBookInventory.Shared.PaginatedList<T>
+  type: Class
+  source:
+    remote:
+      path: src/ComicBookInventory.Domain/Entities/PaginatedList.cs
+      branch: wip/extend-character-model
+      repo: git@github.com:rnemeth90/ComicBookInventoryApp.git
+    id: PaginatedList
+    path: Entities/PaginatedList.cs
+    startLine: 2
+  assemblies:
+  - ComicBookInventory.Domain
+  namespace: ComicBookInventory.Shared
+  syntax:
+    content: 'public class PaginatedList<T> : List<T>'
+    typeParameters:
+    - id: T
+    content.vb: >-
+      Public Class PaginatedList(Of T)
+          Inherits List(Of T)
+  inheritance:
+  - System.Object
+  nameWithType.vb: PaginatedList(Of T)
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+  fullName.vb: ComicBookInventory.Shared.PaginatedList(Of T)
+  name.vb: PaginatedList(Of T)
+- uid: ComicBookInventory.Shared.PaginatedList`1.PageIndex
+  commentId: P:ComicBookInventory.Shared.PaginatedList`1.PageIndex
+  id: PageIndex
+  parent: ComicBookInventory.Shared.PaginatedList`1
+  langs:
+  - csharp
+  - vb
+  name: PageIndex
+  nameWithType: PaginatedList<T>.PageIndex
+  fullName: ComicBookInventory.Shared.PaginatedList<T>.PageIndex
+  type: Property
+  source:
+    remote:
+      path: src/ComicBookInventory.Domain/Entities/PaginatedList.cs
+      branch: wip/extend-character-model
+      repo: git@github.com:rnemeth90/ComicBookInventoryApp.git
+    id: PageIndex
+    path: Entities/PaginatedList.cs
+    startLine: 4
+  assemblies:
+  - ComicBookInventory.Domain
+  namespace: ComicBookInventory.Shared
+  syntax:
+    content: public int PageIndex { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property PageIndex As Integer
+  overload: ComicBookInventory.Shared.PaginatedList`1.PageIndex*
+  nameWithType.vb: PaginatedList(Of T).PageIndex
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+  fullName.vb: ComicBookInventory.Shared.PaginatedList(Of T).PageIndex
+- uid: ComicBookInventory.Shared.PaginatedList`1.TotalPages
+  commentId: P:ComicBookInventory.Shared.PaginatedList`1.TotalPages
+  id: TotalPages
+  parent: ComicBookInventory.Shared.PaginatedList`1
+  langs:
+  - csharp
+  - vb
+  name: TotalPages
+  nameWithType: PaginatedList<T>.TotalPages
+  fullName: ComicBookInventory.Shared.PaginatedList<T>.TotalPages
+  type: Property
+  source:
+    remote:
+      path: src/ComicBookInventory.Domain/Entities/PaginatedList.cs
+      branch: wip/extend-character-model
+      repo: git@github.com:rnemeth90/ComicBookInventoryApp.git
+    id: TotalPages
+    path: Entities/PaginatedList.cs
+    startLine: 5
+  assemblies:
+  - ComicBookInventory.Domain
+  namespace: ComicBookInventory.Shared
+  syntax:
+    content: public int TotalPages { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property TotalPages As Integer
+  overload: ComicBookInventory.Shared.PaginatedList`1.TotalPages*
+  nameWithType.vb: PaginatedList(Of T).TotalPages
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+  fullName.vb: ComicBookInventory.Shared.PaginatedList(Of T).TotalPages
+- uid: ComicBookInventory.Shared.PaginatedList`1.HasNextPage
+  commentId: P:ComicBookInventory.Shared.PaginatedList`1.HasNextPage
+  id: HasNextPage
+  parent: ComicBookInventory.Shared.PaginatedList`1
+  langs:
+  - csharp
+  - vb
+  name: HasNextPage
+  nameWithType: PaginatedList<T>.HasNextPage
+  fullName: ComicBookInventory.Shared.PaginatedList<T>.HasNextPage
+  type: Property
+  source:
+    remote:
+      path: src/ComicBookInventory.Domain/Entities/PaginatedList.cs
+      branch: wip/extend-character-model
+      repo: git@github.com:rnemeth90/ComicBookInventoryApp.git
+    id: HasNextPage
+    path: Entities/PaginatedList.cs
+    startLine: 6
+  assemblies:
+  - ComicBookInventory.Domain
+  namespace: ComicBookInventory.Shared
+  syntax:
+    content: public bool HasNextPage { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property HasNextPage As Boolean
+  overload: ComicBookInventory.Shared.PaginatedList`1.HasNextPage*
+  nameWithType.vb: PaginatedList(Of T).HasNextPage
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+  fullName.vb: ComicBookInventory.Shared.PaginatedList(Of T).HasNextPage
+- uid: ComicBookInventory.Shared.PaginatedList`1.HasPreviousPage
+  commentId: P:ComicBookInventory.Shared.PaginatedList`1.HasPreviousPage
+  id: HasPreviousPage
+  parent: ComicBookInventory.Shared.PaginatedList`1
+  langs:
+  - csharp
+  - vb
+  name: HasPreviousPage
+  nameWithType: PaginatedList<T>.HasPreviousPage
+  fullName: ComicBookInventory.Shared.PaginatedList<T>.HasPreviousPage
+  type: Property
+  source:
+    remote:
+      path: src/ComicBookInventory.Domain/Entities/PaginatedList.cs
+      branch: wip/extend-character-model
+      repo: git@github.com:rnemeth90/ComicBookInventoryApp.git
+    id: HasPreviousPage
+    path: Entities/PaginatedList.cs
+    startLine: 7
+  assemblies:
+  - ComicBookInventory.Domain
+  namespace: ComicBookInventory.Shared
+  syntax:
+    content: public bool HasPreviousPage { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property HasPreviousPage As Boolean
+  overload: ComicBookInventory.Shared.PaginatedList`1.HasPreviousPage*
+  nameWithType.vb: PaginatedList(Of T).HasPreviousPage
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+  fullName.vb: ComicBookInventory.Shared.PaginatedList(Of T).HasPreviousPage
+- uid: ComicBookInventory.Shared.PaginatedList`1.#ctor(List{`0},System.Int32,System.Int32,System.Int32)
+  commentId: M:ComicBookInventory.Shared.PaginatedList`1.#ctor(List{`0},System.Int32,System.Int32,System.Int32)
+  id: '#ctor(List{`0},System.Int32,System.Int32,System.Int32)'
+  parent: ComicBookInventory.Shared.PaginatedList`1
+  langs:
+  - csharp
+  - vb
+  name: PaginatedList(List<T>, Int32, Int32, Int32)
+  nameWithType: PaginatedList<T>.PaginatedList(List<T>, Int32, Int32, Int32)
+  fullName: ComicBookInventory.Shared.PaginatedList<T>.PaginatedList(List<T>, System.Int32, System.Int32, System.Int32)
+  type: Constructor
+  source:
+    remote:
+      path: src/ComicBookInventory.Domain/Entities/PaginatedList.cs
+      branch: wip/extend-character-model
+      repo: git@github.com:rnemeth90/ComicBookInventoryApp.git
+    id: .ctor
+    path: Entities/PaginatedList.cs
+    startLine: 9
+  assemblies:
+  - ComicBookInventory.Domain
+  namespace: ComicBookInventory.Shared
+  syntax:
+    content: public PaginatedList(List<T> items, int count, int pageIndex, int pageSize)
+    parameters:
+    - id: items
+      type: List{{T}}
+    - id: count
+      type: System.Int32
+    - id: pageIndex
+      type: System.Int32
+    - id: pageSize
+      type: System.Int32
+    content.vb: Public Sub New(items As List(Of T), count As Integer, pageIndex As Integer, pageSize As Integer)
+  overload: ComicBookInventory.Shared.PaginatedList`1.#ctor*
+  nameWithType.vb: PaginatedList(Of T).PaginatedList(List(Of T), Int32, Int32, Int32)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: ComicBookInventory.Shared.PaginatedList(Of T).PaginatedList(List(Of T), System.Int32, System.Int32, System.Int32)
+  name.vb: PaginatedList(List(Of T), Int32, Int32, Int32)
+- uid: ComicBookInventory.Shared.PaginatedList`1.Create(IQueryable{`0},System.Int32,System.Int32)
+  commentId: M:ComicBookInventory.Shared.PaginatedList`1.Create(IQueryable{`0},System.Int32,System.Int32)
+  id: Create(IQueryable{`0},System.Int32,System.Int32)
+  parent: ComicBookInventory.Shared.PaginatedList`1
+  langs:
+  - csharp
+  - vb
+  name: Create(IQueryable<T>, Int32, Int32)
+  nameWithType: PaginatedList<T>.Create(IQueryable<T>, Int32, Int32)
+  fullName: ComicBookInventory.Shared.PaginatedList<T>.Create(IQueryable<T>, System.Int32, System.Int32)
+  type: Method
+  source:
+    remote:
+      path: src/ComicBookInventory.Domain/Entities/PaginatedList.cs
+      branch: wip/extend-character-model
+      repo: git@github.com:rnemeth90/ComicBookInventoryApp.git
+    id: Create
+    path: Entities/PaginatedList.cs
+    startLine: 17
+  assemblies:
+  - ComicBookInventory.Domain
+  namespace: ComicBookInventory.Shared
+  syntax:
+    content: public static PaginatedList<T> Create(IQueryable<T> source, int pageIndex, int pageSize)
+    parameters:
+    - id: source
+      type: IQueryable{{T}}
+    - id: pageIndex
+      type: System.Int32
+    - id: pageSize
+      type: System.Int32
+    return:
+      type: ComicBookInventory.Shared.PaginatedList{{T}}
+    content.vb: Public Shared Function Create(source As IQueryable(Of T), pageIndex As Integer, pageSize As Integer) As PaginatedList(Of T)
+  overload: ComicBookInventory.Shared.PaginatedList`1.Create*
+  nameWithType.vb: PaginatedList(Of T).Create(IQueryable(Of T), Int32, Int32)
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: ComicBookInventory.Shared.PaginatedList(Of T).Create(IQueryable(Of T), System.Int32, System.Int32)
+  name.vb: Create(IQueryable(Of T), Int32, Int32)
+references:
+- uid: ComicBookInventory.Shared
+  commentId: N:ComicBookInventory.Shared
+  name: ComicBookInventory.Shared
+  nameWithType: ComicBookInventory.Shared
+  fullName: ComicBookInventory.Shared
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ComicBookInventory.Shared.PaginatedList`1.PageIndex*
+  commentId: Overload:ComicBookInventory.Shared.PaginatedList`1.PageIndex
+  name: PageIndex
+  nameWithType: PaginatedList<T>.PageIndex
+  fullName: ComicBookInventory.Shared.PaginatedList<T>.PageIndex
+  nameWithType.vb: PaginatedList(Of T).PageIndex
+  fullName.vb: ComicBookInventory.Shared.PaginatedList(Of T).PageIndex
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: ComicBookInventory.Shared.PaginatedList`1.TotalPages*
+  commentId: Overload:ComicBookInventory.Shared.PaginatedList`1.TotalPages
+  name: TotalPages
+  nameWithType: PaginatedList<T>.TotalPages
+  fullName: ComicBookInventory.Shared.PaginatedList<T>.TotalPages
+  nameWithType.vb: PaginatedList(Of T).TotalPages
+  fullName.vb: ComicBookInventory.Shared.PaginatedList(Of T).TotalPages
+- uid: ComicBookInventory.Shared.PaginatedList`1.HasNextPage*
+  commentId: Overload:ComicBookInventory.Shared.PaginatedList`1.HasNextPage
+  name: HasNextPage
+  nameWithType: PaginatedList<T>.HasNextPage
+  fullName: ComicBookInventory.Shared.PaginatedList<T>.HasNextPage
+  nameWithType.vb: PaginatedList(Of T).HasNextPage
+  fullName.vb: ComicBookInventory.Shared.PaginatedList(Of T).HasNextPage
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: ComicBookInventory.Shared.PaginatedList`1.HasPreviousPage*
+  commentId: Overload:ComicBookInventory.Shared.PaginatedList`1.HasPreviousPage
+  name: HasPreviousPage
+  nameWithType: PaginatedList<T>.HasPreviousPage
+  fullName: ComicBookInventory.Shared.PaginatedList<T>.HasPreviousPage
+  nameWithType.vb: PaginatedList(Of T).HasPreviousPage
+  fullName.vb: ComicBookInventory.Shared.PaginatedList(Of T).HasPreviousPage
+- uid: ComicBookInventory.Shared.PaginatedList`1.#ctor*
+  commentId: Overload:ComicBookInventory.Shared.PaginatedList`1.#ctor
+  name: PaginatedList
+  nameWithType: PaginatedList<T>.PaginatedList
+  fullName: ComicBookInventory.Shared.PaginatedList<T>.PaginatedList
+  nameWithType.vb: PaginatedList(Of T).PaginatedList
+  fullName.vb: ComicBookInventory.Shared.PaginatedList(Of T).PaginatedList
+- uid: List{{T}}
+  commentId: '!:List{`0}'
+  definition: List`1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: List`1
+    name: List
+    nameWithType: List
+    fullName: List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: List`1
+    name: List
+    nameWithType: List
+    fullName: List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: List`1
+  commentId: '!:List`1'
+  isExternal: true
+  name: List<>
+  nameWithType: List<>
+  fullName: List<>
+  nameWithType.vb: List(Of )
+  fullName.vb: List(Of )
+  name.vb: List(Of )
+  spec.csharp:
+  - uid: List`1
+    name: List
+    nameWithType: List
+    fullName: List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: List`1
+    name: List
+    nameWithType: List
+    fullName: List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: ComicBookInventory.Shared.PaginatedList`1.Create*
+  commentId: Overload:ComicBookInventory.Shared.PaginatedList`1.Create
+  name: Create
+  nameWithType: PaginatedList<T>.Create
+  fullName: ComicBookInventory.Shared.PaginatedList<T>.Create
+  nameWithType.vb: PaginatedList(Of T).Create
+  fullName.vb: ComicBookInventory.Shared.PaginatedList(Of T).Create
+- uid: IQueryable{{T}}
+  commentId: '!:IQueryable{`0}'
+  definition: IQueryable`1
+  name: IQueryable<T>
+  nameWithType: IQueryable<T>
+  fullName: IQueryable<T>
+  nameWithType.vb: IQueryable(Of T)
+  fullName.vb: IQueryable(Of T)
+  name.vb: IQueryable(Of T)
+  spec.csharp:
+  - uid: IQueryable`1
+    name: IQueryable
+    nameWithType: IQueryable
+    fullName: IQueryable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: IQueryable`1
+    name: IQueryable
+    nameWithType: IQueryable
+    fullName: IQueryable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: ComicBookInventory.Shared.PaginatedList{{T}}
+  commentId: T:ComicBookInventory.Shared.PaginatedList{`0}
+  parent: ComicBookInventory.Shared
+  definition: ComicBookInventory.Shared.PaginatedList`1
+  name: PaginatedList<T>
+  nameWithType: PaginatedList<T>
+  fullName: ComicBookInventory.Shared.PaginatedList<T>
+  nameWithType.vb: PaginatedList(Of T)
+  fullName.vb: ComicBookInventory.Shared.PaginatedList(Of T)
+  name.vb: PaginatedList(Of T)
+  spec.csharp:
+  - uid: ComicBookInventory.Shared.PaginatedList`1
+    name: PaginatedList
+    nameWithType: PaginatedList
+    fullName: ComicBookInventory.Shared.PaginatedList
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: ComicBookInventory.Shared.PaginatedList`1
+    name: PaginatedList
+    nameWithType: PaginatedList
+    fullName: ComicBookInventory.Shared.PaginatedList
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: IQueryable`1
+  commentId: '!:IQueryable`1'
+  isExternal: true
+  name: IQueryable<>
+  nameWithType: IQueryable<>
+  fullName: IQueryable<>
+  nameWithType.vb: IQueryable(Of )
+  fullName.vb: IQueryable(Of )
+  name.vb: IQueryable(Of )
+  spec.csharp:
+  - uid: IQueryable`1
+    name: IQueryable
+    nameWithType: IQueryable
+    fullName: IQueryable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: IQueryable`1
+    name: IQueryable
+    nameWithType: IQueryable
+    fullName: IQueryable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: ComicBookInventory.Shared.PaginatedList`1
+  commentId: T:ComicBookInventory.Shared.PaginatedList`1
+  name: PaginatedList<T>
+  nameWithType: PaginatedList<T>
+  fullName: ComicBookInventory.Shared.PaginatedList<T>
+  nameWithType.vb: PaginatedList(Of T)
+  fullName.vb: ComicBookInventory.Shared.PaginatedList(Of T)
+  name.vb: PaginatedList(Of T)
+  spec.csharp:
+  - uid: ComicBookInventory.Shared.PaginatedList`1
+    name: PaginatedList
+    nameWithType: PaginatedList
+    fullName: ComicBookInventory.Shared.PaginatedList
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: ComicBookInventory.Shared.PaginatedList`1
+    name: PaginatedList
+    nameWithType: PaginatedList
+    fullName: ComicBookInventory.Shared.PaginatedList
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )

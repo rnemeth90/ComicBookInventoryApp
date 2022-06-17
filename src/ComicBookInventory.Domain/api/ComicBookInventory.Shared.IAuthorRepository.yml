@@ -1,0 +1,1575 @@
+### YamlMime:ManagedReference
+items:
+- uid: ComicBookInventory.Shared.IAuthorRepository
+  commentId: T:ComicBookInventory.Shared.IAuthorRepository
+  id: IAuthorRepository
+  parent: ComicBookInventory.Shared
+  children:
+  - ComicBookInventory.Shared.IAuthorRepository.AddAuthor(ComicBookInventory.Shared.AuthorViewModel)
+  - ComicBookInventory.Shared.IAuthorRepository.GetAuthorById(System.Int32)
+  - ComicBookInventory.Shared.IAuthorRepository.UpdateAuthor(System.Int32,ComicBookInventory.Shared.AuthorViewModel)
+  langs:
+  - csharp
+  - vb
+  name: IAuthorRepository
+  nameWithType: IAuthorRepository
+  fullName: ComicBookInventory.Shared.IAuthorRepository
+  type: Interface
+  source:
+    remote:
+      path: src/ComicBookInventory.Domain/Interfaces/IAuthorRepository.cs
+      branch: wip/extend-character-model
+      repo: git@github.com:rnemeth90/ComicBookInventoryApp.git
+    id: IAuthorRepository
+    path: Interfaces/IAuthorRepository.cs
+    startLine: 2
+  assemblies:
+  - ComicBookInventory.Domain
+  namespace: ComicBookInventory.Shared
+  syntax:
+    content: 'public interface IAuthorRepository : IGenericRepository<Author>'
+    content.vb: >-
+      Public Interface IAuthorRepository
+          Inherits IGenericRepository(Of Author)
+  inheritedMembers:
+  - ComicBookInventory.Shared.IGenericRepository{ComicBookInventory.Shared.Author}.GetAll
+  - ComicBookInventory.Shared.IGenericRepository{ComicBookInventory.Shared.Author}.GetWhere(System.Linq.Expressions.Expression{Func{ComicBookInventory.Shared.Author,System.Boolean}})
+  - ComicBookInventory.Shared.IGenericRepository{ComicBookInventory.Shared.Author}.Find(System.Linq.Expressions.Expression{Func{ComicBookInventory.Shared.Author,System.Boolean}})
+  - ComicBookInventory.Shared.IGenericRepository{ComicBookInventory.Shared.Author}.Add(ComicBookInventory.Shared.Author)
+  - ComicBookInventory.Shared.IGenericRepository{ComicBookInventory.Shared.Author}.AddRange(IEnumerable{ComicBookInventory.Shared.Author})
+  - ComicBookInventory.Shared.IGenericRepository{ComicBookInventory.Shared.Author}.Update(ComicBookInventory.Shared.Author)
+  - ComicBookInventory.Shared.IGenericRepository{ComicBookInventory.Shared.Author}.UpdateRange(IEnumerable{ComicBookInventory.Shared.Author})
+  - ComicBookInventory.Shared.IGenericRepository{ComicBookInventory.Shared.Author}.Remove(ComicBookInventory.Shared.Author)
+  - ComicBookInventory.Shared.IGenericRepository{ComicBookInventory.Shared.Author}.RemoveById(System.Int32)
+  - ComicBookInventory.Shared.IGenericRepository{ComicBookInventory.Shared.Author}.RemoveWhere(System.Linq.Expressions.Expression{Func{ComicBookInventory.Shared.Author,System.Boolean}})
+  - ComicBookInventory.Shared.IGenericRepository{ComicBookInventory.Shared.Author}.RemoveRange(IEnumerable{ComicBookInventory.Shared.Author})
+  modifiers.csharp:
+  - public
+  - interface
+  modifiers.vb:
+  - Public
+  - Interface
+- uid: ComicBookInventory.Shared.IAuthorRepository.GetAuthorById(System.Int32)
+  commentId: M:ComicBookInventory.Shared.IAuthorRepository.GetAuthorById(System.Int32)
+  id: GetAuthorById(System.Int32)
+  parent: ComicBookInventory.Shared.IAuthorRepository
+  langs:
+  - csharp
+  - vb
+  name: GetAuthorById(Int32)
+  nameWithType: IAuthorRepository.GetAuthorById(Int32)
+  fullName: ComicBookInventory.Shared.IAuthorRepository.GetAuthorById(System.Int32)
+  type: Method
+  source:
+    remote:
+      path: src/ComicBookInventory.Domain/Interfaces/IAuthorRepository.cs
+      branch: wip/extend-character-model
+      repo: git@github.com:rnemeth90/ComicBookInventoryApp.git
+    id: GetAuthorById
+    path: Interfaces/IAuthorRepository.cs
+    startLine: 4
+  assemblies:
+  - ComicBookInventory.Domain
+  namespace: ComicBookInventory.Shared
+  syntax:
+    content: AuthorViewModel GetAuthorById(int id)
+    parameters:
+    - id: id
+      type: System.Int32
+    return:
+      type: ComicBookInventory.Shared.AuthorViewModel
+    content.vb: Function GetAuthorById(id As Integer) As AuthorViewModel
+  overload: ComicBookInventory.Shared.IAuthorRepository.GetAuthorById*
+- uid: ComicBookInventory.Shared.IAuthorRepository.AddAuthor(ComicBookInventory.Shared.AuthorViewModel)
+  commentId: M:ComicBookInventory.Shared.IAuthorRepository.AddAuthor(ComicBookInventory.Shared.AuthorViewModel)
+  id: AddAuthor(ComicBookInventory.Shared.AuthorViewModel)
+  parent: ComicBookInventory.Shared.IAuthorRepository
+  langs:
+  - csharp
+  - vb
+  name: AddAuthor(AuthorViewModel)
+  nameWithType: IAuthorRepository.AddAuthor(AuthorViewModel)
+  fullName: ComicBookInventory.Shared.IAuthorRepository.AddAuthor(ComicBookInventory.Shared.AuthorViewModel)
+  type: Method
+  source:
+    remote:
+      path: src/ComicBookInventory.Domain/Interfaces/IAuthorRepository.cs
+      branch: wip/extend-character-model
+      repo: git@github.com:rnemeth90/ComicBookInventoryApp.git
+    id: AddAuthor
+    path: Interfaces/IAuthorRepository.cs
+    startLine: 5
+  assemblies:
+  - ComicBookInventory.Domain
+  namespace: ComicBookInventory.Shared
+  syntax:
+    content: void AddAuthor(AuthorViewModel author)
+    parameters:
+    - id: author
+      type: ComicBookInventory.Shared.AuthorViewModel
+    content.vb: Sub AddAuthor(author As AuthorViewModel)
+  overload: ComicBookInventory.Shared.IAuthorRepository.AddAuthor*
+- uid: ComicBookInventory.Shared.IAuthorRepository.UpdateAuthor(System.Int32,ComicBookInventory.Shared.AuthorViewModel)
+  commentId: M:ComicBookInventory.Shared.IAuthorRepository.UpdateAuthor(System.Int32,ComicBookInventory.Shared.AuthorViewModel)
+  id: UpdateAuthor(System.Int32,ComicBookInventory.Shared.AuthorViewModel)
+  parent: ComicBookInventory.Shared.IAuthorRepository
+  langs:
+  - csharp
+  - vb
+  name: UpdateAuthor(Int32, AuthorViewModel)
+  nameWithType: IAuthorRepository.UpdateAuthor(Int32, AuthorViewModel)
+  fullName: ComicBookInventory.Shared.IAuthorRepository.UpdateAuthor(System.Int32, ComicBookInventory.Shared.AuthorViewModel)
+  type: Method
+  source:
+    remote:
+      path: src/ComicBookInventory.Domain/Interfaces/IAuthorRepository.cs
+      branch: wip/extend-character-model
+      repo: git@github.com:rnemeth90/ComicBookInventoryApp.git
+    id: UpdateAuthor
+    path: Interfaces/IAuthorRepository.cs
+    startLine: 8
+  assemblies:
+  - ComicBookInventory.Domain
+  namespace: ComicBookInventory.Shared
+  syntax:
+    content: void UpdateAuthor(int id, AuthorViewModel author)
+    parameters:
+    - id: id
+      type: System.Int32
+    - id: author
+      type: ComicBookInventory.Shared.AuthorViewModel
+    content.vb: Sub UpdateAuthor(id As Integer, author As AuthorViewModel)
+  overload: ComicBookInventory.Shared.IAuthorRepository.UpdateAuthor*
+references:
+- uid: ComicBookInventory.Shared
+  commentId: N:ComicBookInventory.Shared
+  name: ComicBookInventory.Shared
+  nameWithType: ComicBookInventory.Shared
+  fullName: ComicBookInventory.Shared
+- uid: ComicBookInventory.Shared.IGenericRepository{ComicBookInventory.Shared.Author}.GetAll
+  commentId: M:ComicBookInventory.Shared.IGenericRepository{ComicBookInventory.Shared.Author}.GetAll
+  parent: ComicBookInventory.Shared.IGenericRepository{ComicBookInventory.Shared.Author}
+  definition: ComicBookInventory.Shared.IGenericRepository`1.GetAll
+  name: GetAll()
+  nameWithType: IGenericRepository<Author>.GetAll()
+  fullName: ComicBookInventory.Shared.IGenericRepository<ComicBookInventory.Shared.Author>.GetAll()
+  nameWithType.vb: IGenericRepository(Of Author).GetAll()
+  fullName.vb: ComicBookInventory.Shared.IGenericRepository(Of ComicBookInventory.Shared.Author).GetAll()
+  spec.csharp:
+  - uid: ComicBookInventory.Shared.IGenericRepository`1.GetAll
+    name: GetAll
+    nameWithType: IGenericRepository<Author>.GetAll
+    fullName: ComicBookInventory.Shared.IGenericRepository<ComicBookInventory.Shared.Author>.GetAll
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: ComicBookInventory.Shared.IGenericRepository`1.GetAll
+    name: GetAll
+    nameWithType: IGenericRepository(Of Author).GetAll
+    fullName: ComicBookInventory.Shared.IGenericRepository(Of ComicBookInventory.Shared.Author).GetAll
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: ComicBookInventory.Shared.IGenericRepository{ComicBookInventory.Shared.Author}.GetWhere(System.Linq.Expressions.Expression{Func{ComicBookInventory.Shared.Author,System.Boolean}})
+  commentId: M:ComicBookInventory.Shared.IGenericRepository{ComicBookInventory.Shared.Author}.GetWhere(System.Linq.Expressions.Expression{Func{ComicBookInventory.Shared.Author,System.Boolean}})
+  parent: ComicBookInventory.Shared.IGenericRepository{ComicBookInventory.Shared.Author}
+  definition: ComicBookInventory.Shared.IGenericRepository`1.GetWhere(System.Linq.Expressions.Expression{Func{`0,System.Boolean}})
+  name: GetWhere(Expression<Func<Author, Boolean>>)
+  nameWithType: IGenericRepository<Author>.GetWhere(Expression<Func<Author, Boolean>>)
+  fullName: ComicBookInventory.Shared.IGenericRepository<ComicBookInventory.Shared.Author>.GetWhere(System.Linq.Expressions.Expression<Func<ComicBookInventory.Shared.Author, System.Boolean>>)
+  nameWithType.vb: IGenericRepository(Of Author).GetWhere(Expression(Of Func(Of Author, Boolean)))
+  fullName.vb: ComicBookInventory.Shared.IGenericRepository(Of ComicBookInventory.Shared.Author).GetWhere(System.Linq.Expressions.Expression(Of Func(Of ComicBookInventory.Shared.Author, System.Boolean)))
+  name.vb: GetWhere(Expression(Of Func(Of Author, Boolean)))
+  spec.csharp:
+  - uid: ComicBookInventory.Shared.IGenericRepository`1.GetWhere(System.Linq.Expressions.Expression{Func{`0,System.Boolean}})
+    name: GetWhere
+    nameWithType: IGenericRepository<Author>.GetWhere
+    fullName: ComicBookInventory.Shared.IGenericRepository<ComicBookInventory.Shared.Author>.GetWhere
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Linq.Expressions.Expression`1
+    name: Expression
+    nameWithType: Expression
+    fullName: System.Linq.Expressions.Expression
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Func`2
+    name: Func
+    nameWithType: Func
+    fullName: Func
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: ComicBookInventory.Shared.Author
+    name: Author
+    nameWithType: Author
+    fullName: ComicBookInventory.Shared.Author
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: ComicBookInventory.Shared.IGenericRepository`1.GetWhere(System.Linq.Expressions.Expression{Func{`0,System.Boolean}})
+    name: GetWhere
+    nameWithType: IGenericRepository(Of Author).GetWhere
+    fullName: ComicBookInventory.Shared.IGenericRepository(Of ComicBookInventory.Shared.Author).GetWhere
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Linq.Expressions.Expression`1
+    name: Expression
+    nameWithType: Expression
+    fullName: System.Linq.Expressions.Expression
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Func`2
+    name: Func
+    nameWithType: Func
+    fullName: Func
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: ComicBookInventory.Shared.Author
+    name: Author
+    nameWithType: Author
+    fullName: ComicBookInventory.Shared.Author
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  - name: )
+    nameWithType: )
+    fullName: )
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: ComicBookInventory.Shared.IGenericRepository{ComicBookInventory.Shared.Author}.Find(System.Linq.Expressions.Expression{Func{ComicBookInventory.Shared.Author,System.Boolean}})
+  commentId: M:ComicBookInventory.Shared.IGenericRepository{ComicBookInventory.Shared.Author}.Find(System.Linq.Expressions.Expression{Func{ComicBookInventory.Shared.Author,System.Boolean}})
+  parent: ComicBookInventory.Shared.IGenericRepository{ComicBookInventory.Shared.Author}
+  definition: ComicBookInventory.Shared.IGenericRepository`1.Find(System.Linq.Expressions.Expression{Func{`0,System.Boolean}})
+  name: Find(Expression<Func<Author, Boolean>>)
+  nameWithType: IGenericRepository<Author>.Find(Expression<Func<Author, Boolean>>)
+  fullName: ComicBookInventory.Shared.IGenericRepository<ComicBookInventory.Shared.Author>.Find(System.Linq.Expressions.Expression<Func<ComicBookInventory.Shared.Author, System.Boolean>>)
+  nameWithType.vb: IGenericRepository(Of Author).Find(Expression(Of Func(Of Author, Boolean)))
+  fullName.vb: ComicBookInventory.Shared.IGenericRepository(Of ComicBookInventory.Shared.Author).Find(System.Linq.Expressions.Expression(Of Func(Of ComicBookInventory.Shared.Author, System.Boolean)))
+  name.vb: Find(Expression(Of Func(Of Author, Boolean)))
+  spec.csharp:
+  - uid: ComicBookInventory.Shared.IGenericRepository`1.Find(System.Linq.Expressions.Expression{Func{`0,System.Boolean}})
+    name: Find
+    nameWithType: IGenericRepository<Author>.Find
+    fullName: ComicBookInventory.Shared.IGenericRepository<ComicBookInventory.Shared.Author>.Find
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Linq.Expressions.Expression`1
+    name: Expression
+    nameWithType: Expression
+    fullName: System.Linq.Expressions.Expression
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Func`2
+    name: Func
+    nameWithType: Func
+    fullName: Func
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: ComicBookInventory.Shared.Author
+    name: Author
+    nameWithType: Author
+    fullName: ComicBookInventory.Shared.Author
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: ComicBookInventory.Shared.IGenericRepository`1.Find(System.Linq.Expressions.Expression{Func{`0,System.Boolean}})
+    name: Find
+    nameWithType: IGenericRepository(Of Author).Find
+    fullName: ComicBookInventory.Shared.IGenericRepository(Of ComicBookInventory.Shared.Author).Find
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Linq.Expressions.Expression`1
+    name: Expression
+    nameWithType: Expression
+    fullName: System.Linq.Expressions.Expression
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Func`2
+    name: Func
+    nameWithType: Func
+    fullName: Func
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: ComicBookInventory.Shared.Author
+    name: Author
+    nameWithType: Author
+    fullName: ComicBookInventory.Shared.Author
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  - name: )
+    nameWithType: )
+    fullName: )
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: ComicBookInventory.Shared.IGenericRepository{ComicBookInventory.Shared.Author}.Add(ComicBookInventory.Shared.Author)
+  commentId: M:ComicBookInventory.Shared.IGenericRepository{ComicBookInventory.Shared.Author}.Add(ComicBookInventory.Shared.Author)
+  parent: ComicBookInventory.Shared.IGenericRepository{ComicBookInventory.Shared.Author}
+  definition: ComicBookInventory.Shared.IGenericRepository`1.Add(`0)
+  name: Add(Author)
+  nameWithType: IGenericRepository<Author>.Add(Author)
+  fullName: ComicBookInventory.Shared.IGenericRepository<ComicBookInventory.Shared.Author>.Add(ComicBookInventory.Shared.Author)
+  nameWithType.vb: IGenericRepository(Of Author).Add(Author)
+  fullName.vb: ComicBookInventory.Shared.IGenericRepository(Of ComicBookInventory.Shared.Author).Add(ComicBookInventory.Shared.Author)
+  spec.csharp:
+  - uid: ComicBookInventory.Shared.IGenericRepository`1.Add(`0)
+    name: Add
+    nameWithType: IGenericRepository<Author>.Add
+    fullName: ComicBookInventory.Shared.IGenericRepository<ComicBookInventory.Shared.Author>.Add
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: ComicBookInventory.Shared.Author
+    name: Author
+    nameWithType: Author
+    fullName: ComicBookInventory.Shared.Author
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: ComicBookInventory.Shared.IGenericRepository`1.Add(`0)
+    name: Add
+    nameWithType: IGenericRepository(Of Author).Add
+    fullName: ComicBookInventory.Shared.IGenericRepository(Of ComicBookInventory.Shared.Author).Add
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: ComicBookInventory.Shared.Author
+    name: Author
+    nameWithType: Author
+    fullName: ComicBookInventory.Shared.Author
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: ComicBookInventory.Shared.IGenericRepository{ComicBookInventory.Shared.Author}.AddRange(IEnumerable{ComicBookInventory.Shared.Author})
+  commentId: M:ComicBookInventory.Shared.IGenericRepository{ComicBookInventory.Shared.Author}.AddRange(IEnumerable{ComicBookInventory.Shared.Author})
+  parent: ComicBookInventory.Shared.IGenericRepository{ComicBookInventory.Shared.Author}
+  definition: ComicBookInventory.Shared.IGenericRepository`1.AddRange(IEnumerable{`0})
+  name: AddRange(IEnumerable<Author>)
+  nameWithType: IGenericRepository<Author>.AddRange(IEnumerable<Author>)
+  fullName: ComicBookInventory.Shared.IGenericRepository<ComicBookInventory.Shared.Author>.AddRange(IEnumerable<ComicBookInventory.Shared.Author>)
+  nameWithType.vb: IGenericRepository(Of Author).AddRange(IEnumerable(Of Author))
+  fullName.vb: ComicBookInventory.Shared.IGenericRepository(Of ComicBookInventory.Shared.Author).AddRange(IEnumerable(Of ComicBookInventory.Shared.Author))
+  name.vb: AddRange(IEnumerable(Of Author))
+  spec.csharp:
+  - uid: ComicBookInventory.Shared.IGenericRepository`1.AddRange(IEnumerable{`0})
+    name: AddRange
+    nameWithType: IGenericRepository<Author>.AddRange
+    fullName: ComicBookInventory.Shared.IGenericRepository<ComicBookInventory.Shared.Author>.AddRange
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: IEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: ComicBookInventory.Shared.Author
+    name: Author
+    nameWithType: Author
+    fullName: ComicBookInventory.Shared.Author
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: ComicBookInventory.Shared.IGenericRepository`1.AddRange(IEnumerable{`0})
+    name: AddRange
+    nameWithType: IGenericRepository(Of Author).AddRange
+    fullName: ComicBookInventory.Shared.IGenericRepository(Of ComicBookInventory.Shared.Author).AddRange
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: IEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: ComicBookInventory.Shared.Author
+    name: Author
+    nameWithType: Author
+    fullName: ComicBookInventory.Shared.Author
+  - name: )
+    nameWithType: )
+    fullName: )
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: ComicBookInventory.Shared.IGenericRepository{ComicBookInventory.Shared.Author}.Update(ComicBookInventory.Shared.Author)
+  commentId: M:ComicBookInventory.Shared.IGenericRepository{ComicBookInventory.Shared.Author}.Update(ComicBookInventory.Shared.Author)
+  parent: ComicBookInventory.Shared.IGenericRepository{ComicBookInventory.Shared.Author}
+  definition: ComicBookInventory.Shared.IGenericRepository`1.Update(`0)
+  name: Update(Author)
+  nameWithType: IGenericRepository<Author>.Update(Author)
+  fullName: ComicBookInventory.Shared.IGenericRepository<ComicBookInventory.Shared.Author>.Update(ComicBookInventory.Shared.Author)
+  nameWithType.vb: IGenericRepository(Of Author).Update(Author)
+  fullName.vb: ComicBookInventory.Shared.IGenericRepository(Of ComicBookInventory.Shared.Author).Update(ComicBookInventory.Shared.Author)
+  spec.csharp:
+  - uid: ComicBookInventory.Shared.IGenericRepository`1.Update(`0)
+    name: Update
+    nameWithType: IGenericRepository<Author>.Update
+    fullName: ComicBookInventory.Shared.IGenericRepository<ComicBookInventory.Shared.Author>.Update
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: ComicBookInventory.Shared.Author
+    name: Author
+    nameWithType: Author
+    fullName: ComicBookInventory.Shared.Author
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: ComicBookInventory.Shared.IGenericRepository`1.Update(`0)
+    name: Update
+    nameWithType: IGenericRepository(Of Author).Update
+    fullName: ComicBookInventory.Shared.IGenericRepository(Of ComicBookInventory.Shared.Author).Update
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: ComicBookInventory.Shared.Author
+    name: Author
+    nameWithType: Author
+    fullName: ComicBookInventory.Shared.Author
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: ComicBookInventory.Shared.IGenericRepository{ComicBookInventory.Shared.Author}.UpdateRange(IEnumerable{ComicBookInventory.Shared.Author})
+  commentId: M:ComicBookInventory.Shared.IGenericRepository{ComicBookInventory.Shared.Author}.UpdateRange(IEnumerable{ComicBookInventory.Shared.Author})
+  parent: ComicBookInventory.Shared.IGenericRepository{ComicBookInventory.Shared.Author}
+  definition: ComicBookInventory.Shared.IGenericRepository`1.UpdateRange(IEnumerable{`0})
+  name: UpdateRange(IEnumerable<Author>)
+  nameWithType: IGenericRepository<Author>.UpdateRange(IEnumerable<Author>)
+  fullName: ComicBookInventory.Shared.IGenericRepository<ComicBookInventory.Shared.Author>.UpdateRange(IEnumerable<ComicBookInventory.Shared.Author>)
+  nameWithType.vb: IGenericRepository(Of Author).UpdateRange(IEnumerable(Of Author))
+  fullName.vb: ComicBookInventory.Shared.IGenericRepository(Of ComicBookInventory.Shared.Author).UpdateRange(IEnumerable(Of ComicBookInventory.Shared.Author))
+  name.vb: UpdateRange(IEnumerable(Of Author))
+  spec.csharp:
+  - uid: ComicBookInventory.Shared.IGenericRepository`1.UpdateRange(IEnumerable{`0})
+    name: UpdateRange
+    nameWithType: IGenericRepository<Author>.UpdateRange
+    fullName: ComicBookInventory.Shared.IGenericRepository<ComicBookInventory.Shared.Author>.UpdateRange
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: IEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: ComicBookInventory.Shared.Author
+    name: Author
+    nameWithType: Author
+    fullName: ComicBookInventory.Shared.Author
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: ComicBookInventory.Shared.IGenericRepository`1.UpdateRange(IEnumerable{`0})
+    name: UpdateRange
+    nameWithType: IGenericRepository(Of Author).UpdateRange
+    fullName: ComicBookInventory.Shared.IGenericRepository(Of ComicBookInventory.Shared.Author).UpdateRange
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: IEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: ComicBookInventory.Shared.Author
+    name: Author
+    nameWithType: Author
+    fullName: ComicBookInventory.Shared.Author
+  - name: )
+    nameWithType: )
+    fullName: )
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: ComicBookInventory.Shared.IGenericRepository{ComicBookInventory.Shared.Author}.Remove(ComicBookInventory.Shared.Author)
+  commentId: M:ComicBookInventory.Shared.IGenericRepository{ComicBookInventory.Shared.Author}.Remove(ComicBookInventory.Shared.Author)
+  parent: ComicBookInventory.Shared.IGenericRepository{ComicBookInventory.Shared.Author}
+  definition: ComicBookInventory.Shared.IGenericRepository`1.Remove(`0)
+  name: Remove(Author)
+  nameWithType: IGenericRepository<Author>.Remove(Author)
+  fullName: ComicBookInventory.Shared.IGenericRepository<ComicBookInventory.Shared.Author>.Remove(ComicBookInventory.Shared.Author)
+  nameWithType.vb: IGenericRepository(Of Author).Remove(Author)
+  fullName.vb: ComicBookInventory.Shared.IGenericRepository(Of ComicBookInventory.Shared.Author).Remove(ComicBookInventory.Shared.Author)
+  spec.csharp:
+  - uid: ComicBookInventory.Shared.IGenericRepository`1.Remove(`0)
+    name: Remove
+    nameWithType: IGenericRepository<Author>.Remove
+    fullName: ComicBookInventory.Shared.IGenericRepository<ComicBookInventory.Shared.Author>.Remove
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: ComicBookInventory.Shared.Author
+    name: Author
+    nameWithType: Author
+    fullName: ComicBookInventory.Shared.Author
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: ComicBookInventory.Shared.IGenericRepository`1.Remove(`0)
+    name: Remove
+    nameWithType: IGenericRepository(Of Author).Remove
+    fullName: ComicBookInventory.Shared.IGenericRepository(Of ComicBookInventory.Shared.Author).Remove
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: ComicBookInventory.Shared.Author
+    name: Author
+    nameWithType: Author
+    fullName: ComicBookInventory.Shared.Author
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: ComicBookInventory.Shared.IGenericRepository{ComicBookInventory.Shared.Author}.RemoveById(System.Int32)
+  commentId: M:ComicBookInventory.Shared.IGenericRepository{ComicBookInventory.Shared.Author}.RemoveById(System.Int32)
+  parent: ComicBookInventory.Shared.IGenericRepository{ComicBookInventory.Shared.Author}
+  definition: ComicBookInventory.Shared.IGenericRepository`1.RemoveById(System.Int32)
+  name: RemoveById(Int32)
+  nameWithType: IGenericRepository<Author>.RemoveById(Int32)
+  fullName: ComicBookInventory.Shared.IGenericRepository<ComicBookInventory.Shared.Author>.RemoveById(System.Int32)
+  nameWithType.vb: IGenericRepository(Of Author).RemoveById(Int32)
+  fullName.vb: ComicBookInventory.Shared.IGenericRepository(Of ComicBookInventory.Shared.Author).RemoveById(System.Int32)
+  spec.csharp:
+  - uid: ComicBookInventory.Shared.IGenericRepository`1.RemoveById(System.Int32)
+    name: RemoveById
+    nameWithType: IGenericRepository<Author>.RemoveById
+    fullName: ComicBookInventory.Shared.IGenericRepository<ComicBookInventory.Shared.Author>.RemoveById
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: ComicBookInventory.Shared.IGenericRepository`1.RemoveById(System.Int32)
+    name: RemoveById
+    nameWithType: IGenericRepository(Of Author).RemoveById
+    fullName: ComicBookInventory.Shared.IGenericRepository(Of ComicBookInventory.Shared.Author).RemoveById
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: ComicBookInventory.Shared.IGenericRepository{ComicBookInventory.Shared.Author}.RemoveWhere(System.Linq.Expressions.Expression{Func{ComicBookInventory.Shared.Author,System.Boolean}})
+  commentId: M:ComicBookInventory.Shared.IGenericRepository{ComicBookInventory.Shared.Author}.RemoveWhere(System.Linq.Expressions.Expression{Func{ComicBookInventory.Shared.Author,System.Boolean}})
+  parent: ComicBookInventory.Shared.IGenericRepository{ComicBookInventory.Shared.Author}
+  definition: ComicBookInventory.Shared.IGenericRepository`1.RemoveWhere(System.Linq.Expressions.Expression{Func{`0,System.Boolean}})
+  name: RemoveWhere(Expression<Func<Author, Boolean>>)
+  nameWithType: IGenericRepository<Author>.RemoveWhere(Expression<Func<Author, Boolean>>)
+  fullName: ComicBookInventory.Shared.IGenericRepository<ComicBookInventory.Shared.Author>.RemoveWhere(System.Linq.Expressions.Expression<Func<ComicBookInventory.Shared.Author, System.Boolean>>)
+  nameWithType.vb: IGenericRepository(Of Author).RemoveWhere(Expression(Of Func(Of Author, Boolean)))
+  fullName.vb: ComicBookInventory.Shared.IGenericRepository(Of ComicBookInventory.Shared.Author).RemoveWhere(System.Linq.Expressions.Expression(Of Func(Of ComicBookInventory.Shared.Author, System.Boolean)))
+  name.vb: RemoveWhere(Expression(Of Func(Of Author, Boolean)))
+  spec.csharp:
+  - uid: ComicBookInventory.Shared.IGenericRepository`1.RemoveWhere(System.Linq.Expressions.Expression{Func{`0,System.Boolean}})
+    name: RemoveWhere
+    nameWithType: IGenericRepository<Author>.RemoveWhere
+    fullName: ComicBookInventory.Shared.IGenericRepository<ComicBookInventory.Shared.Author>.RemoveWhere
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Linq.Expressions.Expression`1
+    name: Expression
+    nameWithType: Expression
+    fullName: System.Linq.Expressions.Expression
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Func`2
+    name: Func
+    nameWithType: Func
+    fullName: Func
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: ComicBookInventory.Shared.Author
+    name: Author
+    nameWithType: Author
+    fullName: ComicBookInventory.Shared.Author
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: ComicBookInventory.Shared.IGenericRepository`1.RemoveWhere(System.Linq.Expressions.Expression{Func{`0,System.Boolean}})
+    name: RemoveWhere
+    nameWithType: IGenericRepository(Of Author).RemoveWhere
+    fullName: ComicBookInventory.Shared.IGenericRepository(Of ComicBookInventory.Shared.Author).RemoveWhere
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Linq.Expressions.Expression`1
+    name: Expression
+    nameWithType: Expression
+    fullName: System.Linq.Expressions.Expression
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Func`2
+    name: Func
+    nameWithType: Func
+    fullName: Func
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: ComicBookInventory.Shared.Author
+    name: Author
+    nameWithType: Author
+    fullName: ComicBookInventory.Shared.Author
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  - name: )
+    nameWithType: )
+    fullName: )
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: ComicBookInventory.Shared.IGenericRepository{ComicBookInventory.Shared.Author}.RemoveRange(IEnumerable{ComicBookInventory.Shared.Author})
+  commentId: M:ComicBookInventory.Shared.IGenericRepository{ComicBookInventory.Shared.Author}.RemoveRange(IEnumerable{ComicBookInventory.Shared.Author})
+  parent: ComicBookInventory.Shared.IGenericRepository{ComicBookInventory.Shared.Author}
+  definition: ComicBookInventory.Shared.IGenericRepository`1.RemoveRange(IEnumerable{`0})
+  name: RemoveRange(IEnumerable<Author>)
+  nameWithType: IGenericRepository<Author>.RemoveRange(IEnumerable<Author>)
+  fullName: ComicBookInventory.Shared.IGenericRepository<ComicBookInventory.Shared.Author>.RemoveRange(IEnumerable<ComicBookInventory.Shared.Author>)
+  nameWithType.vb: IGenericRepository(Of Author).RemoveRange(IEnumerable(Of Author))
+  fullName.vb: ComicBookInventory.Shared.IGenericRepository(Of ComicBookInventory.Shared.Author).RemoveRange(IEnumerable(Of ComicBookInventory.Shared.Author))
+  name.vb: RemoveRange(IEnumerable(Of Author))
+  spec.csharp:
+  - uid: ComicBookInventory.Shared.IGenericRepository`1.RemoveRange(IEnumerable{`0})
+    name: RemoveRange
+    nameWithType: IGenericRepository<Author>.RemoveRange
+    fullName: ComicBookInventory.Shared.IGenericRepository<ComicBookInventory.Shared.Author>.RemoveRange
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: IEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: ComicBookInventory.Shared.Author
+    name: Author
+    nameWithType: Author
+    fullName: ComicBookInventory.Shared.Author
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: ComicBookInventory.Shared.IGenericRepository`1.RemoveRange(IEnumerable{`0})
+    name: RemoveRange
+    nameWithType: IGenericRepository(Of Author).RemoveRange
+    fullName: ComicBookInventory.Shared.IGenericRepository(Of ComicBookInventory.Shared.Author).RemoveRange
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: IEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: ComicBookInventory.Shared.Author
+    name: Author
+    nameWithType: Author
+    fullName: ComicBookInventory.Shared.Author
+  - name: )
+    nameWithType: )
+    fullName: )
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: ComicBookInventory.Shared.IGenericRepository`1.GetAll
+  commentId: M:ComicBookInventory.Shared.IGenericRepository`1.GetAll
+  name: GetAll()
+  nameWithType: IGenericRepository<T>.GetAll()
+  fullName: ComicBookInventory.Shared.IGenericRepository<T>.GetAll()
+  nameWithType.vb: IGenericRepository(Of T).GetAll()
+  fullName.vb: ComicBookInventory.Shared.IGenericRepository(Of T).GetAll()
+  spec.csharp:
+  - uid: ComicBookInventory.Shared.IGenericRepository`1.GetAll
+    name: GetAll
+    nameWithType: IGenericRepository<T>.GetAll
+    fullName: ComicBookInventory.Shared.IGenericRepository<T>.GetAll
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: ComicBookInventory.Shared.IGenericRepository`1.GetAll
+    name: GetAll
+    nameWithType: IGenericRepository(Of T).GetAll
+    fullName: ComicBookInventory.Shared.IGenericRepository(Of T).GetAll
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: ComicBookInventory.Shared.IGenericRepository{ComicBookInventory.Shared.Author}
+  commentId: T:ComicBookInventory.Shared.IGenericRepository{ComicBookInventory.Shared.Author}
+  parent: ComicBookInventory.Shared
+  definition: ComicBookInventory.Shared.IGenericRepository`1
+  name: IGenericRepository<Author>
+  nameWithType: IGenericRepository<Author>
+  fullName: ComicBookInventory.Shared.IGenericRepository<ComicBookInventory.Shared.Author>
+  nameWithType.vb: IGenericRepository(Of Author)
+  fullName.vb: ComicBookInventory.Shared.IGenericRepository(Of ComicBookInventory.Shared.Author)
+  name.vb: IGenericRepository(Of Author)
+  spec.csharp:
+  - uid: ComicBookInventory.Shared.IGenericRepository`1
+    name: IGenericRepository
+    nameWithType: IGenericRepository
+    fullName: ComicBookInventory.Shared.IGenericRepository
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: ComicBookInventory.Shared.Author
+    name: Author
+    nameWithType: Author
+    fullName: ComicBookInventory.Shared.Author
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: ComicBookInventory.Shared.IGenericRepository`1
+    name: IGenericRepository
+    nameWithType: IGenericRepository
+    fullName: ComicBookInventory.Shared.IGenericRepository
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: ComicBookInventory.Shared.Author
+    name: Author
+    nameWithType: Author
+    fullName: ComicBookInventory.Shared.Author
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: ComicBookInventory.Shared.IGenericRepository`1.GetWhere(System.Linq.Expressions.Expression{Func{`0,System.Boolean}})
+  commentId: M:ComicBookInventory.Shared.IGenericRepository`1.GetWhere(System.Linq.Expressions.Expression{Func{`0,System.Boolean}})
+  isExternal: true
+  name: GetWhere(Expression<Func<T, Boolean>>)
+  nameWithType: IGenericRepository<T>.GetWhere(Expression<Func<T, Boolean>>)
+  fullName: ComicBookInventory.Shared.IGenericRepository<T>.GetWhere(System.Linq.Expressions.Expression<Func<T, System.Boolean>>)
+  nameWithType.vb: IGenericRepository(Of T).GetWhere(Expression(Of Func(Of T, Boolean)))
+  fullName.vb: ComicBookInventory.Shared.IGenericRepository(Of T).GetWhere(System.Linq.Expressions.Expression(Of Func(Of T, System.Boolean)))
+  name.vb: GetWhere(Expression(Of Func(Of T, Boolean)))
+  spec.csharp:
+  - uid: ComicBookInventory.Shared.IGenericRepository`1.GetWhere(System.Linq.Expressions.Expression{Func{`0,System.Boolean}})
+    name: GetWhere
+    nameWithType: IGenericRepository<T>.GetWhere
+    fullName: ComicBookInventory.Shared.IGenericRepository<T>.GetWhere
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Linq.Expressions.Expression`1
+    name: Expression
+    nameWithType: Expression
+    fullName: System.Linq.Expressions.Expression
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Func`2
+    name: Func
+    nameWithType: Func
+    fullName: Func
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: ComicBookInventory.Shared.IGenericRepository`1.GetWhere(System.Linq.Expressions.Expression{Func{`0,System.Boolean}})
+    name: GetWhere
+    nameWithType: IGenericRepository(Of T).GetWhere
+    fullName: ComicBookInventory.Shared.IGenericRepository(Of T).GetWhere
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Linq.Expressions.Expression`1
+    name: Expression
+    nameWithType: Expression
+    fullName: System.Linq.Expressions.Expression
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Func`2
+    name: Func
+    nameWithType: Func
+    fullName: Func
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  - name: )
+    nameWithType: )
+    fullName: )
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: ComicBookInventory.Shared.IGenericRepository`1.Find(System.Linq.Expressions.Expression{Func{`0,System.Boolean}})
+  commentId: M:ComicBookInventory.Shared.IGenericRepository`1.Find(System.Linq.Expressions.Expression{Func{`0,System.Boolean}})
+  isExternal: true
+  name: Find(Expression<Func<T, Boolean>>)
+  nameWithType: IGenericRepository<T>.Find(Expression<Func<T, Boolean>>)
+  fullName: ComicBookInventory.Shared.IGenericRepository<T>.Find(System.Linq.Expressions.Expression<Func<T, System.Boolean>>)
+  nameWithType.vb: IGenericRepository(Of T).Find(Expression(Of Func(Of T, Boolean)))
+  fullName.vb: ComicBookInventory.Shared.IGenericRepository(Of T).Find(System.Linq.Expressions.Expression(Of Func(Of T, System.Boolean)))
+  name.vb: Find(Expression(Of Func(Of T, Boolean)))
+  spec.csharp:
+  - uid: ComicBookInventory.Shared.IGenericRepository`1.Find(System.Linq.Expressions.Expression{Func{`0,System.Boolean}})
+    name: Find
+    nameWithType: IGenericRepository<T>.Find
+    fullName: ComicBookInventory.Shared.IGenericRepository<T>.Find
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Linq.Expressions.Expression`1
+    name: Expression
+    nameWithType: Expression
+    fullName: System.Linq.Expressions.Expression
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Func`2
+    name: Func
+    nameWithType: Func
+    fullName: Func
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: ComicBookInventory.Shared.IGenericRepository`1.Find(System.Linq.Expressions.Expression{Func{`0,System.Boolean}})
+    name: Find
+    nameWithType: IGenericRepository(Of T).Find
+    fullName: ComicBookInventory.Shared.IGenericRepository(Of T).Find
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Linq.Expressions.Expression`1
+    name: Expression
+    nameWithType: Expression
+    fullName: System.Linq.Expressions.Expression
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Func`2
+    name: Func
+    nameWithType: Func
+    fullName: Func
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  - name: )
+    nameWithType: )
+    fullName: )
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: ComicBookInventory.Shared.IGenericRepository`1.Add(`0)
+  commentId: M:ComicBookInventory.Shared.IGenericRepository`1.Add(`0)
+  name: Add(T)
+  nameWithType: IGenericRepository<T>.Add(T)
+  fullName: ComicBookInventory.Shared.IGenericRepository<T>.Add(T)
+  nameWithType.vb: IGenericRepository(Of T).Add(T)
+  fullName.vb: ComicBookInventory.Shared.IGenericRepository(Of T).Add(T)
+  spec.csharp:
+  - uid: ComicBookInventory.Shared.IGenericRepository`1.Add(`0)
+    name: Add
+    nameWithType: IGenericRepository<T>.Add
+    fullName: ComicBookInventory.Shared.IGenericRepository<T>.Add
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: ComicBookInventory.Shared.IGenericRepository`1.Add(`0)
+    name: Add
+    nameWithType: IGenericRepository(Of T).Add
+    fullName: ComicBookInventory.Shared.IGenericRepository(Of T).Add
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: ComicBookInventory.Shared.IGenericRepository`1.AddRange(IEnumerable{`0})
+  commentId: M:ComicBookInventory.Shared.IGenericRepository`1.AddRange(IEnumerable{`0})
+  isExternal: true
+  name: AddRange(IEnumerable<T>)
+  nameWithType: IGenericRepository<T>.AddRange(IEnumerable<T>)
+  fullName: ComicBookInventory.Shared.IGenericRepository<T>.AddRange(IEnumerable<T>)
+  nameWithType.vb: IGenericRepository(Of T).AddRange(IEnumerable(Of T))
+  fullName.vb: ComicBookInventory.Shared.IGenericRepository(Of T).AddRange(IEnumerable(Of T))
+  name.vb: AddRange(IEnumerable(Of T))
+  spec.csharp:
+  - uid: ComicBookInventory.Shared.IGenericRepository`1.AddRange(IEnumerable{`0})
+    name: AddRange
+    nameWithType: IGenericRepository<T>.AddRange
+    fullName: ComicBookInventory.Shared.IGenericRepository<T>.AddRange
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: IEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: ComicBookInventory.Shared.IGenericRepository`1.AddRange(IEnumerable{`0})
+    name: AddRange
+    nameWithType: IGenericRepository(Of T).AddRange
+    fullName: ComicBookInventory.Shared.IGenericRepository(Of T).AddRange
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: IEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: ComicBookInventory.Shared.IGenericRepository`1.Update(`0)
+  commentId: M:ComicBookInventory.Shared.IGenericRepository`1.Update(`0)
+  name: Update(T)
+  nameWithType: IGenericRepository<T>.Update(T)
+  fullName: ComicBookInventory.Shared.IGenericRepository<T>.Update(T)
+  nameWithType.vb: IGenericRepository(Of T).Update(T)
+  fullName.vb: ComicBookInventory.Shared.IGenericRepository(Of T).Update(T)
+  spec.csharp:
+  - uid: ComicBookInventory.Shared.IGenericRepository`1.Update(`0)
+    name: Update
+    nameWithType: IGenericRepository<T>.Update
+    fullName: ComicBookInventory.Shared.IGenericRepository<T>.Update
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: ComicBookInventory.Shared.IGenericRepository`1.Update(`0)
+    name: Update
+    nameWithType: IGenericRepository(Of T).Update
+    fullName: ComicBookInventory.Shared.IGenericRepository(Of T).Update
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: ComicBookInventory.Shared.IGenericRepository`1.UpdateRange(IEnumerable{`0})
+  commentId: M:ComicBookInventory.Shared.IGenericRepository`1.UpdateRange(IEnumerable{`0})
+  isExternal: true
+  name: UpdateRange(IEnumerable<T>)
+  nameWithType: IGenericRepository<T>.UpdateRange(IEnumerable<T>)
+  fullName: ComicBookInventory.Shared.IGenericRepository<T>.UpdateRange(IEnumerable<T>)
+  nameWithType.vb: IGenericRepository(Of T).UpdateRange(IEnumerable(Of T))
+  fullName.vb: ComicBookInventory.Shared.IGenericRepository(Of T).UpdateRange(IEnumerable(Of T))
+  name.vb: UpdateRange(IEnumerable(Of T))
+  spec.csharp:
+  - uid: ComicBookInventory.Shared.IGenericRepository`1.UpdateRange(IEnumerable{`0})
+    name: UpdateRange
+    nameWithType: IGenericRepository<T>.UpdateRange
+    fullName: ComicBookInventory.Shared.IGenericRepository<T>.UpdateRange
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: IEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: ComicBookInventory.Shared.IGenericRepository`1.UpdateRange(IEnumerable{`0})
+    name: UpdateRange
+    nameWithType: IGenericRepository(Of T).UpdateRange
+    fullName: ComicBookInventory.Shared.IGenericRepository(Of T).UpdateRange
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: IEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: ComicBookInventory.Shared.IGenericRepository`1.Remove(`0)
+  commentId: M:ComicBookInventory.Shared.IGenericRepository`1.Remove(`0)
+  name: Remove(T)
+  nameWithType: IGenericRepository<T>.Remove(T)
+  fullName: ComicBookInventory.Shared.IGenericRepository<T>.Remove(T)
+  nameWithType.vb: IGenericRepository(Of T).Remove(T)
+  fullName.vb: ComicBookInventory.Shared.IGenericRepository(Of T).Remove(T)
+  spec.csharp:
+  - uid: ComicBookInventory.Shared.IGenericRepository`1.Remove(`0)
+    name: Remove
+    nameWithType: IGenericRepository<T>.Remove
+    fullName: ComicBookInventory.Shared.IGenericRepository<T>.Remove
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: ComicBookInventory.Shared.IGenericRepository`1.Remove(`0)
+    name: Remove
+    nameWithType: IGenericRepository(Of T).Remove
+    fullName: ComicBookInventory.Shared.IGenericRepository(Of T).Remove
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: ComicBookInventory.Shared.IGenericRepository`1.RemoveById(System.Int32)
+  commentId: M:ComicBookInventory.Shared.IGenericRepository`1.RemoveById(System.Int32)
+  isExternal: true
+  name: RemoveById(Int32)
+  nameWithType: IGenericRepository<T>.RemoveById(Int32)
+  fullName: ComicBookInventory.Shared.IGenericRepository<T>.RemoveById(System.Int32)
+  nameWithType.vb: IGenericRepository(Of T).RemoveById(Int32)
+  fullName.vb: ComicBookInventory.Shared.IGenericRepository(Of T).RemoveById(System.Int32)
+  spec.csharp:
+  - uid: ComicBookInventory.Shared.IGenericRepository`1.RemoveById(System.Int32)
+    name: RemoveById
+    nameWithType: IGenericRepository<T>.RemoveById
+    fullName: ComicBookInventory.Shared.IGenericRepository<T>.RemoveById
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: ComicBookInventory.Shared.IGenericRepository`1.RemoveById(System.Int32)
+    name: RemoveById
+    nameWithType: IGenericRepository(Of T).RemoveById
+    fullName: ComicBookInventory.Shared.IGenericRepository(Of T).RemoveById
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: ComicBookInventory.Shared.IGenericRepository`1.RemoveWhere(System.Linq.Expressions.Expression{Func{`0,System.Boolean}})
+  commentId: M:ComicBookInventory.Shared.IGenericRepository`1.RemoveWhere(System.Linq.Expressions.Expression{Func{`0,System.Boolean}})
+  isExternal: true
+  name: RemoveWhere(Expression<Func<T, Boolean>>)
+  nameWithType: IGenericRepository<T>.RemoveWhere(Expression<Func<T, Boolean>>)
+  fullName: ComicBookInventory.Shared.IGenericRepository<T>.RemoveWhere(System.Linq.Expressions.Expression<Func<T, System.Boolean>>)
+  nameWithType.vb: IGenericRepository(Of T).RemoveWhere(Expression(Of Func(Of T, Boolean)))
+  fullName.vb: ComicBookInventory.Shared.IGenericRepository(Of T).RemoveWhere(System.Linq.Expressions.Expression(Of Func(Of T, System.Boolean)))
+  name.vb: RemoveWhere(Expression(Of Func(Of T, Boolean)))
+  spec.csharp:
+  - uid: ComicBookInventory.Shared.IGenericRepository`1.RemoveWhere(System.Linq.Expressions.Expression{Func{`0,System.Boolean}})
+    name: RemoveWhere
+    nameWithType: IGenericRepository<T>.RemoveWhere
+    fullName: ComicBookInventory.Shared.IGenericRepository<T>.RemoveWhere
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Linq.Expressions.Expression`1
+    name: Expression
+    nameWithType: Expression
+    fullName: System.Linq.Expressions.Expression
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Func`2
+    name: Func
+    nameWithType: Func
+    fullName: Func
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: ComicBookInventory.Shared.IGenericRepository`1.RemoveWhere(System.Linq.Expressions.Expression{Func{`0,System.Boolean}})
+    name: RemoveWhere
+    nameWithType: IGenericRepository(Of T).RemoveWhere
+    fullName: ComicBookInventory.Shared.IGenericRepository(Of T).RemoveWhere
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Linq.Expressions.Expression`1
+    name: Expression
+    nameWithType: Expression
+    fullName: System.Linq.Expressions.Expression
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Func`2
+    name: Func
+    nameWithType: Func
+    fullName: Func
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  - name: )
+    nameWithType: )
+    fullName: )
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: ComicBookInventory.Shared.IGenericRepository`1.RemoveRange(IEnumerable{`0})
+  commentId: M:ComicBookInventory.Shared.IGenericRepository`1.RemoveRange(IEnumerable{`0})
+  isExternal: true
+  name: RemoveRange(IEnumerable<T>)
+  nameWithType: IGenericRepository<T>.RemoveRange(IEnumerable<T>)
+  fullName: ComicBookInventory.Shared.IGenericRepository<T>.RemoveRange(IEnumerable<T>)
+  nameWithType.vb: IGenericRepository(Of T).RemoveRange(IEnumerable(Of T))
+  fullName.vb: ComicBookInventory.Shared.IGenericRepository(Of T).RemoveRange(IEnumerable(Of T))
+  name.vb: RemoveRange(IEnumerable(Of T))
+  spec.csharp:
+  - uid: ComicBookInventory.Shared.IGenericRepository`1.RemoveRange(IEnumerable{`0})
+    name: RemoveRange
+    nameWithType: IGenericRepository<T>.RemoveRange
+    fullName: ComicBookInventory.Shared.IGenericRepository<T>.RemoveRange
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: IEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: ComicBookInventory.Shared.IGenericRepository`1.RemoveRange(IEnumerable{`0})
+    name: RemoveRange
+    nameWithType: IGenericRepository(Of T).RemoveRange
+    fullName: ComicBookInventory.Shared.IGenericRepository(Of T).RemoveRange
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: IEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: ComicBookInventory.Shared.IGenericRepository`1
+  commentId: T:ComicBookInventory.Shared.IGenericRepository`1
+  name: IGenericRepository<T>
+  nameWithType: IGenericRepository<T>
+  fullName: ComicBookInventory.Shared.IGenericRepository<T>
+  nameWithType.vb: IGenericRepository(Of T)
+  fullName.vb: ComicBookInventory.Shared.IGenericRepository(Of T)
+  name.vb: IGenericRepository(Of T)
+  spec.csharp:
+  - uid: ComicBookInventory.Shared.IGenericRepository`1
+    name: IGenericRepository
+    nameWithType: IGenericRepository
+    fullName: ComicBookInventory.Shared.IGenericRepository
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: ComicBookInventory.Shared.IGenericRepository`1
+    name: IGenericRepository
+    nameWithType: IGenericRepository
+    fullName: ComicBookInventory.Shared.IGenericRepository
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: ComicBookInventory.Shared.IAuthorRepository.GetAuthorById*
+  commentId: Overload:ComicBookInventory.Shared.IAuthorRepository.GetAuthorById
+  name: GetAuthorById
+  nameWithType: IAuthorRepository.GetAuthorById
+  fullName: ComicBookInventory.Shared.IAuthorRepository.GetAuthorById
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: ComicBookInventory.Shared.AuthorViewModel
+  commentId: T:ComicBookInventory.Shared.AuthorViewModel
+  parent: ComicBookInventory.Shared
+  name: AuthorViewModel
+  nameWithType: AuthorViewModel
+  fullName: ComicBookInventory.Shared.AuthorViewModel
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ComicBookInventory.Shared.IAuthorRepository.AddAuthor*
+  commentId: Overload:ComicBookInventory.Shared.IAuthorRepository.AddAuthor
+  name: AddAuthor
+  nameWithType: IAuthorRepository.AddAuthor
+  fullName: ComicBookInventory.Shared.IAuthorRepository.AddAuthor
+- uid: ComicBookInventory.Shared.IAuthorRepository.UpdateAuthor*
+  commentId: Overload:ComicBookInventory.Shared.IAuthorRepository.UpdateAuthor
+  name: UpdateAuthor
+  nameWithType: IAuthorRepository.UpdateAuthor
+  fullName: ComicBookInventory.Shared.IAuthorRepository.UpdateAuthor

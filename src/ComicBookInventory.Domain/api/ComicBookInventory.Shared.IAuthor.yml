@@ -1,0 +1,91 @@
+### YamlMime:ManagedReference
+items:
+- uid: ComicBookInventory.Shared.IAuthor
+  commentId: T:ComicBookInventory.Shared.IAuthor
+  id: IAuthor
+  parent: ComicBookInventory.Shared
+  children:
+  - ComicBookInventory.Shared.IAuthor.FullName
+  langs:
+  - csharp
+  - vb
+  name: IAuthor
+  nameWithType: IAuthor
+  fullName: ComicBookInventory.Shared.IAuthor
+  type: Interface
+  source:
+    remote:
+      path: src/ComicBookInventory.Domain/Interfaces/IAuthor.cs
+      branch: wip/extend-character-model
+      repo: git@github.com:rnemeth90/ComicBookInventoryApp.git
+    id: IAuthor
+    path: Interfaces/IAuthor.cs
+    startLine: 2
+  assemblies:
+  - ComicBookInventory.Domain
+  namespace: ComicBookInventory.Shared
+  syntax:
+    content: public interface IAuthor
+    content.vb: Public Interface IAuthor
+  modifiers.csharp:
+  - public
+  - interface
+  modifiers.vb:
+  - Public
+  - Interface
+- uid: ComicBookInventory.Shared.IAuthor.FullName
+  commentId: P:ComicBookInventory.Shared.IAuthor.FullName
+  id: FullName
+  parent: ComicBookInventory.Shared.IAuthor
+  langs:
+  - csharp
+  - vb
+  name: FullName
+  nameWithType: IAuthor.FullName
+  fullName: ComicBookInventory.Shared.IAuthor.FullName
+  type: Property
+  source:
+    remote:
+      path: src/ComicBookInventory.Domain/Interfaces/IAuthor.cs
+      branch: wip/extend-character-model
+      repo: git@github.com:rnemeth90/ComicBookInventoryApp.git
+    id: FullName
+    path: Interfaces/IAuthor.cs
+    startLine: 4
+  assemblies:
+  - ComicBookInventory.Domain
+  namespace: ComicBookInventory.Shared
+  syntax:
+    content: string FullName { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property FullName As String
+  overload: ComicBookInventory.Shared.IAuthor.FullName*
+  modifiers.csharp:
+  - get
+  - set
+references:
+- uid: ComicBookInventory.Shared
+  commentId: N:ComicBookInventory.Shared
+  name: ComicBookInventory.Shared
+  nameWithType: ComicBookInventory.Shared
+  fullName: ComicBookInventory.Shared
+- uid: ComicBookInventory.Shared.IAuthor.FullName*
+  commentId: Overload:ComicBookInventory.Shared.IAuthor.FullName
+  name: FullName
+  nameWithType: IAuthor.FullName
+  fullName: ComicBookInventory.Shared.IAuthor.FullName
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
