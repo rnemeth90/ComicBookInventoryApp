@@ -116,10 +116,36 @@ namespace ComicBookInventory.Web.Controllers
         [HttpGet]
         public async Task<IActionResult> DeleteCharacter(int id)
         {
-            string uri = $"https://localhost:5001/api/character/delete-character-by-id/{id}";
+            if (id == null)
+            {
+                return BadRequest();
+            }
+
+            string uri = $"https://localhost:5001/api/character/get-character-by-id/{id}";
             HttpClient client = _httpClientFactory.CreateClient(
                     name: "ComicbookInventory.Api");
 
+            var request = new HttpRequestMessage(HttpMethod.Get, uri);
+            var response = await client.SendAsync(request);
+            CharacterViewModel? model = await response.Content
+                .ReadFromJsonAsync<CharacterViewModel>();
+
+            return View(model);
+        }
+
+
+        [HttpPost, ActionName("DeleteCharacter")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteComicConfirmed(int id)
+        {
+            if (id == null)
+            {
+                return BadRequest();
+            }
+
+            string uri = $"https://localhost:5001/api/Character/delete-character-by-id/{id}";
+            HttpClient client = _httpClientFactory.CreateClient(
+                    name: "ComicbookInventory.Api");
             var response = await client.DeleteAsync(uri);
 
             if (response.IsSuccessStatusCode)
@@ -129,23 +155,38 @@ namespace ComicBookInventory.Web.Controllers
             return RedirectToAction("Error");
         }
 
+        // GET: Character/CreateCharacter
+        [HttpGet]
+        public async Task<IActionResult> CreateCharacter()
+        {
+            return View();
+        }
+
+        // POST: Character/CreateCharacter
+        // To protect from overposting attacks, enable the specific properties you want to bind to.
+        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> CreateCharacter(CharacterViewModel model)
         {
-            string uri = $"https://localhost:5001/api/Character/add-character/";
-            HttpClient client = _httpClientFactory.CreateClient(
-                    name: "ComicBookInventory.Api");
+            if (ModelState.IsValid)
+            {
+                string uri = $"https://localhost:5001/api/Character/add-character/";
+                HttpClient client = _httpClientFactory.CreateClient(
+                        name: "ComicBookInventory.Api");
 
-            var postTask = client.PostAsJsonAsync<CharacterViewModel>(uri, model);
-            postTask.Wait();
-            var result = postTask.Result;
-            if (result.IsSuccessStatusCode)
-            {
-                return RedirectToAction("GetAllCharacters");
+                var postTask = await client.PostAsJsonAsync<CharacterViewModel>(uri, model);
+
+                if (postTask.IsSuccessStatusCode)
+                {
+                    return RedirectToAction("GetAllCharacters");
+                }
+                else
+                {
+                    return View(model);
+                }
             }
-            else
-            {
-                return View(model);
-            }
+            return View();
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
