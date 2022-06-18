@@ -39,7 +39,7 @@ namespace ComicBookInventory.DataAccess
                     });
 
                     context.Authors.Add(new Author()
-                    { 
+                    {
                         FullName = "Jack Kirby"
                     });
                     context.SaveChanges();
@@ -48,13 +48,25 @@ namespace ComicBookInventory.DataAccess
                 if (!context.Characters.Any())
                 {
                     context.Characters.Add(new Character()
-                    { 
-                        FullName = "Ant-Man"
+                    {
+                        FullName = "Ant-Man",
+                        Alias = "Giant Man",
+                        Species = "Human",
+                        PrimaryAbility = "Growing",
+                        SecondaryAbility = "Shrinking",
+                        IsAlive = true,
+                        Weapon = "Pim Particles, suit",
                     });
 
                     context.Characters.Add(new Character()
-                    { 
-                        FullName = "Iron Man"
+                    {
+                        FullName = "Iron Man",
+                        Alias = "War Machine",
+                        Species = "Human",
+                        PrimaryAbility = "Intelligence",
+                        SecondaryAbility = "Wealth",
+                        IsAlive = true,
+                        Weapon = "Suit",
                     });
                     context.SaveChanges();
                 }
