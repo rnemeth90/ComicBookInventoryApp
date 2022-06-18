@@ -3,20 +3,59 @@
 @{
 }
 
-<h2>All Characters</h2>
-<table class="table">
-    <thead>
-        <tr>
-            <th>Full Name</th>
-        </tr>
-    </thead>
+<h3>@Model.FullName</h3>
 
-    <tbody>
-        @if (Model is not null)
-        {
-            <tr>
-                <td>@Html.DisplayFor(i => Model.FullName)</td>
-            </tr>
-        }
-    </tbody>
-</table>
+<dl class="row">
+    <dt class="col-sm-2">
+        @Html.DisplayNameFor(model => model.Id)
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.Id)
+    </dd>
+    <dt class="col-sm-2">
+        @Html.DisplayNameFor(model => model.FullName)
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.FullName)
+    </dd>
+    <dt class="col-sm-2">
+        @Html.DisplayNameFor(model => model.Alias)
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.Alias)
+    </dd>
+    <dt class="col-sm-2">
+        @Html.DisplayNameFor(model => model.IsAlive)
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.IsAlive)
+    </dd>
+    <dt class="col-sm-2">
+        @Html.DisplayNameFor(model => model.Species)
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.Species)
+    </dd>
+    <dt class="col-sm-2">
+        @Html.DisplayNameFor(model => model.Weapon)
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.Weapon)
+    </dd>
+    <dt class="col-sm-2">
+        @Html.DisplayNameFor(model => model.PrimaryAbility)
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.PrimaryAbility)
+    </dd>
+        <dt class="col-sm-2">
+        @Html.DisplayNameFor(model => model.SecondaryAbility)
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.SecondaryAbility)
+    </dd>
+</dl>
+
+<div>
+    <a asp-action="GetAllCharacters">Back to List</a>
+</div>
