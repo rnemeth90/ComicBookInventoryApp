@@ -15,7 +15,13 @@ namespace ComicBookInventory.DataAccess
             var characters = DbContext.Characters.Select(c => new CharacterViewModel()
             {
                 Id = c.Id,
-                FullName = c.FullName
+                FullName = c.FullName,
+                PrimaryAbility = c.PrimaryAbility,
+                SecondaryAbility = c.SecondaryAbility,
+                Species = c.Species,
+                Alias = c.Alias,
+                IsAlive = c.IsAlive,
+                Weapon = c.Weapon
             }).ToList();
             return characters;
         }
@@ -25,10 +31,16 @@ namespace ComicBookInventory.DataAccess
             try
             {
                 var entity = DbContext.Characters.Where(a => a.Id == id)
-                                        .Select(a => new CharacterViewModel()
+                                        .Select(c => new CharacterViewModel()
                                         {
-                                            Id =a.Id,
-                                            FullName = a.FullName
+                                            Id = c.Id,
+                                            FullName = c.FullName,
+                                            PrimaryAbility = c.PrimaryAbility,
+                                            SecondaryAbility = c.SecondaryAbility,
+                                            Species = c.Species,
+                                            Alias = c.Alias,
+                                            IsAlive = c.IsAlive,
+                                            Weapon = c.Weapon
                                         }).FirstOrDefault();
                 return entity;
             }
@@ -43,6 +55,12 @@ namespace ComicBookInventory.DataAccess
             var character = new Character()
             {
                 FullName = model.FullName,
+                PrimaryAbility = model.PrimaryAbility,
+                SecondaryAbility = model.SecondaryAbility,
+                Species = model.Species,
+                Alias = model.Alias,
+                IsAlive = model.IsAlive,
+                Weapon = model.Weapon
             };
             DbContext.Characters.Add(character);
             DbContext.SaveChanges();
@@ -55,6 +73,12 @@ namespace ComicBookInventory.DataAccess
             if (entity != null)
             {
                 entity.FullName = model.FullName;
+                entity.PrimaryAbility = model.PrimaryAbility;
+                entity.SecondaryAbility = model.SecondaryAbility;
+                entity.Species = model.Species;
+                entity.Alias = model.Alias;
+                entity.IsAlive = model.IsAlive;
+                entity.Weapon = model.Weapon;
                 DbContext.SaveChanges();
             }
             else
