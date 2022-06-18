@@ -62,7 +62,7 @@ namespace ComicBookInventory.API
             app.UseRouting();
             app.UseAuthorization();
 
-            app.ConfigureBuiltInExceptionHandler();
+            //app.ConfigureBuiltInExceptionHandler();
 
             app.UseCors(configurePolicy: options =>
             {

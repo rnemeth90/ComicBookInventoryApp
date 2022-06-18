@@ -2,7 +2,6 @@
 - [ ] Extend Character Model
 
 ## To do:
-- [ ] fix regex for URL
 - [ ] Add API Load Testing
 - [ ] Create Upload Service
 - [ ] Add healthcheckUI
@@ -15,6 +14,9 @@
 - [ ] Can we invoke Marvel's API to get some info?
 
 ## Done:
+#### 6/16/2022
+- [x] fix regex for URL
+
 #### 06/15/2022
 - [x] Add sorting
 

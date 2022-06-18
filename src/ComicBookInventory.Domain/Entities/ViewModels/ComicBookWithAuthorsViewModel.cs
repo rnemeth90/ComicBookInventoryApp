@@ -17,7 +17,16 @@ namespace ComicBookInventory.Shared
         public int? Rating { get; set; }
         public string Genre { get; set; }
 
-        [RegularExpression(@"/^(https:|http:|www\.)\S*/gm")]
+        /// <summary>
+        /// Match any sanely formed URI
+        /// Examples:
+        /// https://www.google.com
+        /// www.google.com/googler.pic
+        /// http://www.google.com
+        /// https://www.google.com/apiod.jpg
+        /// </summary>
+
+        [RegularExpression(@"(?:(())(www\.([^/?#\s]*))|((http(s)?|ftp):)(\/\/([^/?#\s]*)))([^?#\s]*)(\?([^#\s]*))?(#([^\s]*))?")]
         public string? CoverUrl { get; set; }
 
         /// <summary>
