@@ -6,7 +6,7 @@
     var nextDisabled = !Model.HasNextPage ? "disabled" : "";
 }
 
-<h2>All Comics</h2>
+<h2>@ViewData["PageTitle"]</h2>
 <form asp-controller="ComicBook" asp-action="GetAllComics" method="get">
     <p>
         Title: <input type="text" name="searchString" />

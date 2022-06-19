@@ -31,11 +31,13 @@ namespace ComicBookInventory.Web.Controllers
 
             if (!string.IsNullOrEmpty(searchString))
             {
+                ViewData["PageTitle"] = searchString + "*";
                 pageNumber = 1;
                 uri = $"https://localhost:5001/api/Author/find-author?searchstring={searchString}";
             }
             else
             {
+                ViewData["PageTitle"] = "All Authors";
                 searchString = currentFilter;
                 uri = "https://localhost:5001/api/Author/get-all-authors";
             }
@@ -116,10 +118,35 @@ namespace ComicBookInventory.Web.Controllers
         [HttpGet]
         public async Task<IActionResult> DeleteAuthor(int id)
         {
-            string uri = $"https://localhost:5001/api/Author/delete-author-by-id/{id}";
+            if (id == null)
+            {
+                return BadRequest();
+            }
+
+            string uri = $"https://localhost:5001/api/author/get-author-by-id/{id}";
             HttpClient client = _httpClientFactory.CreateClient(
                     name: "ComicbookInventory.Api");
 
+            var request = new HttpRequestMessage(HttpMethod.Get, uri);
+            var response = await client.SendAsync(request);
+            AuthorViewModel? model = await response.Content
+                .ReadFromJsonAsync<AuthorViewModel>();
+
+            return View(model);
+        }
+
+        [HttpPost, ActionName("DeleteAuthor")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteAuthorConfirmed(int id)
+        {
+            if (id == null)
+            {
+                return BadRequest();
+            }
+
+            string uri = $"https://localhost:5001/api/author/delete-author-by-id/{id}";
+            HttpClient client = _httpClientFactory.CreateClient(
+                    name: "ComicbookInventory.Api");
             var response = await client.DeleteAsync(uri);
 
             if (response.IsSuccessStatusCode)
@@ -129,25 +156,39 @@ namespace ComicBookInventory.Web.Controllers
             return RedirectToAction("Error");
         }
 
-        public async Task<IActionResult> CreateAuthor(AuthorViewModel model)
+        // GET: Character/CreateCharacter
+        [HttpGet]
+        public async Task<IActionResult> CreateAuthor()
         {
-            string uri = $"https://localhost:5001/api/Author/add-author/";
-            HttpClient client = _httpClientFactory.CreateClient(
-                    name: "ComicBookInventory.Api");
-
-            var postTask = client.PostAsJsonAsync<AuthorViewModel>(uri, model);
-            postTask.Wait();
-            var result = postTask.Result;
-            if (result.IsSuccessStatusCode)
-            {
-                return RedirectToAction("GetAllAuthors");
-            }
-            else
-            {
-                return View (model);
-            }
+            return View();
         }
 
+        // POST: Character/CreateCharacter
+        // To protect from overposting attacks, enable the specific properties you want to bind to.
+        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> CreateAuthor(AuthorViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                string uri = $"https://localhost:5001/api/author/add-author/";
+                HttpClient client = _httpClientFactory.CreateClient(
+                        name: "ComicBookInventory.Api");
+
+                var postTask = await client.PostAsJsonAsync<AuthorViewModel>(uri, model);
+
+                if (postTask.IsSuccessStatusCode)
+                {
+                    return RedirectToAction("GetAllAuthors");
+                }
+                else
+                {
+                    return View(model);
+                }
+            }
+            return View();
+        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

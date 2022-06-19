@@ -31,11 +31,13 @@ namespace ComicBookInventory.Web.Controllers
 
             if (!string.IsNullOrEmpty(searchString))
             {
+                ViewData["PageTitle"] = searchString + "*";
                 pageNumber = 1;
                 uri = $"https://localhost:5001/api/character/find-character?searchstring={searchString}";
             }
             else
             {
+                ViewData["PageTitle"] = "All Characters";
                 searchString = currentFilter;
                 uri = "https://localhost:5001/api/character/get-all-characters";
             }
@@ -136,7 +138,7 @@ namespace ComicBookInventory.Web.Controllers
 
         [HttpPost, ActionName("DeleteCharacter")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteComicConfirmed(int id)
+        public async Task<IActionResult> DeleteCharacterConfirmed(int id)
         {
             if (id == null)
             {

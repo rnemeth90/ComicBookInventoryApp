@@ -6,7 +6,7 @@
     var nextDisabled = !Model.HasNextPage ? "disabled" : "";
 }
 
-<h2>All Authors</h2>
+<h2>@ViewData["PageTitle"]</h2>
 <form asp-controller="Author" asp-action="GetAllAuthors" method="get">
     <p>
         Name: <input type="text" name="searchString" />

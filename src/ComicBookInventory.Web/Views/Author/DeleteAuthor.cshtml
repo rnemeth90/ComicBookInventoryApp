@@ -1,13 +1,15 @@
 ﻿@model ComicBookInventory.Shared.AuthorViewModel
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "DeleteAuthor";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h3>@Model.FullName</h3>
+<h3>Are you sure you want to delete @Model.FullName?</h3>
 
 <div>
+    <h4>AuthorViewModel</h4>
+    <hr />
     <dl class="row">
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Id)
@@ -22,14 +24,9 @@
             @Html.DisplayFor(model => model.FullName)
         </dd>
     </dl>
+    
+    <form asp-action="DeleteAuthor">
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="GetAllAuthors">Back to List</a>
+    </form>
 </div>
-
-<div>
-    <a asp-action="GetAllAuthors">Back to List</a>
-</div>
-
-@*<div>
-    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
-    <a asp-action="GetAllAuthors">Back to List</a>
-</div>
-*@

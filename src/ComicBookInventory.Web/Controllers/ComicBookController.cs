@@ -28,11 +28,13 @@ namespace ComicBookInventory.Web.Controllers
 
             if (searchString != null)
             {
+                ViewData["PageTitle"] = searchString + "*";
                 pageNumber = 1;
                 uri = $"https://localhost:5001/api/ComicBook/find-book?searchstring={searchString}";
             }
             else
             {
+                ViewData["PageTitle"] = "All Comics";
                 searchString = currentFilter;
                 uri = "https://localhost:5001/api/ComicBook/get-all-books";
             }

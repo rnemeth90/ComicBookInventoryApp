@@ -1,0 +1,25 @@
+﻿@using ComicBookInventory.Shared;
+@model AuthorViewModel
+@{
+}
+
+<h2>All Authors</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <a asp-action="GetAllAuthors" asp-route-sortOrder="@ViewData["nameSortParam"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Title</a>
+            </th>
+            <th>Full Name</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @if (Model is not null)
+        {
+            <tr>
+                <td>@Html.DisplayFor(i => Model.FullName)</td>
+            </tr>
+        }
+    </tbody>
+</table>
