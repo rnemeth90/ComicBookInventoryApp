@@ -15,6 +15,7 @@ namespace ComicBookInventory.DataAccess
         {
 
         }
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             builder.Entity<ComicBook_Author>()

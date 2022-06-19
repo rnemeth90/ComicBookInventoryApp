@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ComicBookInventory.Domain",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ComicBookInventory.DataAccess.EFCore", "ComicBookInventory.DataAccess.EFCore\ComicBookInventory.DataAccess.EFCore.csproj", "{8AD43C50-C1E3-4760-B966-EDCAA66D3B1E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ComicBookInventory.Web", "ComicBookInventory.Web\ComicBookInventory.Web.csproj", "{B6E00D9A-3E62-4BCA-B476-CAFE8D3280DF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ComicBookInventory.Web", "ComicBookInventory.Web\ComicBookInventory.Web.csproj", "{B6E00D9A-3E62-4BCA-B476-CAFE8D3280DF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
