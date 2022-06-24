@@ -12322,3 +12322,7 @@ textarea.form-control-lg {
 .push {
     height: 50px;
 }
+
+.padding-top {
+    padding-top: 20px;
+}

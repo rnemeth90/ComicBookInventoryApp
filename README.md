@@ -1,8 +1,8 @@
 ## In progress:
+- [ ] Create Upload Service
 
 ## To do:
 - [ ] Add API Load Testing
-- [ ] Create Upload Service
 - [ ] Add healthcheckUI
 - [ ] Generic controllers in MVC? Maybe help reduce code
 - [ ] Create SPA frontend (likely Blazor)
