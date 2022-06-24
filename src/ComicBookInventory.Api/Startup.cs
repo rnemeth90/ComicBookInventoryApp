@@ -21,6 +21,11 @@ namespace ComicBookInventory.API
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddHsts(o =>
+            {
+                o.MaxAge = TimeSpan.FromDays(10);
+            });
+
             services.AddCors();
             services.AddApiVersioning(config =>
             {
@@ -58,11 +63,12 @@ namespace ComicBookInventory.API
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "ComicBookApi v1"));
             }
             app.UseSerilogRequestLogging();
+            app.UseHsts();
             app.UseHttpsRedirection();
             app.UseRouting();
             app.UseAuthorization();
 
-            //app.ConfigureBuiltInExceptionHandler();
+            app.ConfigureBuiltInExceptionHandler();
 
             app.UseCors(configurePolicy: options =>
             {
