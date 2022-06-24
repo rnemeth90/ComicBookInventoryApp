@@ -120,7 +120,7 @@ namespace ComicBookInventory.Web.Controllers
         {
             if (id == null)
             {
-                return BadRequest();
+                return BadRequest("You must pass a value for 'Id'");
             }
 
             string uri = $"https://localhost:5001/api/author/get-author-by-id/{id}";
@@ -141,7 +141,7 @@ namespace ComicBookInventory.Web.Controllers
         {
             if (id == null)
             {
-                return BadRequest();
+                return BadRequest("You must pass a value for 'Id'");
             }
 
             string uri = $"https://localhost:5001/api/author/delete-author-by-id/{id}";

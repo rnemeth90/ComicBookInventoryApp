@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ComicBookInventory.DataAcce
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ComicBookInventory.Web", "ComicBookInventory.Web\ComicBookInventory.Web.csproj", "{B6E00D9A-3E62-4BCA-B476-CAFE8D3280DF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ComicBookInventory.UploadService", "ComicBookInventory.UploadService\ComicBookInventory.UploadService.csproj", "{6B2364B6-CABA-43BD-9D06-8EB646FE4013}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{B6E00D9A-3E62-4BCA-B476-CAFE8D3280DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B6E00D9A-3E62-4BCA-B476-CAFE8D3280DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B6E00D9A-3E62-4BCA-B476-CAFE8D3280DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6B2364B6-CABA-43BD-9D06-8EB646FE4013}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B2364B6-CABA-43BD-9D06-8EB646FE4013}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B2364B6-CABA-43BD-9D06-8EB646FE4013}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B2364B6-CABA-43BD-9D06-8EB646FE4013}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
