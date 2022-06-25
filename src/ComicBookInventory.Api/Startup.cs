@@ -51,6 +51,9 @@ namespace ComicBookInventory.API
 
             // serialize as XML if application/xml mime type specified in call
             services.AddMvc().AddXmlDataContractSerializerFormatters();
+
+            // add health check for EF Core
+            services.AddHealthChecks().AddDbContextCheck<ApiDbContext>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -62,12 +65,12 @@ namespace ComicBookInventory.API
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "ComicBookApi v1"));
             }
+            app.UseHealthChecks("/healthz");
             app.UseSerilogRequestLogging();
             app.UseHsts();
             app.UseHttpsRedirection();
             app.UseRouting();
             app.UseAuthorization();
-
             app.ConfigureBuiltInExceptionHandler();
 
             app.UseCors(configurePolicy: options =>
@@ -78,7 +81,6 @@ namespace ComicBookInventory.API
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapGet("/healthz", () => "Healthy");
                 endpoints.MapControllers();
             });
         }
