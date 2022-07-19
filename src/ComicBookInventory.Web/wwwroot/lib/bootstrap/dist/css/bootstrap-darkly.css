@@ -6629,8 +6629,9 @@ textarea.form-control-lg {
 
 .carousel-inner {
     position: relative;
-    width: 100%;
-    overflow: hidden
+    width: 75%;
+    overflow: hidden;
+    margin: auto
 }
 
     .carousel-inner::after {
@@ -12325,4 +12326,9 @@ textarea.form-control-lg {
 
 .padding-top {
     padding-top: 20px;
+}
+
+cbi-img {
+    width: 50%;
+    margin: auto;
 }

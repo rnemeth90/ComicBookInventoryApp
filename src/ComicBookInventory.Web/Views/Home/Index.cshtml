@@ -1,4 +1,62 @@
-﻿@{
+﻿@using ComicBookInventory.Shared;
+@model HomeIndexViewModel;
+@{
     ViewData["Title"] = "Home Page";
+    string currentItem = "";
 }
-<h2>My Comic Book Inventory</h2>
+
+@*adding a carousel*@
+@if (Model is not null)
+{
+    <div id="comicbook" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000" data-keyboard="true">
+        <ol class="carousel-indicators">
+            @for (int b = 0; b < 10; b++)
+            {
+                if (b == 0)
+                {
+                    currentItem = "active";
+                }
+                else
+                {
+                    currentItem = "";
+                }
+                <li data-bs-target="#comicbook" data-bs-slide-to="@b" class="@currentItem"></li>
+            }
+        </ol>
+        <div class="carousel-inner">
+            @for (int b = 0; b < 10; b++)
+            {
+                if (b == 0)
+                {
+                    currentItem = "active";
+                }
+                else
+                {
+                    currentItem = "";
+                }
+                <div class="carousel-item carousel-inner @currentItem">
+                    <img class="d-block w-100" src="~/images/category@(Model.ComicBooks[b].Id).jpeg"
+                                alt="@Model.ComicBooks[b].Title" />
+                    <div class="carousel-caption d-none d-md-block">
+                        <h2>@Model.ComicBooks[b].Title</h2>
+                        <p>
+                            <a class="btn btn-primary" href="/comicbook?id=@Model.ComicBooks[b].Id">View</a>
+                        </p>
+                    </div>
+                </div>
+            }
+        </div>
+        <a class="carousel-control-prev" href="#comicbook"
+       role="button" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"
+              aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#comicbook"
+       role="button" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+}
+
